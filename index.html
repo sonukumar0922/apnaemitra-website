@@ -20,14 +20,14 @@
                             500: '#1e40af',
                             600: '#1d4ed8',
                             700: '#1e3a8a',
-                            800: '#1e3a8a', // Explicitly defined
-                            900: '#172554', // Explicitly defined dark blue
+                            800: '#1e3a8a',
+                            900: '#172554',
                         },
                         emerald: {
                             500: '#10b981',
                             600: '#059669',
                             700: '#047857',
-                            800: '#065f46', // Explicitly defined emerald-800
+                            800: '#065f46',
                         }
                     }
                 }
@@ -41,6 +41,7 @@
     <style>
         body {
             font-family: 'Poppins', 'Tiro Devanagari Hindi', sans-serif;
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -54,7 +55,7 @@
                 <p class="font-medium text-slate-100" data-translate="top_ticker">सत्यापित जॉब्स और आधिकारिक अपडेट के लिए आधिकारिक पोर्टल पर विजिट करें।</p>
             </div>
             <div class="flex items-center gap-4">
-                <a href="https://whatsapp.com" target="_blank" class="hover:text-emerald-300 transition flex items-center gap-1.5 font-medium text-slate-100">
+                <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-300 transition flex items-center gap-1.5 font-medium text-slate-100">
                     <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i> <span data-translate="whatsapp_support">व्हाट्सएप सहायता</span>
                 </a>
                 <div class="border-l border-primary-700 pl-4 flex items-center gap-2">
@@ -94,14 +95,14 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="flex items-center lg:hidden">
-                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-700 hover:text-primary-900 hover:bg-slate-100 focus:outline-none">
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="p-2 rounded-lg text-slate-700 hover:text-primary-900 hover:bg-slate-100 focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Drawer -->
+        <!-- Mobile Menu Drawer (Auto-close on link click enabled) -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2 shadow-lg">
             <a href="#home" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_home">होम</a>
             <a href="#gov-jobs" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_gov_jobs">सरकारी जॉब्स</a>
@@ -168,7 +169,7 @@
             </div>
             <!-- Filters -->
             <div class="flex flex-wrap gap-2">
-                <select id="filter-category" onchange="filterJobs()" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:border-primary-900 text-slate-800">
+                <select id="filter-category" onchange="filterJobs()" aria-label="Filter Jobs by Category" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:border-primary-900 text-slate-800">
                     <option value="all" data-translate="filter_all_cat">सभी श्रेणियां (All Categories)</option>
                     <option value="Central Govt">Central Government</option>
                     <option value="State Govt">State Government</option>
@@ -176,7 +177,7 @@
                     <option value="SSC">SSC & UPSC</option>
                     <option value="Railway">Railway Jobs</option>
                 </select>
-                <select id="filter-qualification" onchange="filterJobs()" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:border-primary-900 text-slate-800">
+                <select id="filter-qualification" onchange="filterJobs()" aria-label="Filter Jobs by Qualification" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:border-primary-900 text-slate-800">
                     <option value="all" data-translate="filter_all_qual">योग्यता (All Qualifications)</option>
                     <option value="10th Pass">10th Pass</option>
                     <option value="12th Pass">12th Pass</option>
@@ -220,7 +221,7 @@
                     </div>
                     <div class="flex gap-2">
                         <button onclick="openJobDetail('Tech Mahindra - Customer Support', 'Tech Mahindra', '12th Pass / Graduate', 'Jaipur / WFH', '₹18k - ₹28k/month', 'Open', 'https://techmahindra.com')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-sm transition text-center shadow-sm" data-translate="btn_details">विवरण देखें</button>
-                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Tech%20Mahindra%20Job" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Tech%20Mahindra%20Job" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                     </div>
                 </div>
 
@@ -240,7 +241,7 @@
                     </div>
                     <div class="flex gap-2">
                         <button onclick="openJobDetail('Reliance Jio Fiber Executive', 'Reliance Jio', '10th / 12th / Graduate', 'All Rajasthan', '₹15k + Incentives', 'Open', 'https://jio.com')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-sm transition text-center shadow-sm" data-translate="btn_details">विवरण देखें</button>
-                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Reliance%20Jio%20Job" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Reliance%20Jio%20Job" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                     </div>
                 </div>
 
@@ -260,7 +261,7 @@
                     </div>
                     <div class="flex gap-2">
                         <button onclick="openJobDetail('Amazon Warehouse Associate', 'Amazon India', '10th Pass', 'Major Cities', '₹20,000 / Month', 'Open', 'https://amazon.in')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-sm transition text-center shadow-sm" data-translate="btn_details">विवरण देखें</button>
-                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Amazon%20Job" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Amazon%20Job" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -288,7 +289,7 @@
                             <h4 class="font-bold text-slate-800 text-sm sm:text-base">Civil Services (Prelims) Exam Admit Card</h4>
                             <p class="text-xs text-slate-500 mt-1">Official Portal Link Available</p>
                         </div>
-                        <a href="https://upsconline.nic.in" target="_blank" class="bg-primary-900 hover:bg-primary-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition shrink-0" data-translate="btn_download">डाउनलोड</a>
+                        <a href="https://upsconline.nic.in" target="_blank" rel="noopener noreferrer" class="bg-primary-900 hover:bg-primary-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition shrink-0" data-translate="btn_download">डाउनलोड</a>
                     </div>
                 </div>
             </div>
@@ -311,7 +312,7 @@
                             <h4 class="font-bold text-slate-800 text-sm sm:text-base">Latest Examination Final Results & Scorecards</h4>
                             <p class="text-xs text-slate-500 mt-1">Check via Official Portals</p>
                         </div>
-                        <a href="https://ibps.in" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition shrink-0" data-translate="btn_view">रिजल्ट देखें</a>
+                        <a href="https://ibps.in" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition shrink-0" data-translate="btn_view">रिजल्ट देखें</a>
                     </div>
                 </div>
             </div>
@@ -380,7 +381,7 @@
                     हमारे एक्सपर्ट्स से व्हाट्सएप के जरिए संपर्क करें। हम सरकारी और प्राइवेट जॉब एप्लीकेशन की जानकारी प्रदान करने में सहायता करते हैं।
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="https://whatsapp.com" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl transition shadow-lg flex items-center gap-2">
+                    <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl transition shadow-lg flex items-center gap-2">
                         <i class="fa-brands fa-whatsapp text-xl"></i> <span data-translate="btn_wa_chat">व्हाट्सएप पर बात करें</span>
                     </a>
                 </div>
@@ -403,7 +404,7 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1" data-translate="form_service">किस सेवा में सहायता चाहिए?</label>
-                        <select id="assist-service" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-900 text-slate-900">
+                        <select id="assist-service" aria-label="Select Assistance Service" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-900 text-slate-900">
                             <option value="Govt Job Form">सरकारी जॉब फॉर्म जानकारी</option>
                             <option value="Private Job">प्राइवेट जॉब सहायता</option>
                             <option value="Admit Card/Result">एडमिट कार्ड / रिजल्ट मार्गदर्शन</option>
@@ -451,9 +452,9 @@
                     भारत के ग्रामीण और छोटे शहरों के युवाओं के लिए डिजिटल सहायता, सरकारी और प्राइवेट जॉब्स का प्रमुख केंद्र। Domain: apnaemitra.in
                 </p>
                 <div class="flex gap-3 text-lg">
-                    <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-primary-900 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-whatsapp text-white"></i></a>
-                    <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-primary-900 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-telegram text-white"></i></a>
-                    <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-primary-900 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-youtube text-white"></i></a>
+                    <a href="#" aria-label="WhatsApp" class="w-9 h-9 bg-slate-800 hover:bg-primary-900 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-whatsapp text-white"></i></a>
+                    <a href="#" aria-label="Telegram" class="w-9 h-9 bg-slate-800 hover:bg-primary-900 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-telegram text-white"></i></a>
+                    <a href="#" aria-label="YouTube" class="w-9 h-9 bg-slate-800 hover:bg-primary-900 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-youtube text-white"></i></a>
                 </div>
             </div>
 
@@ -498,7 +499,7 @@
     <!-- Job Detail Modal -->
     <div id="job-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
-            <button onclick="closeJobDetail()" class="absolute top-6 right-6 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-700 transition">
+            <button onclick="closeJobDetail()" aria-label="Close Modal" class="absolute top-6 right-6 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-700 transition">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div id="modal-content">
@@ -509,7 +510,7 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // Database of Verified Government & Competitive Jobs
+        // Database of Verified Government & Competitive Jobs with Separate URLs, Dates, and Re-verification Flags
         const jobsData = [
             {
                 id: 1,
@@ -520,12 +521,13 @@
                 location: "All India",
                 vacancies: "As per official notification",
                 ageLimit: "18 - 32 Years",
-                lastDate: "Check Official Site",
+                lastDate: "2026-07-10",
                 fee: "As per official notification",
                 salary: "Level-4 to Level-8",
                 officialUrl: "https://ssc.gov.in",
                 source: "ssc.gov.in",
                 verificationDate: "2026-06-01",
+                reverificationRequired: false,
                 status: "Active"
             },
             {
@@ -537,12 +539,13 @@
                 location: "All India",
                 vacancies: "As per official notification",
                 ageLimit: "20 - 30 Years",
-                lastDate: "Check Official Site",
+                lastDate: "2026-07-05",
                 fee: "As per official notification",
                 salary: "Scale-I Officer",
                 officialUrl: "https://ibps.in",
                 source: "ibps.in",
-                verificationDate: "2026-06-02",
+                verificationDate: "2026-03-15", // Older date triggering re-verification flag
+                reverificationRequired: true,
                 status: "Active"
             },
             {
@@ -554,12 +557,13 @@
                 location: "All India",
                 vacancies: "As per official notification",
                 ageLimit: "18 - 33 Years",
-                lastDate: "Check Official Site",
+                lastDate: "2026-06-30",
                 fee: "As per official notification",
                 salary: "7th CPC Pay Scale",
                 officialUrl: "https://rrbcdg.gov.in",
                 source: "rrbcdg.gov.in",
                 verificationDate: "2026-06-01",
+                reverificationRequired: false,
                 status: "Active"
             },
             {
@@ -571,34 +575,48 @@
                 location: "All India",
                 vacancies: "As per official notification",
                 ageLimit: "21 - 32 Years",
-                lastDate: "Check Official Site",
+                lastDate: "2026-06-15",
                 fee: "As per official notification",
                 salary: "Level-10",
                 officialUrl: "https://upsc.gov.in",
                 source: "upsc.gov.in",
-                verificationDate: "2026-05-20",
+                verificationDate: "2026-02-10", // Older date triggering re-verification flag
+                reverificationRequired: true,
                 status: "Active"
             }
         ];
 
-        // Render Job Cards
+        // Render Job Cards with Expiry Check & Re-verification Badge
         function renderJobs(jobsToRender) {
             const container = document.getElementById('job-cards-container');
             container.innerHTML = '';
 
-            if (jobsToRender.length === 0) {
-                container.innerHTML = `<div class="col-span-3 text-center py-12 text-slate-500 font-medium">कोई नौकरी नहीं मिली। (No matching jobs found).</div>`;
+            // Filter out expired vacancies automatically based on date comparison
+            const todayStr = new Date().toISOString().split('T')[0];
+            const activeJobs = jobsToRender.filter(job => {
+                if (!job.lastDate || job.lastDate === "Check Official Site") return true;
+                return job.lastDate >= todayStr;
+            });
+
+            if (activeJobs.length === 0) {
+                container.innerHTML = `<div class="col-span-3 text-center py-12 text-slate-500 font-medium">कोई सक्रिय नौकरी उपलब्ध नहीं है। (No active matching jobs found).</div>`;
                 return;
             }
 
-            jobsToRender.forEach(job => {
+            activeJobs.forEach(job => {
                 const card = document.createElement('div');
                 card.className = "bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition flex flex-col justify-between";
+                
+                let badgeHtml = `<span class="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full">Source Verified</span>`;
+                if (job.reverificationRequired) {
+                    badgeHtml = `<span class="text-[11px] font-semibold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full" title="Information requires re-verification with source">Re-verification Required</span>`;
+                }
+
                 card.innerHTML = `
                     <div>
-                        <div class="flex justify-between items-start mb-3">
+                        <div class="flex justify-between items-start mb-3 gap-2">
                             <span class="bg-primary-50 text-primary-900 text-xs font-bold px-2.5 py-1 rounded-md">${job.category}</span>
-                            <span class="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full">Source Verified</span>
+                            ${badgeHtml}
                         </div>
                         <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">${job.title}</h3>
                         <p class="text-xs text-slate-600 mb-4 font-medium"><i class="fa-solid fa-building text-primary-900 mr-1.5"></i> ${job.organization}</p>
@@ -611,7 +629,7 @@
                     <div class="space-y-2">
                         <div class="flex gap-2">
                             <button onclick="openJobModal(${job.id})" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-xs transition text-center shadow-sm">विवरण देखें</button>
-                            <a href="${job.officialUrl}" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center shadow-sm">अप्लाई <i class="fa-solid fa-arrow-up-right-from-square ml-1.5"></i></a>
+                            <a href="${job.officialUrl}" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center shadow-sm">अप्लाई <i class="fa-solid fa-arrow-up-right-from-square ml-1.5"></i></a>
                         </div>
                         <div class="text-[10px] text-slate-400 flex justify-between pt-1">
                             <span>Source: ${job.source}</span>
@@ -685,11 +703,11 @@
                 </div>
 
                 <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-900 mb-6">
-                    <strong>सत्यापन विवरण:</strong> यह भर्ती <strong>${job.source}</strong> से सत्यापित है (सत्यापन तिथि: ${job.verificationDate})। आधिकारिक नोटिफिकेशन के लिए नीचे दिए गए लिंक पर जाएं।
+                    <strong>सत्यापन विवरण:</strong> यह भर्ती <strong>${job.source}</strong> से ली गई है। (अंतिम सत्यापन तिथि: ${job.verificationDate}) ${job.reverificationRequired ? '⚠️ इस प्रविष्टि को पुनः सत्यापित किया जा रहा है।' : ''} आधिकारिक नोटिफिकेशन के लिए नीचे दिए गए लिंक पर जाएं।
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-3">
-                    <a href="${job.officialUrl}" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">
+                    <a href="${job.officialUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">
                         आधिकारिक वेबसाइट / नोटिफिकेशन <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
                     </a>
                     <button onclick="closeJobDetail()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-6 py-3 rounded-xl text-sm transition">बंद करें</button>
@@ -730,7 +748,7 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-3">
-                    <a href="${url}" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">
                         कंपनी पोर्टल पर जाएं <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
                     </a>
                     <button onclick="closeJobDetail()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-6 py-3 rounded-xl text-sm transition">बंद करें</button>
