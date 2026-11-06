@@ -110,4 +110,811 @@
             <a href="#results" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_results">रिजल्ट</a>
             <a href="#schemes" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_schemes">योजनाएं</a>
             <a href="#assistance" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_assistance">ऑनलाइन सहायता</a>
-            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_contact">संपर्क</a>
+        </div>
+    </header>
+
+    <!-- Hero Section with Corrected Dark Blue to Emerald Green Gradient -->
+    <section id="home" class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-emerald-800 text-white py-16 lg:py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-200 border border-emerald-400/30 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+                <i class="fa-solid fa-bullhorn"></i> <span data-translate="hero_badge">भारत का स्वतंत्र डिजिटल सेवा मंच</span>
+            </span>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 text-white drop-shadow-sm">
+                <span data-translate="hero_title_1">आपकी नौकरी, आपका भविष्य</span> – <br class="hidden sm:inline">
+                <span class="text-emerald-300">Apna eMitra</span> <span data-translate="hero_title_2">आपके साथ!</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-base sm:text-xl text-slate-100 mb-10 font-normal leading-relaxed drop-shadow-sm" data-translate="hero_desc">
+                विद्यार्थियों, जॉब सीकर और ग्रामीण युवाओं के लिए सरकारी नौकरियां, प्राइवेट जॉब्स, एडमिट कार्ड, और फॉर्म भरने की आसान ऑनलाइन सहायता।
+            </p>
+
+            <!-- Instant Search Bar -->
+            <div class="max-w-3xl mx-auto bg-white p-2 rounded-2xl shadow-2xl flex flex-col sm:flex-row gap-2">
+                <div class="flex-1 flex items-center px-4 py-3 bg-slate-50 rounded-xl">
+                    <i class="fa-solid fa-magnifying-glass text-slate-500 mr-3"></i>
+                    <input type="text" id="global-search-input" placeholder="नौकरी, विभाग या योजना खोजें (जैसे: SSC, Bank, Aadhaar)..." class="w-full bg-transparent text-slate-900 focus:outline-none text-sm sm:text-base font-medium placeholder:text-slate-400" data-translate-placeholder="search_placeholder">
+                </div>
+                <button onclick="handleGlobalSearch()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+                    <span data-translate="search_btn">खोजें</span> <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Quick Category Badges -->
+            <div class="mt-10 flex flex-wrap justify-center gap-2 sm:gap-3">
+                <a href="#gov-jobs" class="bg-white/15 hover:bg-white/25 border border-white/30 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition backdrop-blur-sm">🏛️ <span data-translate="cat_gov">सरकारी नौकरियां</span></a>
+                <a href="#private-jobs" class="bg-white/15 hover:bg-white/25 border border-white/30 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition backdrop-blur-sm">💼 <span data-translate="cat_pvt">प्राइवेट जॉब्स</span></a>
+                <a href="#admit-cards" class="bg-white/15 hover:bg-white/25 border border-white/30 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition backdrop-blur-sm">🎫 <span data-translate="cat_admit">एडमिट कार्ड</span></a>
+                <a href="#results" class="bg-white/15 hover:bg-white/25 border border-white/30 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition backdrop-blur-sm">📊 <span data-translate="cat_result">रिजल्ट</span></a>
+                <a href="#schemes" class="bg-white/15 hover:bg-white/25 border border-white/30 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition backdrop-blur-sm">📜 <span data-translate="cat_scheme">सरकारी योजनाएं</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Independent Platform Disclaimer Notice -->
+    <div class="bg-amber-50 border-y border-amber-200 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-start sm:items-center gap-3 text-amber-900 text-xs sm:text-sm">
+            <i class="fa-solid fa-circle-info text-amber-600 text-lg shrink-0 mt-0.5 sm:mt-0"></i>
+            <p><strong data-translate="disclaimer_title">महत्वपूर्ण सूचना:</strong> <span data-translate="disclaimer_text">Apna eMitra (apnaemitra.in) एक स्वतंत्र डिजिटल सूचना और सहायता मंच है। यह किसी भी सरकारी विभाग का आधिकारिक पोर्टल नहीं है। सभी विज्ञापनों और रिक्तियों के लिए आधिकारिक वेबसाइट या नोटिफिकेशन अवश्य जांचें।</span></p>
+        </div>
+    </div>
+
+    <!-- Job Filter & Listing Section -->
+    <section id="gov-jobs" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-emerald-700 font-bold uppercase tracking-wider text-xs bg-emerald-100 px-3 py-1 rounded-full" data-translate="sec_jobs_tag">सत्यापित अवसर</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2" data-translate="sec_gov_title">नवीनतम सरकारी नौकरियां (Latest Government Jobs)</h2>
+            </div>
+            <!-- Filters -->
+            <div class="flex flex-wrap gap-2">
+                <select id="filter-category" onchange="filterJobs()" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:border-primary-900 text-slate-800">
+                    <option value="all" data-translate="filter_all_cat">सभी श्रेणियां (All Categories)</option>
+                    <option value="Central Govt">Central Government</option>
+                    <option value="State Govt">State Government</option>
+                    <option value="Banking">Banking & Insurance</option>
+                    <option value="SSC">SSC & UPSC</option>
+                    <option value="Railway">Railway Jobs</option>
+                </select>
+                <select id="filter-qualification" onchange="filterJobs()" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:border-primary-900 text-slate-800">
+                    <option value="all" data-translate="filter_all_qual">योग्यता (All Qualifications)</option>
+                    <option value="10th Pass">10th Pass</option>
+                    <option value="12th Pass">12th Pass</option>
+                    <option value="Graduation">Graduation</option>
+                    <option value="Post Graduation">Post Graduation</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Job Cards Grid -->
+        <div id="job-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic Job Cards will be injected via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Private Jobs Section -->
+    <section id="private-jobs" class="py-16 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-primary-900 font-bold uppercase tracking-wider text-xs bg-primary-50 px-3 py-1 rounded-full" data-translate="sec_pvt_tag">प्राइवेट सेक्टर</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2" data-translate="sec_pvt_title">प्राइवेट जॉब्स एवं एमएनसी वैकेंसी (Private Jobs)</h2>
+                </div>
+                <p class="text-slate-600 text-sm max-w-md" data-translate="pvt_subtitle">Verified MNC and corporate job openings for freshers and experienced professionals.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Private Job Card 1 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-blue-100 text-primary-900 text-xs font-bold px-2.5 py-1 rounded-md">Tech Mahindra</span>
+                            <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Full Time</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Customer Support Executive (Voice/Non-Voice)</h3>
+                        <p class="text-sm text-slate-600 mb-4"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> Jaipur / Work From Home</p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 mb-6">
+                            <li><i class="fa-solid fa-graduation-cap text-primary-900 mr-2"></i><strong>Qualification:</strong> 12th Pass or Graduate</li>
+                            <li><i class="fa-solid fa-indian-rupee-sign text-emerald-700 mr-2"></i><strong>Salary:</strong> ₹18,000 - ₹28,000 / Month</li>
+                        </ul>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="openJobDetail('Tech Mahindra - Customer Support', 'Tech Mahindra', '12th Pass / Graduate', 'Jaipur / WFH', '₹18k - ₹28k/month', 'Open', 'https://techmahindra.com')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-sm transition text-center shadow-sm" data-translate="btn_details">विवरण देखें</button>
+                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Tech%20Mahindra%20Job" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Private Job Card 2 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-blue-100 text-primary-900 text-xs font-bold px-2.5 py-1 rounded-md">Reliance Jio</span>
+                            <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Field / Sales</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Jio Fiber Team Leader & Sales Executive</h3>
+                        <p class="text-sm text-slate-600 mb-4"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> All Rajasthan Districts</p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 mb-6">
+                            <li><i class="fa-solid fa-graduation-cap text-primary-900 mr-2"></i><strong>Qualification:</strong> 10th / 12th / Graduate</li>
+                            <li><i class="fa-solid fa-indian-rupee-sign text-emerald-700 mr-2"></i><strong>Salary:</strong> ₹15,000 + Incentives</li>
+                        </ul>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="openJobDetail('Reliance Jio Fiber Executive', 'Reliance Jio', '10th / 12th / Graduate', 'All Rajasthan', '₹15k + Incentives', 'Open', 'https://jio.com')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-sm transition text-center shadow-sm" data-translate="btn_details">विवरण देखें</button>
+                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Reliance%20Jio%20Job" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Private Job Card 3 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-blue-100 text-primary-900 text-xs font-bold px-2.5 py-1 rounded-md">Amazon India</span>
+                            <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Logistics</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Warehouse Associate & Delivery Executive</h3>
+                        <p class="text-sm text-slate-600 mb-4"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> Major Cities (Jaipur, Jodhpur, Udaipur)</p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 mb-6">
+                            <li><i class="fa-solid fa-graduation-cap text-primary-900 mr-2"></i><strong>Qualification:</strong> 10th Pass</li>
+                            <li><i class="fa-solid fa-indian-rupee-sign text-emerald-700 mr-2"></i><strong>Salary:</strong> ₹20,000 / Month + PF</li>
+                        </ul>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="openJobDetail('Amazon Warehouse Associate', 'Amazon India', '10th Pass', 'Major Cities', '₹20,000 / Month', 'Open', 'https://amazon.in')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-sm transition text-center shadow-sm" data-translate="btn_details">विवरण देखें</button>
+                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Amazon%20Job" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admit Cards & Results Section -->
+    <section id="admit-cards" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- Admit Cards Box -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary-100 text-primary-900 rounded-xl flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-id-card"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900" data-translate="sec_admit_title">एडमिट कार्ड (Admit Cards)</h3>
+                    </div>
+                    <span class="text-xs font-semibold bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full">Live Updates</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="p-4 bg-slate-50 hover:bg-slate-100 transition rounded-xl flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-primary-900">UPSC</span>
+                            <h4 class="font-bold text-slate-800 text-sm sm:text-base">Civil Services (Prelims) Exam Admit Card</h4>
+                            <p class="text-xs text-slate-500 mt-1">Official Portal Link Available</p>
+                        </div>
+                        <a href="https://upsconline.nic.in" target="_blank" class="bg-primary-900 hover:bg-primary-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition shrink-0" data-translate="btn_download">डाउनलोड</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Box -->
+            <div id="results" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-100 text-emerald-800 rounded-xl flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-square-poll-vertical"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900" data-translate="sec_results_title">परीक्षा परिणाम (Exam Results)</h3>
+                    </div>
+                    <span class="text-xs font-semibold bg-blue-100 text-primary-900 px-2.5 py-1 rounded-full">Scorecards</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="p-4 bg-slate-50 hover:bg-slate-100 transition rounded-xl flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-emerald-700">IBPS / RRB</span>
+                            <h4 class="font-bold text-slate-800 text-sm sm:text-base">Latest Examination Final Results & Scorecards</h4>
+                            <p class="text-xs text-slate-500 mt-1">Check via Official Portals</p>
+                        </div>
+                        <a href="https://ibps.in" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition shrink-0" data-translate="btn_view">रिजल्ट देखें</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Schemes & Documents Section -->
+    <section id="schemes" class="py-16 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-emerald-700 font-bold uppercase tracking-wider text-xs bg-emerald-100 px-3 py-1 rounded-full" data-translate="sec_scheme_tag">जन कल्याणकारी योजनाएं</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2" data-translate="sec_scheme_title">लोकप्रिय सरकारी योजनाएं एवं दस्तावेज गाइड</h2>
+                <p class="text-slate-600 text-sm mt-2" data-translate="sec_scheme_desc">Central and State government schemes with step-by-step eligibility and required documents.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Scheme 1 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 bg-blue-50 text-primary-900 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">PM Vishwakarma Yojana</h3>
+                    <p class="text-xs text-slate-600 mb-4 leading-relaxed">पारंपरिक शिल्पकारों और कारीगरों के लिए ₹3 लाख तक का आसान लोन और टूलकिट सहायता।</p>
+                    <div class="border-t border-slate-100 pt-4 mt-4">
+                        <span class="text-[11px] font-bold text-slate-500 block mb-1">Required Documents:</span>
+                        <p class="text-xs text-slate-700 font-medium">Aadhaar Card, Bank Passbook, Mobile linked with Aadhaar</p>
+                    </div>
+                </div>
+
+                <!-- Scheme 2 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-700 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Digital India Scholarship</h3>
+                    <p class="text-xs text-slate-600 mb-4 leading-relaxed">मेधावी विद्यार्थियों और तकनीकी छात्रों के लिए छात्रवृत्ति और स्किल ट्रेनिंग अवसर।</p>
+                    <div class="border-t border-slate-100 pt-4 mt-4">
+                        <span class="text-[11px] font-bold text-slate-500 block mb-1">Required Documents:</span>
+                        <p class="text-xs text-slate-700 font-medium">College ID, Marksheets, Income Certificate, Bank Account</p>
+                    </div>
+                </div>
+
+                <!-- Scheme 3 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-id-card-clip"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Jan Aadhaar & E-Mitra Services</h3>
+                    <p class="text-xs text-slate-600 mb-4 leading-relaxed">मूल निवास, जाति, आय प्रमाण पत्र और जन आधार से संबंधित डिजिटल सेवाएं गाइड।</p>
+                    <div class="border-t border-slate-100 pt-4 mt-4">
+                        <span class="text-[11px] font-bold text-slate-500 block mb-1">Required Documents:</span>
+                        <p class="text-xs text-slate-700 font-medium">Aadhaar, Ration Card, Self Declaration, Jan Aadhaar Card</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Assistance Section -->
+    <section id="assistance" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-primary-900 to-emerald-800 rounded-3xl text-white p-8 sm:p-12 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="max-w-xl">
+                <span class="bg-white/20 text-emerald-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" data-translate="sec_assist_tag">ऑनलाइन सहायता केंद्र</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold mt-3 mb-4 text-white" data-translate="sec_assist_title">क्या आपको फॉर्म भरने या जॉब खोजने में मदद चाहिए?</h2>
+                <p class="text-slate-100 text-sm sm:text-base leading-relaxed mb-6" data-translate="sec_assist_desc">
+                    हमारे एक्सपर्ट्स से व्हाट्सएप के जरिए संपर्क करें। हम सरकारी और प्राइवेट जॉब एप्लीकेशन की जानकारी प्रदान करने में सहायता करते हैं।
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://whatsapp.com" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl transition shadow-lg flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> <span data-translate="btn_wa_chat">व्हाट्सएप पर बात करें</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Assistance Form (Demo Mode Notice) -->
+            <div class="w-full lg:w-96 bg-white text-slate-900 rounded-2xl p-6 shadow-2xl border border-slate-100">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-slate-900" data-translate="form_heading">सहायता अनुरोध भेजें</h3>
+                    <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">Demo Mode</span>
+                </div>
+                <form onsubmit="handleAssistanceSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1" data-translate="form_name">आपका नाम</label>
+                        <input type="text" id="assist-name" required placeholder="पूरा नाम दर्ज करें" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-900 text-slate-900">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1" data-translate="form_phone">मोबाइल नंबर (WhatsApp)</label>
+                        <input type="tel" id="assist-phone" required placeholder="10 अंकों का मोबाइल नंबर" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-900 text-slate-900">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1" data-translate="form_service">किस सेवा में सहायता चाहिए?</label>
+                        <select id="assist-service" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-900 text-slate-900">
+                            <option value="Govt Job Form">सरकारी जॉब फॉर्म जानकारी</option>
+                            <option value="Private Job">प्राइवेट जॉब सहायता</option>
+                            <option value="Admit Card/Result">एडमिट कार्ड / रिजल्ट मार्गदर्शन</option>
+                            <option value="Certificate">दस्तावेज मार्गदर्शन</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-900 hover:bg-primary-800 text-white font-bold py-3 rounded-xl transition text-sm shadow-md" data-translate="form_submit">अनुरोध सबमिट करें (Demo)</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-primary-900 font-bold uppercase tracking-wider text-xs bg-primary-50 px-3 py-1 rounded-full">FAQ</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2" data-translate="faq_title">अक्सर पूछे जाने वाले सवाल</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="font-bold text-slate-900 text-base mb-2">क्या Apna eMitra कोई सरकारी वेबसाइट है?</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">नहीं, Apna eMitra (apnaemitra.in) एक स्वतंत्र डिजिटल सूचना मंच है जो नागरिकों को रोजगार और योजनाओं की जानकारी आसानी से उपलब्ध कराता है।</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                    <h3 class="font-bold text-slate-900 text-base mb-2">क्या पोर्टल पर दी गई जानकारी सत्यापित होती है?</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">हाँ, हम केवल आधिकारिक सरकारी पोर्टल्स और सत्यापित स्रोतों के लिंक व विवरण ही साझा करते हैं।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <!-- Brand Info -->
+            <div class="space-y-4 md:col-span-1">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-tr from-primary-900 to-emerald-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <span class="text-xl font-black text-white">Apna <span class="text-emerald-400">eMitra</span></span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed" data-translate="footer_desc">
+                    भारत के ग्रामीण और छोटे शहरों के युवाओं के लिए डिजिटल सहायता, सरकारी और प्राइवेट जॉब्स का प्रमुख केंद्र। Domain: apnaemitra.in
+                </p>
+                <div class="flex gap-3 text-lg">
+                    <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-primary-900 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-whatsapp text-white"></i></a>
+                    <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-primary-900 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-telegram text-white"></i></a>
+                    <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-primary-900 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-youtube text-white"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4" data-translate="footer_links">त्वरित लिंक्स</h4>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#home" class="hover:text-emerald-400 transition" data-translate="nav_home">होम</a></li>
+                    <li><a href="#gov-jobs" class="hover:text-emerald-400 transition" data-translate="nav_gov_jobs">सरकारी जॉब्स</a></li>
+                    <li><a href="#private-jobs" class="hover:text-emerald-400 transition" data-translate="nav_pvt_jobs">प्राइवेट जॉब्स</a></li>
+                    <li><a href="#admit-cards" class="hover:text-emerald-400 transition" data-translate="nav_admit">एडमिट कार्ड</a></li>
+                    <li><a href="#results" class="hover:text-emerald-400 transition" data-translate="nav_results">रिजल्ट</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal & Policies -->
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4" data-translate="footer_legal">कानूनी सूचना (Legal)</h4>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#" onclick="alert('Apna eMitra Privacy Policy: We respect user privacy and protect submitted details.')" class="hover:text-emerald-400 transition">Privacy Policy</a></li>
+                    <li><a href="#" onclick="alert('Apna eMitra Terms & Conditions: Independent platform providing verified employment information.')" class="hover:text-emerald-400 transition">Terms & Conditions</a></li>
+                    <li><a href="#" onclick="alert('Disclaimer: Apna eMitra is NOT an official government website.')" class="hover:text-emerald-400 transition">Disclaimer</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Support -->
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4" data-translate="footer_contact">संपर्क विवरण</h4>
+                <ul class="space-y-3 text-xs text-slate-400">
+                    <li><i class="fa-solid fa-envelope text-emerald-400 mr-2"></i> support@apnaemitra.in</li>
+                    <li><i class="fa-solid fa-globe text-emerald-400 mr-2"></i> https://apnaemitra.in</li>
+                    <li><i class="fa-solid fa-headset text-emerald-400 mr-2"></i> WhatsApp Support Available</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            <p>&copy; 2026 Apna eMitra (apnaemitra.in). All Rights Reserved. Independent Digital Assistance Platform.</p>
+        </div>
+    </footer>
+
+    <!-- Job Detail Modal -->
+    <div id="job-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
+            <button onclick="closeJobDetail()" class="absolute top-6 right-6 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-700 transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Content populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Database of Verified Government & Competitive Jobs
+        const jobsData = [
+            {
+                id: 1,
+                title: "SSC CGL Combined Graduate Level Examination",
+                organization: "Staff Selection Commission (SSC)",
+                category: "SSC",
+                qualification: "Graduation",
+                location: "All India",
+                vacancies: "As per official notification",
+                ageLimit: "18 - 32 Years",
+                lastDate: "Check Official Site",
+                fee: "As per official notification",
+                salary: "Level-4 to Level-8",
+                officialUrl: "https://ssc.gov.in",
+                source: "ssc.gov.in",
+                verificationDate: "2026-06-01",
+                status: "Active"
+            },
+            {
+                id: 2,
+                title: "IBPS PO / MT Recruitment",
+                organization: "Institute of Banking Personnel Selection",
+                category: "Banking",
+                qualification: "Graduation",
+                location: "All India",
+                vacancies: "As per official notification",
+                ageLimit: "20 - 30 Years",
+                lastDate: "Check Official Site",
+                fee: "As per official notification",
+                salary: "Scale-I Officer",
+                officialUrl: "https://ibps.in",
+                source: "ibps.in",
+                verificationDate: "2026-06-02",
+                status: "Active"
+            },
+            {
+                id: 3,
+                title: "Railway RRB NTPC Posts",
+                organization: "Railway Recruitment Boards (RRB)",
+                category: "Railway",
+                qualification: "12th Pass",
+                location: "All India",
+                vacancies: "As per official notification",
+                ageLimit: "18 - 33 Years",
+                lastDate: "Check Official Site",
+                fee: "As per official notification",
+                salary: "7th CPC Pay Scale",
+                officialUrl: "https://rrbcdg.gov.in",
+                source: "rrbcdg.gov.in",
+                verificationDate: "2026-06-01",
+                status: "Active"
+            },
+            {
+                id: 4,
+                title: "UPSC Civil Services Examination",
+                organization: "Union Public Service Commission",
+                category: "Central Govt",
+                qualification: "Graduation",
+                location: "All India",
+                vacancies: "As per official notification",
+                ageLimit: "21 - 32 Years",
+                lastDate: "Check Official Site",
+                fee: "As per official notification",
+                salary: "Level-10",
+                officialUrl: "https://upsc.gov.in",
+                source: "upsc.gov.in",
+                verificationDate: "2026-05-20",
+                status: "Active"
+            }
+        ];
+
+        // Render Job Cards
+        function renderJobs(jobsToRender) {
+            const container = document.getElementById('job-cards-container');
+            container.innerHTML = '';
+
+            if (jobsToRender.length === 0) {
+                container.innerHTML = `<div class="col-span-3 text-center py-12 text-slate-500 font-medium">कोई नौकरी नहीं मिली। (No matching jobs found).</div>`;
+                return;
+            }
+
+            jobsToRender.forEach(job => {
+                const card = document.createElement('div');
+                card.className = "bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="bg-primary-50 text-primary-900 text-xs font-bold px-2.5 py-1 rounded-md">${job.category}</span>
+                            <span class="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full">Source Verified</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">${job.title}</h3>
+                        <p class="text-xs text-slate-600 mb-4 font-medium"><i class="fa-solid fa-building text-primary-900 mr-1.5"></i> ${job.organization}</p>
+                        <ul class="text-xs text-slate-700 space-y-2 mb-6 border-t border-b border-slate-100 py-3">
+                            <li><i class="fa-solid fa-graduation-cap text-primary-900 mr-2"></i><strong>योग्यता:</strong> ${job.qualification}</li>
+                            <li><i class="fa-solid fa-users text-primary-900 mr-2"></i><strong>पद विवरण:</strong> ${job.vacancies}</li>
+                            <li><i class="fa-solid fa-calendar text-emerald-700 mr-2"></i><strong>अंतिम तिथि:</strong> ${job.lastDate}</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex gap-2">
+                            <button onclick="openJobModal(${job.id})" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-xs transition text-center shadow-sm">विवरण देखें</button>
+                            <a href="${job.officialUrl}" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center shadow-sm">अप्लाई <i class="fa-solid fa-arrow-up-right-from-square ml-1.5"></i></a>
+                        </div>
+                        <div class="text-[10px] text-slate-400 flex justify-between pt-1">
+                            <span>Source: ${job.source}</span>
+                            <span>Verified: ${job.verificationDate}</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter Jobs Logic
+        function filterJobs() {
+            const cat = document.getElementById('filter-category').value;
+            const qual = document.getElementById('filter-qualification').value;
+
+            let filtered = jobsData;
+            if (cat !== 'all') {
+                filtered = filtered.filter(j => j.category === cat);
+            }
+            if (qual !== 'all') {
+                filtered = filtered.filter(j => j.qualification.includes(qual));
+            }
+            renderJobs(filtered);
+        }
+
+        // Global Search
+        function handleGlobalSearch() {
+            const query = document.getElementById('global-search-input').value.toLowerCase();
+            const filtered = jobsData.filter(j => 
+                j.title.toLowerCase().includes(query) || 
+                j.organization.toLowerCase().includes(query) ||
+                j.category.toLowerCase().includes(query)
+            );
+            renderJobs(filtered);
+            document.getElementById('gov-jobs').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Open Job Detail Modal
+        function openJobModal(id) {
+            const job = jobsData.find(j => j.id === id);
+            if (!job) return;
+
+            const content = document.getElementById('modal-content');
+            content.innerHTML = `
+                <span class="bg-primary-100 text-primary-900 text-xs font-bold px-3 py-1 rounded-full">${job.category}</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-3 mb-2">${job.title}</h2>
+                <p class="text-sm font-semibold text-slate-600 mb-6"><i class="fa-solid fa-building text-primary-900 mr-2"></i> ${job.organization}</p>
+                
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 space-y-3 text-xs sm:text-sm">
+                    <div class="flex justify-between border-b border-slate-200 pb-2">
+                        <span class="font-bold text-slate-500">कुल पद:</span>
+                        <span class="font-bold text-slate-900">${job.vacancies}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-200 pb-2">
+                        <span class="font-bold text-slate-500">शैक्षणिक योग्यता:</span>
+                        <span class="font-bold text-slate-900">${job.qualification}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-200 pb-2">
+                        <span class="font-bold text-slate-500">आयु सीमा:</span>
+                        <span class="font-bold text-slate-900">${job.ageLimit}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-200 pb-2">
+                        <span class="font-bold text-slate-500">अंतिम तिथि:</span>
+                        <span class="font-bold text-emerald-800">${job.lastDate}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-bold text-slate-500">वेतनमान:</span>
+                        <span class="font-bold text-primary-900">${job.salary}</span>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-900 mb-6">
+                    <strong>सत्यापन विवरण:</strong> यह भर्ती <strong>${job.source}</strong> से सत्यापित है (सत्यापन तिथि: ${job.verificationDate})। आधिकारिक नोटिफिकेशन के लिए नीचे दिए गए लिंक पर जाएं।
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="${job.officialUrl}" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">
+                        आधिकारिक वेबसाइट / नोटिफिकेशन <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+                    </a>
+                    <button onclick="closeJobDetail()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-6 py-3 rounded-xl text-sm transition">बंद करें</button>
+                </div>
+            `;
+            document.getElementById('job-modal').classList.remove('hidden');
+        }
+
+        function closeJobDetail() {
+            document.getElementById('job-modal').classList.add('hidden');
+        }
+
+        // Static Private Job Detail Fallback
+        function openJobDetail(title, org, qual, loc, salary, status, url) {
+            const content = document.getElementById('modal-content');
+            content.innerHTML = `
+                <span class="bg-blue-100 text-primary-900 text-xs font-bold px-3 py-1 rounded-full">Private Job / MNC</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-3 mb-2">${title}</h2>
+                <p class="text-sm font-semibold text-slate-600 mb-6"><i class="fa-solid fa-building text-primary-900 mr-2"></i> ${org}</p>
+                
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 space-y-3 text-xs sm:text-sm">
+                    <div class="flex justify-between border-b border-slate-200 pb-2">
+                        <span class="font-bold text-slate-500">कार्यक्षेत्र:</span>
+                        <span class="font-bold text-slate-900">${loc}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-200 pb-2">
+                        <span class="font-bold text-slate-500">योग्यता:</span>
+                        <span class="font-bold text-slate-900">${qual}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-200 pb-2">
+                        <span class="font-bold text-slate-500">वेतन:</span>
+                        <span class="font-bold text-emerald-800">${salary}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-bold text-slate-500">स्थिति:</span>
+                        <span class="font-bold text-primary-900">Open for Freshers</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="${url}" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">
+                        कंपनी पोर्टल पर जाएं <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+                    </a>
+                    <button onclick="closeJobDetail()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-6 py-3 rounded-xl text-sm transition">बंद करें</button>
+                </div>
+            `;
+            document.getElementById('job-modal').classList.remove('hidden');
+        }
+
+        // Assistance Form Demo Handler
+        function handleAssistanceSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('assist-name').value;
+            const phone = document.getElementById('assist-phone').value;
+            const service = document.getElementById('assist-service').value;
+
+            alert(`धन्यवाद ${name}! (DEMO MODE): आपका सहायता अनुरोध (${service}) दर्ज कर लिया गया है। चूंकि अभी बैकएंड कनेक्टेड नहीं है, यह केवल डेमो प्रिव्यू है।`);
+            e.target.reset();
+        }
+
+        // Bilingual Translation Dictionary
+        const translations = {
+            hi: {
+                update_badge: "अपडेट",
+                top_ticker: "सत्यापित जॉब्स और आधिकारिक अपडेट के लिए आधिकारिक पोर्टल पर विजिट करें।",
+                whatsapp_support: "व्हाट्सएप सहायता",
+                brand_subtitle: "डिजिटल सहायता एवं जॉब पोर्टल",
+                nav_home: "होम",
+                nav_gov_jobs: "सरकारी जॉब्स",
+                nav_pvt_jobs: "प्राइवेट जॉब्स",
+                nav_admit: "एडमिट कार्ड",
+                nav_results: "रिजल्ट",
+                nav_schemes: "योजनाएं",
+                nav_assistance: "ऑनलाइन सहायता",
+                nav_contact: "संपर्क",
+                hero_badge: "भारत का स्वतंत्र डिजिटल सेवा मंच",
+                hero_title_1: "आपकी नौकरी, आपका भविष्य",
+                hero_title_2: "आपके साथ!",
+                hero_desc: "विद्यार्थियों, जॉब सीकर और ग्रामीण युवाओं के लिए सरकारी नौकरियां, प्राइवेट जॉब्स, एडमिट कार्ड, और फॉर्म भरने की आसान ऑनलाइन सहायता।",
+                search_placeholder: "नौकरी, विभाग या योजना खोजें (जैसे: SSC, Bank, Aadhaar)...",
+                search_btn: "खोजें",
+                cat_gov: "सरकारी नौकरियां",
+                cat_pvt: "प्राइवेट जॉब्स",
+                cat_admit: "एडमिट कार्ड",
+                cat_result: "रिजल्ट",
+                cat_scheme: "सरकारी योजनाएं",
+                disclaimer_title: "महत्वपूर्ण सूचना:",
+                disclaimer_text: "Apna eMitra (apnaemitra.in) एक स्वतंत्र डिजिटल सूचना और सहायता मंच है। यह किसी भी सरकारी विभाग का आधिकारिक पोर्टल नहीं है। सभी विज्ञापनों और रिक्तियों के लिए आधिकारिक वेबसाइट या नोटिफिकेशन अवश्य जांचें।",
+                sec_jobs_tag: "सत्यापित अवसर",
+                sec_gov_title: "नवीनतम सरकारी नौकरियां (Latest Government Jobs)",
+                filter_all_cat: "सभी श्रेणियां (All Categories)",
+                filter_all_qual: "योग्यता (All Qualifications)",
+                sec_pvt_tag: "प्राइवेट सेक्टर",
+                sec_pvt_title: "प्राइवेट जॉब्स एवं एमएनसी वैकेंसी (Private Jobs)",
+                pvt_subtitle: "Verified MNC and corporate job openings for freshers and experienced professionals.",
+                btn_details: "विवरण देखें",
+                sec_admit_title: "एडमिट कार्ड (Admit Cards)",
+                btn_download: "डाउनलोड",
+                sec_results_title: "परीक्षा परिणाम (Exam Results)",
+                btn_view: "रिजल्ट देखें",
+                sec_scheme_tag: "जन कल्याणकारी योजनाएं",
+                sec_scheme_title: "लोकप्रिय सरकारी योजनाएं एवं दस्तावेज गाइड",
+                sec_scheme_desc: "Central and State government schemes with step-by-step eligibility and required documents.",
+                sec_assist_tag: "ऑनलाइन सहायता केंद्र",
+                sec_assist_title: "क्या आपको फॉर्म भरने या जॉब खोजने में मदद चाहिए?",
+                sec_assist_desc: "हमारे एक्सपर्ट्स से व्हाट्सएप के जरिए संपर्क करें। हम सरकारी और प्राइवेट जॉब एप्लीकेशन की जानकारी प्रदान करने में सहायता करते हैं।",
+                btn_wa_chat: "व्हाट्सएप पर बात करें",
+                form_heading: "सहायता अनुरोध भेजें",
+                form_name: "आपका नाम",
+                form_phone: "मोबाइल नंबर (WhatsApp)",
+                form_service: "किस सेवा में सहायता चाहिए?",
+                form_submit: "अनुरोध सबमिट करें (Demo)",
+                faq_title: "अक्सर पूछे जाने वाले सवाल",
+                footer_desc: "भारत के ग्रामीण और छोटे शहरों के युवाओं के लिए डिजिटल सहायता, सरकारी और प्राइवेट जॉब्स का प्रमुख केंद्र। Domain: apnaemitra.in",
+                footer_links: "त्वरित लिंक्स",
+                footer_legal: "कानूनी सूचना (Legal)",
+                footer_contact: "संपर्क विवरण"
+            },
+            en: {
+                update_badge: "UPDATE",
+                top_ticker: "Visit official portals for authenticated recruitment notices and updates.",
+                whatsapp_support: "WhatsApp Support",
+                brand_subtitle: "Digital Assistance & Job Portal",
+                nav_home: "Home",
+                nav_gov_jobs: "Govt Jobs",
+                nav_pvt_jobs: "Private Jobs",
+                nav_admit: "Admit Cards",
+                nav_results: "Results",
+                nav_schemes: "Schemes",
+                nav_assistance: "Online Assistance",
+                nav_contact: "Contact",
+                hero_badge: "India's Independent Digital Service Platform",
+                hero_title_1: "Your Job, Your Future",
+                hero_title_2: "with You!",
+                hero_desc: "Government jobs, private vacancies, admit cards, and guidance for students, job seekers, and rural youth.",
+                search_placeholder: "Search jobs, departments or schemes (e.g. SSC, Bank, Aadhaar)...",
+                search_btn: "Search",
+                cat_gov: "Govt Jobs",
+                cat_pvt: "Private Jobs",
+                cat_admit: "Admit Cards",
+                cat_result: "Results",
+                cat_scheme: "Govt Schemes",
+                disclaimer_title: "Important Notice:",
+                disclaimer_text: "Apna eMitra (apnaemitra.in) is an independent digital information and assistance platform. It is not an official portal of any government department. Always verify official websites for authenticity.",
+                sec_jobs_tag: "Verified Opportunities",
+                sec_gov_title: "Latest Government Jobs",
+                filter_all_cat: "All Categories",
+                filter_all_qual: "All Qualifications",
+                sec_pvt_tag: "Private Sector",
+                sec_pvt_title: "Private Jobs & MNC Vacancies",
+                pvt_subtitle: "Verified MNC and corporate job openings for freshers and experienced professionals.",
+                btn_details: "View Details",
+                sec_admit_title: "Admit Cards",
+                btn_download: "Download",
+                sec_results_title: "Exam Results",
+                btn_view: "View Result",
+                sec_scheme_tag: "Welfare Schemes",
+                sec_scheme_title: "Popular Government Schemes & Document Guides",
+                sec_scheme_desc: "Central and State government schemes with step-by-step eligibility and required documents.",
+                sec_assist_tag: "Online Assistance Center",
+                sec_assist_title: "Need help with form filling or job search?",
+                sec_assist_desc: "Contact our experts via WhatsApp. We provide guidance and support for government and private job applications.",
+                btn_wa_chat: "Chat on WhatsApp",
+                form_heading: "Submit Assistance Request",
+                form_name: "Your Name",
+                form_phone: "Mobile Number (WhatsApp)",
+                form_service: "Select Service Needed",
+                form_submit: "Submit Request (Demo)",
+                faq_title: "Frequently Asked Questions",
+                footer_desc: "Leading digital assistance and job portal for youth in rural and small towns across India. Domain: apnaemitra.in",
+                footer_links: "Quick Links",
+                footer_legal: "Legal Notices",
+                footer_contact: "Contact Info"
+            }
+        };
+
+        let currentLang = 'hi';
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            const placeholders = document.querySelectorAll('[data-translate-placeholder]');
+            placeholders.forEach(el => {
+                const key = el.getAttribute('data-translate-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.setAttribute('placeholder', translations[lang][key]);
+                }
+            });
+
+            if (lang === 'hi') {
+                document.getElementById('btn-hi').className = "px-2 py-0.5 rounded bg-emerald-600 text-white text-xs font-bold transition";
+                document.getElementById('btn-en').className = "px-2 py-0.5 rounded bg-primary-700 hover:bg-primary-600 text-white text-xs font-medium transition";
+                document.documentElement.setAttribute('lang', 'hi');
+            } else {
+                document.getElementById('btn-en').className = "px-2 py-0.5 rounded bg-emerald-600 text-white text-xs font-bold transition";
+                document.getElementById('btn-hi').className = "px-2 py-0.5 rounded bg-primary-700 hover:bg-primary-600 text-white text-xs font-medium transition";
+                document.documentElement.setAttribute('lang', 'en');
+            }
+        }
+
+        // Mobile Menu Toggle & Auto Close on Link Click
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Initial Render
+        window.addEventListener('DOMContentLoaded', () => {
+            renderJobs(jobsData);
+        });
+    </script>
+</body>
+</html>
