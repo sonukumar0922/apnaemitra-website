@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "notice": "Discovery candidates are NOT verified or public. Admin must verify the official notification, fill officialUrl and required details, set status to approved, then merge the pull request.",
+  "jobs": []
+}

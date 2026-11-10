@@ -1,0 +1,43 @@
+name: Apna eMitra Job Discovery
+
+on:
+  schedule:
+    # 00:30 UTC = 06:00 IST; 12:30 UTC = 18:00 IST
+    - cron: "30 0,12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: job-discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Discover recruitment leads
+        run: python scripts/discover_jobs.py
+      - name: Create review pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: add new recruitment discovery leads"
+          branch: automation/job-discovery
+          delete-branch: true
+          title: "Review new Apna eMitra job discovery leads"
+          body: |
+            Automated discovery candidates. These are NOT verified vacancies.
+            Check each original notification on the recruiting organisation's official website.
+            Fill all required fields and the official HTTPS URL. Set status to `approved` only after verification.
+            Merge only after review. The publish workflow publishes only approved complete records.
+          add-paths: |
+            data/pending-jobs.json

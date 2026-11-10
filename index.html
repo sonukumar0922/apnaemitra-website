@@ -171,11 +171,12 @@
             <div class="flex flex-wrap gap-2">
                 <select id="filter-category" onchange="filterJobs()" aria-label="Filter Jobs by Category" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:border-primary-900 text-slate-800">
                     <option value="all" data-translate="filter_all_cat">सभी श्रेणियां (All Categories)</option>
-                    <option value="Central Govt">Central Government</option>
-                    <option value="State Govt">State Government</option>
-                    <option value="Banking">Banking & Insurance</option>
-                    <option value="SSC">SSC & UPSC</option>
-                    <option value="Railway">Railway Jobs</option>
+                    <option value="SSC">SSC</option>
+                    <option value="UPSC">UPSC</option>
+                    <option value="Railway">Railway</option>
+                    <option value="Banking">Banking</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Other Government">Other Government</option>
                 </select>
                 <select id="filter-qualification" onchange="filterJobs()" aria-label="Filter Jobs by Qualification" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:border-primary-900 text-slate-800">
                     <option value="all" data-translate="filter_all_qual">योग्यता (All Qualifications)</option>
@@ -204,66 +205,10 @@
                 <p class="text-slate-600 text-sm max-w-md" data-translate="pvt_subtitle">Verified MNC and corporate job openings for freshers and experienced professionals.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Private Job Card 1 -->
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="bg-blue-100 text-primary-900 text-xs font-bold px-2.5 py-1 rounded-md">Tech Mahindra</span>
-                            <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Full Time</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Customer Support Executive (Voice/Non-Voice)</h3>
-                        <p class="text-sm text-slate-600 mb-4"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> Jaipur / Work From Home</p>
-                        <ul class="text-xs text-slate-700 space-y-1.5 mb-6">
-                            <li><i class="fa-solid fa-graduation-cap text-primary-900 mr-2"></i><strong>Qualification:</strong> 12th Pass or Graduate</li>
-                            <li><i class="fa-solid fa-indian-rupee-sign text-emerald-700 mr-2"></i><strong>Salary:</strong> ₹18,000 - ₹28,000 / Month</li>
-                        </ul>
-                    </div>
-                    <div class="flex gap-2">
-                        <button onclick="openJobDetail('Tech Mahindra - Customer Support', 'Tech Mahindra', '12th Pass / Graduate', 'Jaipur / WFH', '₹18k - ₹28k/month', 'Open', 'https://techmahindra.com')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-sm transition text-center shadow-sm" data-translate="btn_details">विवरण देखें</button>
-                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Tech%20Mahindra%20Job" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
-                    </div>
-                </div>
-
-                <!-- Private Job Card 2 -->
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="bg-blue-100 text-primary-900 text-xs font-bold px-2.5 py-1 rounded-md">Reliance Jio</span>
-                            <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Field / Sales</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Jio Fiber Team Leader & Sales Executive</h3>
-                        <p class="text-sm text-slate-600 mb-4"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> All Rajasthan Districts</p>
-                        <ul class="text-xs text-slate-700 space-y-1.5 mb-6">
-                            <li><i class="fa-solid fa-graduation-cap text-primary-900 mr-2"></i><strong>Qualification:</strong> 10th / 12th / Graduate</li>
-                            <li><i class="fa-solid fa-indian-rupee-sign text-emerald-700 mr-2"></i><strong>Salary:</strong> ₹15,000 + Incentives</li>
-                        </ul>
-                    </div>
-                    <div class="flex gap-2">
-                        <button onclick="openJobDetail('Reliance Jio Fiber Executive', 'Reliance Jio', '10th / 12th / Graduate', 'All Rajasthan', '₹15k + Incentives', 'Open', 'https://jio.com')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-sm transition text-center shadow-sm" data-translate="btn_details">विवरण देखें</button>
-                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Reliance%20Jio%20Job" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
-                    </div>
-                </div>
-
-                <!-- Private Job Card 3 -->
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="bg-blue-100 text-primary-900 text-xs font-bold px-2.5 py-1 rounded-md">Amazon India</span>
-                            <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Logistics</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Warehouse Associate & Delivery Executive</h3>
-                        <p class="text-sm text-slate-600 mb-4"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> Major Cities (Jaipur, Jodhpur, Udaipur)</p>
-                        <ul class="text-xs text-slate-700 space-y-1.5 mb-6">
-                            <li><i class="fa-solid fa-graduation-cap text-primary-900 mr-2"></i><strong>Qualification:</strong> 10th Pass</li>
-                            <li><i class="fa-solid fa-indian-rupee-sign text-emerald-700 mr-2"></i><strong>Salary:</strong> ₹20,000 / Month + PF</li>
-                        </ul>
-                    </div>
-                    <div class="flex gap-2">
-                        <button onclick="openJobDetail('Amazon Warehouse Associate', 'Amazon India', '10th Pass', 'Major Cities', '₹20,000 / Month', 'Open', 'https://amazon.in')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-sm transition text-center shadow-sm" data-translate="btn_details">विवरण देखें</button>
-                        <a href="https://wa.me/?text=Hello%20Apna%20eMitra,%20I%20want%20to%20apply%20for%20Amazon%20Job" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-center shadow-sm"><i class="fa-brands fa-whatsapp text-lg"></i></a>
-                    </div>
-                </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center">
+                <i class="fa-solid fa-briefcase text-3xl text-primary-900 mb-3"></i>
+                <p class="font-semibold text-slate-800">नई प्राइवेट नौकरियाँ जल्द जोड़ी जाएँगी।</p>
+                <p class="text-sm text-slate-600 mt-1">केवल कंपनी के आधिकारिक career page से पुष्टि की गई vacancies प्रकाशित की जाएँगी।</p>
             </div>
         </div>
     </section>
@@ -511,80 +456,7 @@
     <!-- JavaScript Application Logic -->
     <script>
         // Database of Verified Government & Competitive Jobs with Separate URLs, Dates, and Re-verification Flags
-        const jobsData = [
-            {
-                id: 1,
-                title: "SSC CGL Combined Graduate Level Examination",
-                organization: "Staff Selection Commission (SSC)",
-                category: "SSC",
-                qualification: "Graduation",
-                location: "All India",
-                vacancies: "As per official notification",
-                ageLimit: "18 - 32 Years",
-                lastDate: "2026-07-10",
-                fee: "As per official notification",
-                salary: "Level-4 to Level-8",
-                officialUrl: "https://ssc.gov.in",
-                source: "ssc.gov.in",
-                verificationDate: "2026-06-01",
-                reverificationRequired: false,
-                status: "Active"
-            },
-            {
-                id: 2,
-                title: "IBPS PO / MT Recruitment",
-                organization: "Institute of Banking Personnel Selection",
-                category: "Banking",
-                qualification: "Graduation",
-                location: "All India",
-                vacancies: "As per official notification",
-                ageLimit: "20 - 30 Years",
-                lastDate: "2026-07-05",
-                fee: "As per official notification",
-                salary: "Scale-I Officer",
-                officialUrl: "https://ibps.in",
-                source: "ibps.in",
-                verificationDate: "2026-03-15", // Older date triggering re-verification flag
-                reverificationRequired: true,
-                status: "Active"
-            },
-            {
-                id: 3,
-                title: "Railway RRB NTPC Posts",
-                organization: "Railway Recruitment Boards (RRB)",
-                category: "Railway",
-                qualification: "12th Pass",
-                location: "All India",
-                vacancies: "As per official notification",
-                ageLimit: "18 - 33 Years",
-                lastDate: "2026-06-30",
-                fee: "As per official notification",
-                salary: "7th CPC Pay Scale",
-                officialUrl: "https://rrbcdg.gov.in",
-                source: "rrbcdg.gov.in",
-                verificationDate: "2026-06-01",
-                reverificationRequired: false,
-                status: "Active"
-            },
-            {
-                id: 4,
-                title: "UPSC Civil Services Examination",
-                organization: "Union Public Service Commission",
-                category: "Central Govt",
-                qualification: "Graduation",
-                location: "All India",
-                vacancies: "As per official notification",
-                ageLimit: "21 - 32 Years",
-                lastDate: "2026-06-15",
-                fee: "As per official notification",
-                salary: "Level-10",
-                officialUrl: "https://upsc.gov.in",
-                source: "upsc.gov.in",
-                verificationDate: "2026-02-10", // Older date triggering re-verification flag
-                reverificationRequired: true,
-                status: "Active"
-            }
-        ];
+        let jobsData = [];
 
         // Render Job Cards with Expiry Check & Re-verification Badge
         function renderJobs(jobsToRender) {
@@ -628,7 +500,7 @@
                     </div>
                     <div class="space-y-2">
                         <div class="flex gap-2">
-                            <button onclick="openJobModal(${job.id})" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-xs transition text-center shadow-sm">विवरण देखें</button>
+                            <button onclick="openJobModal('${job.id}')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-xs transition text-center shadow-sm">विवरण देखें</button>
                             <a href="${job.officialUrl}" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center shadow-sm">अप्लाई <i class="fa-solid fa-arrow-up-right-from-square ml-1.5"></i></a>
                         </div>
                         <div class="text-[10px] text-slate-400 flex justify-between pt-1">
@@ -929,10 +801,62 @@
             });
         });
 
+        // Load only Admin-approved jobs from the public JSON file.
+        // Values are escaped before entering existing HTML templates.
+        function escapeJobText(value) {
+            return String(value ?? '').replace(/[&<>"']/g, ch => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[ch]));
+        }
+
+        function safeHttpsUrl(value) {
+            try {
+                const url = new URL(String(value || ''));
+                return url.protocol === 'https:' ? url.href : '';
+            } catch (_) {
+                return '';
+            }
+        }
+
+        async function loadApprovedJobs() {
+            const container = document.getElementById('job-cards-container');
+            try {
+                const response = await fetch('./data/jobs.json', { cache: 'no-store' });
+                if (!response.ok) throw new Error('jobs.json not available');
+                const payload = await response.json();
+                const rawJobs = Array.isArray(payload.jobs) ? payload.jobs : [];
+                jobsData = rawJobs
+                    .filter(job => job && job.status === 'approved' && safeHttpsUrl(job.officialUrl))
+                    .map(job => ({
+                        ...job,
+                        id: escapeJobText(job.id),
+                        title: escapeJobText(job.title),
+                        organization: escapeJobText(job.organization),
+                        category: escapeJobText(job.category),
+                        qualification: escapeJobText(job.qualification || 'Official notification देखें'),
+                        location: escapeJobText(job.location || 'As per notification'),
+                        vacancies: escapeJobText(job.vacancies || 'As per notification'),
+                        ageLimit: escapeJobText(job.ageLimit || 'As per notification'),
+                        lastDate: escapeJobText(job.lastDate || 'Official notification देखें'),
+                        fee: escapeJobText(job.fee || 'As per notification'),
+                        salary: escapeJobText(job.salary || 'As per notification'),
+                        officialUrl: safeHttpsUrl(job.officialUrl),
+                        source: escapeJobText(job.source || 'Official source'),
+                        verificationDate: escapeJobText(job.verificationDate || ''),
+                        reverificationRequired: false,
+                        status: 'Active'
+                    }));
+                renderJobs(jobsData);
+            } catch (error) {
+                console.error('Apna eMitra jobs load failed:', error);
+                if (container) {
+                    container.innerHTML = '<div class="col-span-3 text-center py-12 text-slate-500">नौकरियों की सूची अभी लोड नहीं हो सकी। कृपया कुछ देर बाद पुनः प्रयास करें।</div>';
+                }
+            }
+        }
+
         // Initial Render
-        window.addEventListener('DOMContentLoaded', () => {
-            renderJobs(jobsData);
-        });
+        window.addEventListener('DOMContentLoaded', loadApprovedJobs);
     </script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+{
+  "notice": "These are Google News RSS discovery searches, not official recruitment feeds. Every candidate must be checked against the recruiting body's official notification before approval.",
+  "queries": [
+    {
+      "category": "SSC",
+      "query": "SSC recruitment notification vacancy site:ssc.gov.in"
+    },
+    {
+      "category": "UPSC",
+      "query": "UPSC recruitment notification vacancy site:upsc.gov.in"
+    },
+    {
+      "category": "Railway",
+      "query": "Railway RRB recruitment notification vacancy official"
+    },
+    {
+      "category": "Banking",
+      "query": "IBPS SBI bank recruitment notification official"
+    },
+    {
+      "category": "Rajasthan",
+      "query": "Rajasthan government recruitment notification vacancy official"
+    },
+    {
+      "category": "Other Government",
+      "query": "India government recruitment vacancy notification official"
+    },
+    {
+      "category": "Private",
+      "query": "India company careers hiring jobs official careers"
+    }
+  ]
+}

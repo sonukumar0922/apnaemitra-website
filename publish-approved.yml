@@ -1,0 +1,37 @@
+name: Publish approved jobs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/pending-jobs.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Promote approved jobs
+        run: |
+          python scripts/publish_approved.py
+          python scripts/validate_jobs.py
+      - name: Commit public jobs
+        run: |
+          if git diff --quiet; then
+            echo "No approved jobs to publish."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/jobs.json data/pending-jobs.json
+          git commit -m "chore: publish admin-approved jobs"
+          git push
