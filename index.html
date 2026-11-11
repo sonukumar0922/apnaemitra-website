@@ -495,10 +495,15 @@
               </label>
               <label class="text-sm font-semibold md:col-span-2">Title *<input id="content-title" required maxlength="150" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
               <label class="text-sm font-semibold md:col-span-2">Description<textarea id="content-description" rows="3" maxlength="2000" class="mt-1 w-full border rounded-lg px-3 py-2"></textarea></label>
-              <label class="text-sm font-semibold">Organization / Category detail<input id="content-organization" maxlength="150" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
-              <label class="text-sm font-semibold">Qualification / Location<input id="content-qualification" maxlength="200" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Organization / Department<input id="content-organization" maxlength="150" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Job category (SSC / UPSC / Railway etc.)<input id="content-jobcategory" maxlength="80" placeholder="SSC, UPSC, Banking..." class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Qualification<input id="content-qualification" maxlength="200" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Location<input id="content-location" maxlength="150" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
               <label class="text-sm font-semibold">Vacancies / Important details<input id="content-vacancies" maxlength="200" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
-              <label class="text-sm font-semibold">Last date (YYYY-MM-DD)<input id="content-lastdate" type="date" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Last date<input id="content-lastdate" type="date" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Age limit<input id="content-agelimit" maxlength="100" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Salary / Pay scale<input id="content-salary" maxlength="100" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Application fee<input id="content-fee" maxlength="100" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
               <label class="text-sm font-semibold md:col-span-2">Official HTTPS URL<input id="content-url" type="url" placeholder="https://..." class="mt-1 w-full border rounded-lg px-3 py-2"></label>
               <label class="text-sm font-semibold md:col-span-2">PDF / Image upload (optional)<input id="content-file" type="file" accept="application/pdf,image/*" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
               <div class="md:col-span-2 flex flex-wrap gap-2"><button type="submit" class="bg-emerald-600 text-white font-bold rounded-lg px-5 py-2.5">Save Content</button><button id="content-reset" type="button" class="bg-slate-200 text-slate-800 font-bold rounded-lg px-5 py-2.5">Clear</button></div>
@@ -620,7 +625,7 @@
           if (!row) return;
           $("content-id").value = row.id; $("content-category").value = col; $("content-status").value = row.status || "draft";
           $("content-title").value = row.title || ""; $("content-description").value = row.description || "";
-          $("content-organization").value = row.organization || ""; $("content-qualification").value = row.qualification || "";
+          $("content-organization").value = row.organization || ""; $("content-jobcategory").value = row.category || ""; $("content-qualification").value = row.qualification || ""; $("content-location").value = row.location || ""; $("content-agelimit").value = row.ageLimit || ""; $("content-salary").value = row.salary || ""; $("content-fee").value = row.fee || "";
           $("content-vacancies").value = row.vacancies || ""; $("content-lastdate").value = row.lastDate || "";
           $("content-url").value = row.officialUrl || "";
           window.scrollTo({top:$("content-form").getBoundingClientRect().top + window.scrollY - 100,behavior:"smooth"});
@@ -659,9 +664,13 @@
           const data = {
             title, description:clean($("content-description").value),
             organization:clean($("content-organization").value),
+            category:clean($("content-jobcategory").value),
             qualification:clean($("content-qualification").value),
+            location:clean($("content-location").value),
             vacancies:clean($("content-vacancies").value),
-            lastDate:clean($("content-lastdate").value), officialUrl:url,
+            lastDate:clean($("content-lastdate").value),
+            ageLimit:clean($("content-agelimit").value),
+            salary:clean($("content-salary").value), fee:clean($("content-fee").value), officialUrl:url,
             status:$("content-status").value, filePath, fileUrl,
             updatedAt:serverTimestamp(), updatedBy:currentAdmin.uid
           };
@@ -677,7 +686,7 @@
         const rows = Object.values(publicRowsByCollection).flat();
         const gov = rows.filter(x=>x.collection==="jobs").map(x=>({
           id:x.id,title:escape(x.title),organization:escape(x.organization || "Government"),
-          category:escape(x.organization || "Government"),qualification:escape(x.qualification || "Notification देखें"),
+          category:escape(x.category || "Government"),qualification:escape(x.qualification || "Notification देखें"),
           location:escape(x.location || ""),vacancies:escape(x.vacancies || "Notification देखें"),
           lastDate:escape(x.lastDate || "Official site"),ageLimit:escape(x.ageLimit || "As per notification"),
           salary:escape(x.salary || "As per notification"),fee:escape(x.fee || "As per notification"),
