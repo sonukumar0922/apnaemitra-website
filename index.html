@@ -467,6 +467,7 @@
           <button id="admin-toggle" type="button" class="bg-primary-900 hover:bg-primary-800 text-white font-bold px-5 py-2.5 rounded-xl">Admin Login</button>
         </div>
         <div id="admin-panel" class="hidden mt-5 bg-white rounded-2xl border border-slate-200 p-5">
+          <p id="admin-message" role="status" class="text-sm text-slate-600 mb-3"></p>
           <div id="admin-login-box">
             <h3 class="font-bold text-lg mb-3">Secure Admin Login</h3>
             <form id="admin-login-form" class="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -508,7 +509,6 @@
               <label class="text-sm font-semibold md:col-span-2">PDF / Image upload (optional)<input id="content-file" type="file" accept="application/pdf,image/*" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
               <div class="md:col-span-2 flex flex-wrap gap-2"><button type="submit" class="bg-emerald-600 text-white font-bold rounded-lg px-5 py-2.5">Save Content</button><button id="content-reset" type="button" class="bg-slate-200 text-slate-800 font-bold rounded-lg px-5 py-2.5">Clear</button></div>
             </form>
-            <p id="admin-message" role="status" class="text-sm text-slate-600 mb-3"></p>
             <div id="admin-content-list" class="space-y-2"></div>
           </div>
         </div>
