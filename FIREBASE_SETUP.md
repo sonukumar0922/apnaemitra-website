@@ -3,7 +3,7 @@
 ## Code status
 - `index.html` now includes Firebase Email/Password login, a UID-restricted Admin content manager, Firestore create/edit/delete, Storage PDF/image upload, and public Firestore listeners.
 - The existing homepage style and GitHub Actions job-discovery workflow are retained.
-- The Firebase Web config is intentionally left as placeholders. It must be filled from your Firebase project before the app can connect.
+- The Firebase Web config supplied for project `apna-emitra-db9cb` has been inserted in `index.html`.
 
 ## 1. Add the Firebase Web config
 In GitHub, open `index.html` and find `const firebaseConfig = {`.
@@ -12,7 +12,7 @@ Replace the six placeholder values with the object shown in Firebase Console > P
 Do not add a Service Account JSON, private key, Admin SDK credentials, or any account password to this repository. Firebase Web config is designed for client-side apps; protect the project with Firebase Rules and API-key referrer restrictions.
 
 ## 2. Confirm the Admin UID
-The `ADMIN_UID` constant in `index.html` is prefilled with the UID you supplied. Confirm it exactly matches Firebase Console > Authentication > Users. The same UID must be used in Firestore and Storage Rules.
+The `ADMIN_UID` constant in `index.html` is prefilled with the UID supplied in the setup conversation. Confirm it exactly matches Firebase Console > Authentication > Users. The same UID must be used in Firestore and Storage Rules.
 
 ## 3. Authentication
 - Authentication > Sign-in method: enable Email/Password.
