@@ -441,6 +441,58 @@
         </div>
     </footer>
 
+
+    <!-- Apna eMitra Firebase Admin: no public sign-up -->
+    <section id="admin-access" class="py-10 bg-slate-100 border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div><h2 class="text-xl font-bold text-slate-900">Admin Access</h2><p class="text-sm text-slate-600">केवल अधिकृत Admin के लिए</p></div>
+          <button id="admin-toggle" type="button" class="bg-primary-900 hover:bg-primary-800 text-white font-bold px-5 py-2.5 rounded-xl">Admin Login</button>
+        </div>
+        <div id="admin-panel" class="hidden mt-5 bg-white rounded-2xl border border-slate-200 p-5">
+          <div id="admin-login-box">
+            <h3 class="font-bold text-lg mb-3">Secure Admin Login</h3>
+            <form id="admin-login-form" class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <input id="admin-email" type="email" required autocomplete="username" placeholder="Admin email" class="border rounded-lg px-3 py-2">
+              <input id="admin-password" type="password" required autocomplete="current-password" placeholder="Password" class="border rounded-lg px-3 py-2">
+              <button class="bg-emerald-600 text-white font-bold rounded-lg px-4 py-2" type="submit">Login</button>
+            </form>
+          </div>
+          <div id="admin-workspace" class="hidden">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div><h3 class="font-bold text-lg">Content Manager</h3><p id="admin-welcome" class="text-xs text-slate-500"></p></div>
+              <button id="admin-logout" type="button" class="bg-slate-200 text-slate-800 font-bold rounded-lg px-4 py-2">Logout</button>
+            </div>
+            <form id="content-form" class="grid grid-cols-1 md:grid-cols-2 gap-3 border-b pb-5 mb-5">
+              <input id="content-id" type="hidden">
+              <label class="text-sm font-semibold">Category
+                <select id="content-category" class="mt-1 w-full border rounded-lg px-3 py-2">
+                  <option value="jobs">Government Job</option><option value="privateJobs">Private Job</option>
+                  <option value="admitCards">Admit Card</option><option value="results">Result</option>
+                  <option value="schemes">Government Scheme</option><option value="services">Service / Documents</option>
+                  <option value="books">Books / Study Material</option>
+                </select>
+              </label>
+              <label class="text-sm font-semibold">Publish status
+                <select id="content-status" class="mt-1 w-full border rounded-lg px-3 py-2"><option value="draft">Draft</option><option value="published">Published</option></select>
+              </label>
+              <label class="text-sm font-semibold md:col-span-2">Title *<input id="content-title" required maxlength="150" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold md:col-span-2">Description<textarea id="content-description" rows="3" maxlength="2000" class="mt-1 w-full border rounded-lg px-3 py-2"></textarea></label>
+              <label class="text-sm font-semibold">Organization / Category detail<input id="content-organization" maxlength="150" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Qualification / Location<input id="content-qualification" maxlength="200" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Vacancies / Important details<input id="content-vacancies" maxlength="200" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold">Last date (YYYY-MM-DD)<input id="content-lastdate" type="date" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold md:col-span-2">Official HTTPS URL<input id="content-url" type="url" placeholder="https://..." class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <label class="text-sm font-semibold md:col-span-2">PDF / Image upload (optional)<input id="content-file" type="file" accept="application/pdf,image/*" class="mt-1 w-full border rounded-lg px-3 py-2"></label>
+              <div class="md:col-span-2 flex flex-wrap gap-2"><button type="submit" class="bg-emerald-600 text-white font-bold rounded-lg px-5 py-2.5">Save Content</button><button id="content-reset" type="button" class="bg-slate-200 text-slate-800 font-bold rounded-lg px-5 py-2.5">Clear</button></div>
+            </form>
+            <p id="admin-message" role="status" class="text-sm text-slate-600 mb-3"></p>
+            <div id="admin-content-list" class="space-y-2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Job Detail Modal -->
     <div id="job-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
@@ -452,6 +504,187 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Firebase SDK (modular, browser ES modules) -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+      import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+      import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, getDocs, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+      import { getStorage, ref as storageRef, uploadBytes, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-storage.js";
+
+      // Paste the Web App config values from Firebase Console -> Project settings -> Your apps.
+      const firebaseConfig = {
+        apiKey: "PASTE_API_KEY",
+        authDomain: "PASTE_AUTH_DOMAIN",
+        projectId: "PASTE_PROJECT_ID",
+        storageBucket: "PASTE_STORAGE_BUCKET",
+        messagingSenderId: "PASTE_MESSAGING_SENDER_ID",
+        appId: "PASTE_APP_ID"
+      };
+
+      // This must be exactly the Admin UID that you placed in Firestore and Storage Rules.
+      const ADMIN_UID = "PASTE_ADMIN_UID";
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      const storage = getStorage(app);
+      const $ = id => document.getElementById(id);
+      const collectionNames = ["jobs","privateJobs","admitCards","results","schemes","services","books"];
+      let currentAdmin = null;
+      let cachedRows = [];
+
+      function configured() {
+        return Object.values(firebaseConfig).every(v => v && !String(v).startsWith("PASTE_")) &&
+          ADMIN_UID && !ADMIN_UID.startsWith("PASTE_");
+      }
+      function notice(message, error=false) {
+        $("admin-message").textContent = message;
+        $("admin-message").className = error ? "text-sm text-red-700 mb-3" : "text-sm text-emerald-700 mb-3";
+      }
+      function clean(value) { return String(value || "").trim(); }
+      function escape(value) {
+        return String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+      }
+      function httpsUrl(value) {
+        try { const u = new URL(value); return u.protocol === "https:" ? u.href : ""; }
+        catch { return ""; }
+      }
+      function showLoggedIn(user) {
+        $("admin-login-box").classList.toggle("hidden", !!user);
+        $("admin-workspace").classList.toggle("hidden", !user);
+        $("admin-welcome").textContent = user ? "Signed in: " + user.email : "";
+      }
+      $("admin-toggle").addEventListener("click", () => $("admin-panel").classList.toggle("hidden"));
+      $("admin-login-form").addEventListener("submit", async e => {
+        e.preventDefault();
+        if (!configured()) return notice("पहले firebaseConfig और ADMIN_UID की placeholders बदलें।", true);
+        try {
+          const credential = await signInWithEmailAndPassword(auth, clean($("admin-email").value), $("admin-password").value);
+          if (credential.user.uid !== ADMIN_UID) {
+            await signOut(auth);
+            return notice("यह account इस website का authorized Admin नहीं है।", true);
+          }
+          notice("Admin login सफल।");
+        } catch (err) { notice("Login विफल: " + err.message, true); }
+      });
+      $("admin-logout").addEventListener("click", () => signOut(auth));
+      onAuthStateChanged(auth, async user => {
+        currentAdmin = user && user.uid === ADMIN_UID ? user : null;
+        if (user && !currentAdmin) await signOut(auth);
+        showLoggedIn(currentAdmin);
+        if (currentAdmin) await loadAdminRows();
+      });
+
+      async function loadAdminRows() {
+        try {
+          cachedRows = [];
+          for (const name of collectionNames) {
+            const snap = await getDocs(query(collection(db, name), orderBy("updatedAt", "desc")));
+            snap.forEach(d => cachedRows.push({id:d.id, collection:name, ...d.data()}));
+          }
+          renderAdminRows();
+        } catch (err) { notice("Data load error: " + err.message, true); }
+      }
+      function renderAdminRows() {
+        $("admin-content-list").innerHTML = cachedRows.map(row => `
+          <div class="border rounded-xl p-3 flex flex-wrap items-center justify-between gap-2">
+            <div><strong>${escape(row.title)}</strong><div class="text-xs text-slate-500">${escape(row.collection)} · ${escape(row.status || "draft")}</div></div>
+            <div class="flex gap-2"><button data-edit="${row.id}" data-col="${row.collection}" class="bg-slate-200 rounded-lg px-3 py-1.5 text-sm">Edit</button><button data-delete="${row.id}" data-col="${row.collection}" class="bg-red-100 text-red-700 rounded-lg px-3 py-1.5 text-sm">Delete</button></div>
+          </div>`).join("") || '<p class="text-sm text-slate-500">अभी कोई content नहीं है।</p>';
+      }
+      $("admin-content-list").addEventListener("click", async e => {
+        const editId = e.target.dataset.edit, deleteId = e.target.dataset.delete;
+        const col = e.target.dataset.col;
+        if (!col || !currentAdmin) return;
+        if (editId) {
+          const row = cachedRows.find(x => x.id === editId && x.collection === col);
+          if (!row) return;
+          $("content-id").value = row.id; $("content-category").value = col; $("content-status").value = row.status || "draft";
+          $("content-title").value = row.title || ""; $("content-description").value = row.description || "";
+          $("content-organization").value = row.organization || ""; $("content-qualification").value = row.qualification || "";
+          $("content-vacancies").value = row.vacancies || ""; $("content-lastdate").value = row.lastDate || "";
+          $("content-url").value = row.officialUrl || "";
+          window.scrollTo({top:$("content-form").getBoundingClientRect().top + window.scrollY - 100,behavior:"smooth"});
+        }
+        if (deleteId && confirm("क्या इस content को delete करना है?")) {
+          try {
+            const row = cachedRows.find(x => x.id === deleteId && x.collection === col);
+            await deleteDoc(doc(db,col,deleteId));
+            if (row?.filePath) { try { await deleteObject(storageRef(storage,row.filePath)); } catch {} }
+            notice("Content delete हो गया।"); await loadAdminRows(); await loadAllPublicContent();
+          } catch(err) { notice("Delete error: " + err.message,true); }
+        }
+      });
+      $("content-reset").addEventListener("click", () => $("content-form").reset());
+      $("content-form").addEventListener("submit", async e => {
+        e.preventDefault();
+        if (!currentAdmin) return notice("पहले Admin Login करें।", true);
+        const col = $("content-category").value;
+        const title = clean($("content-title").value);
+        const url = clean($("content-url").value);
+        if (!title) return notice("Title आवश्यक है।", true);
+        if (url && !httpsUrl(url)) return notice("केवल HTTPS official URL स्वीकार होगा।", true);
+        try {
+          const id = $("content-id").value;
+          const old = cachedRows.find(x => x.id === id && x.collection === col);
+          let filePath = old?.filePath || "";
+          let fileUrl = old?.fileUrl || "";
+          const file = $("content-file").files[0];
+          if (file) {
+            const allowed = ["application/pdf","image/png","image/jpeg","image/webp"];
+            if (!allowed.includes(file.type) || file.size > 10 * 1024 * 1024) throw new Error("केवल PDF/JPG/PNG/WebP और अधिकतम 10 MB file स्वीकार है।");
+            filePath = "public/" + col + "/" + Date.now() + "-" + file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+            await uploadBytes(storageRef(storage,filePath),file,{contentType:file.type});
+            fileUrl = await getDownloadURL(storageRef(storage,filePath));
+          }
+          const data = {
+            title, description:clean($("content-description").value),
+            organization:clean($("content-organization").value),
+            qualification:clean($("content-qualification").value),
+            vacancies:clean($("content-vacancies").value),
+            lastDate:clean($("content-lastdate").value), officialUrl:url,
+            status:$("content-status").value, filePath, fileUrl,
+            updatedAt:serverTimestamp(), updatedBy:currentAdmin.uid
+          };
+          if (id && old) await updateDoc(doc(db,col,id),data);
+          else await addDoc(collection(db,col),{...data,createdAt:serverTimestamp()});
+          $("content-form").reset(); $("content-id").value="";
+          notice("Content सफलतापूर्वक save हुआ।"); await loadAdminRows(); await loadAllPublicContent();
+        } catch(err) { notice("Save error: " + err.message,true); }
+      });
+
+      async function loadCollection(name) {
+        const snap = await getDocs(query(collection(db,name),where("status","==","published"),orderBy("updatedAt","desc")));
+        return snap.docs.map(d=>({id:d.id,...d.data(),collection:name}));
+      }
+      async function loadAllPublicContent() {
+        try {
+          const groups = await Promise.all(collectionNames.map(loadCollection));
+          const rows = groups.flat();
+          const jobs = rows.filter(x=>["jobs","privateJobs"].includes(x.collection));
+          const gov = jobs.filter(x=>x.collection==="jobs").map(x=>({
+            id:x.id,title:escape(x.title),organization:escape(x.organization || "Official employer"),
+            category:escape(x.organization || "Government"),qualification:escape(x.qualification || "Notification देखें"),
+            vacancies:escape(x.vacancies || "Notification देखें"),lastDate:escape(x.lastDate || "Official site"),
+            ageLimit:"As per notification",salary:"As per notification",source:"Admin verified",
+            verificationDate:"",officialUrl:httpsUrl(x.officialUrl || x.fileUrl),reverificationRequired:false
+          })).filter(x=>x.officialUrl);
+          jobsData = gov; renderJobs(jobsData);
+          const pvtContainer = document.querySelector("#private-jobs .bg-slate-50");
+          if (pvtContainer) pvtContainer.innerHTML = rows.filter(x=>x.collection==="privateJobs").map(x=>`
+            <article class="bg-white border rounded-xl p-4 mb-3"><h3 class="font-bold">${escape(x.title)}</h3><p class="text-sm text-slate-600">${escape(x.description)}</p><a class="inline-block mt-3 bg-emerald-600 text-white rounded-lg px-4 py-2 text-sm" href="${escape(httpsUrl(x.officialUrl))}" target="_blank" rel="noopener">Details / Apply</a></article>`).join("") || '<p class="text-sm text-slate-500">नई प्राइवेट नौकरियाँ जल्द जोड़ी जाएँगी।</p>';
+          for (const pair of [["admitCards","#admit-cards .grid > div:first-child .space-y-4"],["results","#results .space-y-4"],["schemes","#schemes .grid"]]) {
+            const host=document.querySelector(pair[1]); if(!host) continue;
+            const items=rows.filter(x=>x.collection===pair[0]);
+            host.innerHTML=items.map(x=>`
+              <article class="border rounded-xl p-4 mb-3 bg-white"><h3 class="font-bold">${escape(x.title)}</h3><p class="text-sm text-slate-600 mt-1">${escape(x.description)}</p><a class="inline-block mt-3 text-sm text-blue-700 underline" href="${escape(httpsUrl(x.officialUrl || x.fileUrl))}" target="_blank" rel="noopener">Official link / View</a></article>`).join("") || '<p class="text-sm text-slate-500">अभी कोई update उपलब्ध नहीं है।</p>';
+          }
+        } catch(err) { console.error("Firebase public content load:",err); }
+      }
+      window.addEventListener("DOMContentLoaded", loadAllPublicContent);
+    </script>
 
     <!-- JavaScript Application Logic -->
     <script>
