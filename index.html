@@ -693,7 +693,7 @@
           source:"Admin verified",verificationDate:"",officialUrl:httpsUrl(x.officialUrl || x.fileUrl),
           reverificationRequired:false
         })).filter(x=>x.officialUrl);
-        jobsData = gov;
+        jobsData = [...githubApprovedJobs, ...gov];
         renderJobs(jobsData);
 
         const pvt = rows.filter(x=>x.collection==="privateJobs");
@@ -743,6 +743,7 @@
     <script>
         // Database of Verified Government & Competitive Jobs with Separate URLs, Dates, and Re-verification Flags
         let jobsData = [];
+        let githubApprovedJobs = [];
 
         // Render Job Cards with Expiry Check & Re-verification Badge
         function renderJobs(jobsToRender) {
@@ -1111,7 +1112,7 @@
                 if (!response.ok) throw new Error('jobs.json not available');
                 const payload = await response.json();
                 const rawJobs = Array.isArray(payload.jobs) ? payload.jobs : [];
-                jobsData = rawJobs
+                githubApprovedJobs = rawJobs
                     .filter(job => job && job.status === 'approved' && safeHttpsUrl(job.officialUrl))
                     .map(job => ({
                         ...job,
@@ -1132,6 +1133,7 @@
                         reverificationRequired: false,
                         status: 'Active'
                     }));
+                jobsData = [...githubApprovedJobs, ...jobsData.filter(job => job.source === "Admin verified")];
                 renderJobs(jobsData);
             } catch (error) {
                 console.error('Apna eMitra jobs load failed:', error);
@@ -1142,7 +1144,8 @@
         }
 
         // Initial Render
-        // Public content now comes from Firestore listeners in the Firebase module above.
+        // GitHub Actions approved jobs and Firebase Admin jobs are combined on the public page.
+        window.addEventListener('DOMContentLoaded', loadApprovedJobs);
     </script>
 </body>
 </html>
