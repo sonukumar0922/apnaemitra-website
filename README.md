@@ -1,43 +1,33 @@
-# Apna eMitra Version 1 (GitHub-only starter)
+# Apna eMitra
 
-## What this version does
-- Keeps the existing homepage design.
-- Loads public jobs from `data/jobs.json`.
-- Runs discovery twice daily (06:00 and 18:00 IST) using GitHub Actions.
-- Creates a Pull Request containing discovery leads in `data/pending-jobs.json`.
-- Publishes only records manually verified, completed, marked `approved`, and merged to `main`.
+Apna eMitra is an independent Hindi-first jobs and digital assistance website. It shares verified government/private job information, admit cards, results, schemes, document guidance, services, and study resources.
 
-## Important limitation
-The discovery script uses Google News RSS search results as *leads*, not as official job notifications. It does not claim that a vacancy is genuine, open, or accepting applications. An administrator must open the original recruiting body's website, verify the notification, fill the official HTTPS notification/application URL and all required fields, and only then set `status` to `approved`. Do not publish private-sector jobs unless the employer's own careers page confirms them.
+## Website and admin
+- Public website: `index.html`
+- Admin access: use the Admin link in the website navigation.
+- Login: Firebase Authentication (Email/Password); public sign-up is not provided.
+- Content database: Cloud Firestore.
+- PDF/image attachments: Firebase Storage.
+- Setup instructions and complete security rules: [FIREBASE_SETUP.md](./FIREBASE_SETUP.md).
 
-This is a GitHub Pull Request review workflow, not a website password-protected admin dashboard. Do not put passwords, personal data, or access tokens in public files. Do not expose a PAT. The workflow uses the repository-provided `GITHUB_TOKEN`.
+## Required Firebase configuration
+Before using Admin or live content:
+1. Open `index.html` and replace the six `PASTE_...` values in `firebaseConfig` with the Web App config from Firebase Console.
+2. Confirm the `ADMIN_UID` matches your Firebase Authentication Admin user's UID.
+3. Publish the Firestore and Storage Rules shown in [FIREBASE_SETUP.md](./FIREBASE_SETUP.md).
+4. Add `apnaemitra.in` and `www.apnaemitra.in` to Firebase Authentication's Authorized domains.
 
-## Install
-1. Back up your repository.
-2. Copy these files/folders into the repository root, preserving paths.
-3. Replace `index.html` with this updated version.
-4. In GitHub: Settings -> Actions -> General -> Workflow permissions, enable **Allow GitHub Actions to create and approve pull requests** (wording may vary). If unavailable, the discovery workflow cannot create PRs.
-5. Ensure Actions are enabled for the repository.
-6. Commit to `main`.
-7. Open Actions and manually run **Apna eMitra Job Discovery** once to test.
-8. Review the PR. For every candidate, verify the official notice, fill required fields, set `status` to `approved`, then merge.
-9. The publish workflow moves approved jobs into `data/jobs.json`; the website reads only that public file.
+## Firestore collections
+The Admin dashboard manages:
+`jobs`, `privateJobs`, `admitCards`, `results`, `schemes`, `services`, `documents`, and `books`.
 
-## Approving a candidate
-In `data/pending-jobs.json`, update a candidate only after official verification:
-- `organization`: exact recruiting organisation
-- `officialUrl`: direct official HTTPS notification/application page
-- `qualification`, `vacancies`, `ageLimit`, `lastDate`, `fee`, `salary`: accurate details from notification
-- `source`: official host, e.g. `ssc.gov.in`
-- `status`: `approved`
+Only documents with `status: "published"` are shown publicly. Drafts are visible to the authorized Admin only. The site listens for published content updates through Firestore listeners.
 
-Never infer missing dates or eligibility. If no official notice is found, leave pending or remove the candidate.
+## Job discovery workflow
+The repository also contains a GitHub Actions job-discovery workflow. Discovery results are leads only and must be manually checked against the recruiting organisation's official notification or careers page before publishing. Do not treat search/RSS results as proof that a vacancy is genuine or still open.
 
-## Schedule
-Cron `30 0,12 * * *` is 06:00 and 18:00 India Standard Time (UTC+5:30). GitHub may delay scheduled workflows during high load; use workflow_dispatch for a manual run.
-
-## Private jobs
-Private job leads require confirmation on the employer's official careers website. This initial version intentionally does not publish private job candidates automatically.
-
-## Current static sections
-The existing homepage still contains static admit-card/result/scheme content and assistance form demo behaviour. These are not connected to a backend in this version and should be reviewed/updated separately.
+## Important limitations
+- Assistance request form submission is still demo-only and is not yet stored in Firestore.
+- This browser integration is protected by Firebase Security Rules; never add service-account JSON, private keys, Admin SDK credentials, or passwords to this public repository.
+- Public Storage files are available to everyone. Never upload customers' Aadhaar/PAN, bank data, certificates containing personal identifiers, or other sensitive documents to `public/`.
+- Test login, public reads, draft visibility, publish/edit/delete, and file upload before launch.
