@@ -10,12 +10,11 @@ Apna eMitra is an independent Hindi-first jobs and digital assistance website. I
 - PDF/image attachments: Firebase Storage.
 - Setup instructions and complete security rules: [FIREBASE_SETUP.md](./FIREBASE_SETUP.md).
 
-## Required Firebase configuration
-Before using Admin or live content:
-1. Open `index.html` and replace the six `PASTE_...` values in `firebaseConfig` with the Web App config from Firebase Console.
-2. Confirm the `ADMIN_UID` matches your Firebase Authentication Admin user's UID.
-3. Publish the Firestore and Storage Rules shown in [FIREBASE_SETUP.md](./FIREBASE_SETUP.md).
-4. Add `apnaemitra.in` and `www.apnaemitra.in` to Firebase Authentication's Authorized domains.
+## Firebase configuration status
+- The Web App config for Firebase project `apna-emitra-db9cb` is now populated in `index.html`.
+- Confirm the `ADMIN_UID` matches Firebase Authentication > Users.
+- Publish the Firestore and Storage Rules shown in [FIREBASE_SETUP.md](./FIREBASE_SETUP.md).
+- Add `apnaemitra.in` and `www.apnaemitra.in` to Firebase Authentication's Authorized domains.
 
 ## Firestore collections
 The Admin dashboard manages:
