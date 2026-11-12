@@ -6,6 +6,9 @@
     <title>Apna eMitra | आपकी नौकरी, आपका भविष्य – सरकारी और प्राइवेट जॉब्स पोर्टल</title>
     <meta name="description" content="Apna eMitra (apnaemitra.in) - भारत का स्वतंत्र डिजिटल सहायता प्लेटफॉर्म जहाँ पाएँ नवीनतम सरकारी नौकरियां, प्राइवेट जॉब्स, एडमिट कार्ड, रिजल्ट और सरकारी योजनाएं।">
     <link rel="canonical" href="https://apnaemitra.in/">
+    <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#172554">
+<link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -1115,5 +1118,14 @@
         }
         window.addEventListener('DOMContentLoaded', loadApprovedJobs);
     </script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('Apna eMitra PWA Ready'))
+        .catch(err => console.error('SW Error:', err));
+    });
+  }
+</script>
 </body>
 </html>
