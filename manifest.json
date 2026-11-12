@@ -1,0 +1,18 @@
+{
+  "name": "Apna eMitra - Digital Assistance & Jobs",
+  "short_name": "Apna eMitra",
+  "description": "सरकारी नौकरियां, प्राइवेट जॉब्स, एडमिट कार्ड, रिजल्ट और ऑनलाइन फॉर्म सहायता पोर्टल।",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#172554",
+  "theme_color": "#172554",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
