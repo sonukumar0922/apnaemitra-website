@@ -61,6 +61,9 @@
                 <a href="https://wa.me/918058331989?text=Namaste%2C%20mujhe%20Apna%20eMitra%20se%20sahayata%20chahiye." target="_blank" rel="noopener noreferrer" class="hover:text-emerald-300 transition flex items-center gap-1.5 font-medium text-slate-100">
                     <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i> <span data-translate="whatsapp_support">व्हाट्सएप सहायता</span>
                 </a>
+                <button id="pwa-install-btn" style="display:none;" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-2.5 py-0.5 rounded-full text-xs shadow transition flex items-center gap-1">
+    <i class="fa-solid fa-download"></i> Install App
+</button>
                 <div class="border-l border-primary-700 pl-4 flex items-center gap-2">
                     <button onclick="switchLanguage('hi')" id="btn-hi" class="px-2 py-0.5 rounded bg-emerald-600 text-white text-xs font-bold transition">हिंदी</button>
                     <button onclick="switchLanguage('en')" id="btn-en" class="px-2 py-0.5 rounded bg-primary-700 hover:bg-primary-600 text-white text-xs font-medium transition">English</button>
@@ -1124,6 +1127,28 @@
       navigator.serviceWorker.register('/sw.js')
         .then(() => console.log('Apna eMitra PWA Ready'))
         .catch(err => console.error('SW Error:', err));
+    });
+  }
+</script>
+    <script>
+  let deferredPrompt;
+  const installBtn = document.getElementById('pwa-install-btn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installBtn) installBtn.style.display = 'inline-flex';
+  });
+
+  if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        installBtn.style.display = 'none';
+      }
+      deferredPrompt = null;
     });
   }
 </script>
