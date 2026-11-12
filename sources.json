@@ -1,5 +1,5 @@
 {
-  "notice": "These are Google News RSS discovery searches, not official recruitment feeds. Every candidate must be checked against the recruiting body's official notification before approval.",
+  "notice": "These are Google News RSS discovery searches, official recruitment feeds. admin must be checked against the recruiting body's official notification before approval.",
   "queries": [
     {
       "category": "SSC",
