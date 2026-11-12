@@ -360,27 +360,32 @@
                     <h3 class="text-lg font-bold text-slate-900" data-translate="form_heading">सहायता अनुरोध भेजें</h3>
                     <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">Live Support</span>
                 </div>
-                <form id="assistance-form" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1" data-translate="form_name">आपका नाम</label>
-                        <input type="text" id="assist-name" required placeholder="पूरा नाम दर्ज करें" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-900 text-slate-900">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1" data-translate="form_phone">मोबाइल नंबर (WhatsApp)</label>
-                        <input type="tel" id="assist-phone" required pattern="[0-9]{10}" placeholder="10 अंकों का मोबाइल नंबर" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-900 text-slate-900">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1" data-translate="form_service">किस सेवा में सहायता चाहिए?</label>
-                        <select id="assist-service" aria-label="Select Assistance Service" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-900 text-slate-900">
-                            <option value="Govt Job Form">सरकारी जॉब फॉर्म जानकारी</option>
-                            <option value="Private Job">प्राइवेट जॉब सहायता</option>
-                            <option value="Admit Card/Result">एडमिट कार्ड / रिजल्ट मार्गदर्शन</option>
-                            <option value="Certificate">दस्तावेज मार्गदर्शन</option>
-                        </select>
-                    </div>
-                    <button type="submit" id="assist-submit-btn" class="w-full bg-primary-900 hover:bg-primary-800 text-white font-bold py-3 rounded-xl transition text-sm shadow-md" data-translate="form_submit">अनुरोध सबमिट करें</button>
-                    <p id="assist-feedback" class="text-xs font-semibold text-center hidden"></p>
-                </form>
+                <form id="assistance-form" class="space-y-3">
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-center">
+        <p class="text-[11px] font-bold text-amber-900">शुल्क: सरकारी फीस + ₹50 सेवा शुल्क</p>
+        <p class="text-xs font-extrabold text-primary-900 mt-0.5 select-all">UPI: sonuk.ps0922@ptyes</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=upi://pay?pa=sonuk.ps0922@ptyes%26pn=Apna%20eMitra%26cu=INR" alt="UPI QR Code" class="mx-auto my-1.5 rounded-lg border border-slate-200 w-24 h-24">
+        <a href="upi://pay?pa=sonuk.ps0922@ptyes&pn=Apna%20eMitra&cu=INR" class="inline-block bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-lg">UPI App से पेमेंट करें</a>
+    </div>
+    <div>
+        <input type="text" id="assist-name" required placeholder="छात्र का पूरा नाम *" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
+    </div>
+    <div>
+        <input type="tel" id="assist-phone" required pattern="[0-9]{10}" placeholder="10 अंकों का WhatsApp नंबर *" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
+    </div>
+    <div>
+        <input type="text" id="assist-service" required placeholder="किस फॉर्म के लिए आवेदन करना है? (जैसे: SSC, CET) *" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
+    </div>
+    <div>
+        <label class="block text-[11px] font-bold text-slate-700 mb-1">डॉक्यूमेंट अपलोड करें (PDF / Photo - Max 10MB)</label>
+        <input type="file" id="assist-doc" accept="application/pdf,image/*" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2 py-1.5 text-xs text-slate-700">
+    </div>
+    <div>
+        <input type="text" id="assist-utr" placeholder="UPI Transaction ID / UTR नंबर (पेमेंट के बाद)" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
+    </div>
+    <button type="submit" id="assist-submit-btn" class="w-full bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl transition text-xs shadow-md">फॉर्म व डॉक्यूमेंट सबमिट करें</button>
+    <p id="assist-feedback" class="text-xs font-semibold text-center hidden"></p>
+</form>
             </div>
         </div>
     </section>
@@ -633,38 +638,90 @@
         }
       });
 
-      // Assistance Form Submission (Public)
-      $("assistance-form").addEventListener("submit", async e => {
-        e.preventDefault();
-        const btn = $("assist-submit-btn");
-        const feedback = $("assist-feedback");
-        btn.disabled = true;
-        btn.textContent = "भेजा जा रहा है...";
+     // Direct Form Apply + Document Upload + UPI UTR Submission
+$("assistance-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const btn = $("assist-submit-btn");
+  const feedback = $("assist-feedback");
+  btn.disabled = true;
+  btn.textContent = "अपलोड व सबमिट हो रहा है...";
 
-        const student_name = clean($("assist-name").value);
-        const mobile_number = clean($("assist-phone").value);
-        const service_type = clean($("assist-service").value);
+  try {
+    const student_name = clean($("assist-name").value);
+    const mobile_number = clean($("assist-phone").value);
+    const form_name = clean($("assist-service").value);
+    const utr_number = clean($("assist-utr").value);
+    let document_url = "";
 
-        const { error } = await supabase
-          .from('assistance_requests')
-          .insert([{ student_name, mobile_number, service_type }]);
+    const docFile = $("assist-doc").files[0];
+    if (docFile) {
+      if (docFile.size > 10 * 1024 * 1024) {
+        throw new Error("फाइल 10MB से छोटी होनी चाहिए।");
+      }
+      const filePath = `student-docs/${Date.now()}-${docFile.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
+      const { error: upErr } = await supabase.storage.from('portal-files').upload(filePath, docFile);
+      if (upErr) throw upErr;
+      const { data: pubData } = supabase.storage.from('portal-files').getPublicUrl(filePath);
+      document_url = pubData.publicUrl;
+    }
 
-        btn.disabled = false;
-        btn.textContent = "अनुरोध सबमिट करें";
-        feedback.classList.remove("hidden");
+    const { error } = await supabase
+      .from('form_submissions')
+      .insert([{
+        student_name,
+        mobile_number,
+        form_name,
+        utr_number,
+        payment_status: utr_number ? 'UTR Submitted' : 'Pending',
+        document_url
+      }]);
 
-        if (error) {
-          feedback.className = "text-xs font-semibold text-center text-red-600 mt-2";
-          feedback.textContent = "त्रुटि: कृपया पुनः प्रयास करें या सीधे WhatsApp करें।";
-        } else {
-          feedback.className = "text-xs font-semibold text-center text-emerald-700 mt-2";
-          feedback.textContent = `धन्यवाद ${student_name}! आपका अनुरोध दर्ज हो गया है। हमारी टीम जल्द संपर्क करेगी।`;
-          e.target.reset();
-        }
-      });
+    if (error) throw error;
 
-      // Load Assistance Requests (Admin)
-      async function loadAssistanceRequests() {
+    feedback.className = "text-xs font-semibold text-center text-emerald-700 mt-2";
+    feedback.textContent = `धन्यवाद ${student_name}! आपका फॉर्म और डॉक्यूमेंट प्राप्त हो गया है।`;
+    e.target.reset();
+  } catch (err) {
+    feedback.className = "text-xs font-semibold text-center text-red-600 mt-2";
+    feedback.textContent = "त्रुटि: " + err.message;
+  } finally {
+    feedback.classList.remove("hidden");
+    btn.disabled = false;
+    btn.textContent = "फॉर्म व डॉक्यूमेंट सबमिट करें";
+  }
+});
+
+// Admin Dashboard में सभी फॉर्म, डॉक्यूमेंट और UTR देखने का फंक्शन
+async function loadAssistanceRequests() {
+  const { data, error } = await supabase
+    .from('form_submissions')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(50);
+
+  if (error) {
+    $("admin-requests-list").innerHTML = `<p class="text-xs text-red-600">Error: ${escape(error.message)}</p>`;
+    return;
+  }
+  $("admin-requests-list").innerHTML = (data || []).map(req => `
+    <div class="bg-white border border-slate-200 rounded-xl p-3.5 flex flex-wrap justify-between items-center gap-3 text-xs shadow-sm">
+      <div>
+        <strong class="text-slate-900 text-sm">${escape(req.student_name)}</strong> · 
+        <span class="text-primary-900 font-bold">${escape(req.mobile_number)}</span>
+        <div class="text-slate-700 mt-1">फॉर्म: <strong>${escape(req.form_name)}</strong></div>
+        <div class="text-slate-600 mt-0.5">
+          UTR / पेमेंट: <span class="font-bold text-amber-800">${escape(req.utr_number || 'Not Paid Yet')}</span> 
+          (${escape(req.payment_status)}) · ${new Date(req.created_at).toLocaleDateString('hi-IN')}
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        ${req.document_url ? `<a href="${escape(req.document_url)}" target="_blank" class="bg-primary-900 hover:bg-primary-800 text-white px-3 py-2 rounded-lg font-bold transition"><i class="fa-solid fa-file-arrow-down mr-1"></i> डॉक्यूमेंट देखें</a>` : ''}
+        <a href="https://wa.me/91${escape(req.mobile_number)}?text=Namaste%20${encodeURIComponent(req.student_name)}%2C%20Apna%20eMitra%20par%20aapke%20${encodeURIComponent(req.form_name)}%20form%20ke%20liye%20sampark%20kiya%20gaya%20hai." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-lg font-bold transition"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+      </div>
+    </div>
+  `).join("") || '<p class="text-xs text-slate-500">अभी कोई फॉर्म आवेदन नहीं आया है।</p>';
+}
+$("refresh-requests").addEventListener("click", loadAssistanceRequests); {
         const { data, error } = await supabase
           .from('assistance_requests')
           .select('*')
