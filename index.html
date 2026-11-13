@@ -721,30 +721,8 @@ async function loadAssistanceRequests() {
     </div>
   `).join("") || '<p class="text-xs text-slate-500">अभी कोई फॉर्म आवेदन नहीं आया है।</p>';
 }
-$("refresh-requests").addEventListener("click", loadAssistanceRequests); {
-        const { data, error } = await supabase
-          .from('assistance_requests')
-          .select('*')
-          .order('created_at', { ascending: false })
-          .limit(30);
-
-        if (error) {
-          $("admin-requests-list").innerHTML = `<p class="text-xs text-red-600">Error: ${escape(error.message)}</p>`;
-          return;
-        }
-        $("admin-requests-list").innerHTML = (data || []).map(req => `
-          <div class="bg-white border border-slate-200 rounded-xl p-3 flex flex-wrap justify-between items-center gap-2 text-xs shadow-sm">
-            <div>
-              <strong class="text-slate-900 text-sm">${escape(req.student_name)}</strong> · 
-              <span class="text-primary-900 font-bold">${escape(req.mobile_number)}</span>
-              <div class="text-slate-600 mt-0.5">सेवा: <strong>${escape(req.service_type)}</strong> · तारीख: ${new Date(req.created_at).toLocaleDateString('hi-IN')}</div>
-            </div>
-            <a href="https://wa.me/91${escape(req.mobile_number)}?text=Namaste%20${encodeURIComponent(req.student_name)}%2C%20Apna%20eMitra%20se%20aapke%20request%20ke%20liye%20sampark%20kiya%20gaya%20hai." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2 rounded-lg font-bold transition"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp करें</a>
-          </div>
-        `).join("") || '<p class="text-xs text-slate-500">अभी कोई अनुरोध नहीं आया है।</p>';
-      }
-      $("refresh-requests").addEventListener("click", loadAssistanceRequests);
-
+$("refresh-requests").addEventListener("click", loadAssistanceRequests); 
+      
       // Load Admin Content
       async function loadAdminRows() {
         const { data, error } = await supabase
