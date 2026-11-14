@@ -699,37 +699,7 @@ $("assistance-form").addEventListener("submit", async e => {
     btn.textContent = "फॉर्म व डॉक्यूमेंट सबमिट करें";
   }
 });
-
 // Admin Dashboard में सभी फॉर्म, डॉक्यूमेंट और UTR देखने का फंक्शन
-async function loadAssistanceRequests() {
-  const { data, error } = await supabase
-    .from('form_submissions')
-    .select('*')
-    .order('created_at', { ascending: false })
-    .limit(50);
-
-  if (error) {
-    $("admin-requests-list").innerHTML = `<p class="text-xs text-red-600">Error: ${escape(error.message)}</p>`;
-    return;
-  }
-  $("admin-requests-list").innerHTML = (data || []).map(req => `
-    <div class="bg-white border border-slate-200 rounded-xl p-3.5 flex flex-wrap justify-between items-center gap-3 text-xs shadow-sm">
-      <div>
-        <strong class="text-slate-900 text-sm">${escape(req.student_name)}</strong> · 
-        <span class="text-primary-900 font-bold">${escape(req.mobile_number)}</span>
-        <div class="text-slate-700 mt-1">फॉर्म: <strong>${escape(req.form_name)}</strong></div>
-        <div class="text-slate-600 mt-0.5">
-          UTR / पेमेंट: <span class="font-bold text-amber-800">${escape(req.utr_number || 'Not Paid Yet')}</span> 
-          (${escape(req.payment_status)}) · ${new Date(req.created_at).toLocaleDateString('hi-IN')}
-        </div>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        ${req.document_url ? `<a href="${escape(req.document_url)}" target="_blank" class="bg-primary-900 hover:bg-primary-800 text-white px-3 py-2 rounded-lg font-bold transition"><i class="fa-solid fa-file-arrow-down mr-1"></i> डॉक्यूमेंट देखें</a>` : ''}
-        <a href="https://wa.me/91${escape(req.mobile_number)}?text=Namaste%20${encodeURIComponent(req.student_name)}%2C%20Apna%20eMitra%20par%20aapke%20${encodeURIComponent(req.form_name)}%20form%20ke%20liye%20sampark%20kiya%20gaya%20hai." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-lg font-bold transition"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
-      </div>
-    </div>
-  `).join("") || '<p class="text-xs text-slate-500">अभी कोई फॉर्म आवेदन नहीं आया है।</p>';
-}
 // 1. छात्रों द्वारा अपना Application Status ट्रैक करने का फंक्शन
 $("track-status-btn").addEventListener("click", async () => {
   const phone = clean($("track-phone-input").value);
