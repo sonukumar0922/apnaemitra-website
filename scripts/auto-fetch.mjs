@@ -11,7 +11,8 @@ if (!SUPABASE_SERVICE_KEY) {
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 // Verified Official & Aggregated RSS Feeds for All India, Rajasthan, SSC, Railway, Bank, DSSSB & Central Schemes
-{
+const FEEDS = [
+  {
     name: 'PIB India - Central Ministries & Sarkari Schemes',
     url: 'https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3',
     defaultCategory: 'schemes',
@@ -52,7 +53,8 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
     defaultCategory: 'jobs',
     org: 'Rajasthan Government',
     jobCat: 'Rajasthan'
-  };
+ }
+];
 function decodeHtml(str = '') {
   return str
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
