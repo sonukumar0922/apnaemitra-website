@@ -11,8 +11,7 @@ if (!SUPABASE_SERVICE_KEY) {
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 // Verified Official & Aggregated RSS Feeds for All India, Rajasthan, SSC, Railway, Bank, DSSSB & Central Schemes
-const FEEDS = [
-  {
+{
     name: 'PIB India - Central Ministries & Sarkari Schemes',
     url: 'https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3',
     defaultCategory: 'schemes',
@@ -20,21 +19,40 @@ const FEEDS = [
     jobCat: 'Central Government'
   },
   {
-    name: 'All India Govt / SSC / Railway / Bank / LIC / DSSSB Updates',
+    name: 'Sarkari Yojana Updates (Hindi - India & Rajasthan)',
+    url: 'https://news.google.com/rss/search?q=Sarkari+Yojana+2026+India+OR+Rajasthan&hl=hi&gl=IN&ceid=IN:hi',
+    defaultCategory: 'schemes',
+    org: 'Govt Welfare Scheme',
+    jobCat: 'Central / State Scheme'
+  },
+  {
+    name: 'SarkariResult - Jobs, Admit Card & Results',
     url: 'https://www.sarkariresult.com/feed/',
     defaultCategory: 'jobs',
     org: 'Central / State Recruitment',
     jobCat: 'All India Govt'
   },
   {
-    name: 'Rajasthan Government Jobs (RPSC / RSSB / State)',
-    url: 'https://www.freejobalert.com/rajasthan-government-jobs/feed/',
+    name: 'Rojgar Result - Latest Govt Jobs & Admit Cards',
+    url: 'https://www.rojgarresult.com/feed/',
+    defaultCategory: 'jobs',
+    org: 'Central / State Recruitment',
+    jobCat: 'All India Govt'
+  },
+  {
+    name: 'Jagran Josh - SSC, Banking, Railway & UPSC',
+    url: 'https://www.jagranjosh.com/rss/josh/govt-jobs.xml',
+    defaultCategory: 'jobs',
+    org: 'Central Govt Recruitment',
+    jobCat: 'All India Govt'
+  },
+  {
+    name: 'Rajasthan Govt Jobs (RPSC / RSSB)',
+    url: 'https://news.google.com/rss/search?q=RPSC+OR+RSSB+recruitment+notification&hl=en-IN&gl=IN&ceid=IN:en',
     defaultCategory: 'jobs',
     org: 'Rajasthan Government',
     jobCat: 'Rajasthan'
-  }
-];
-
+  };
 function decodeHtml(str = '') {
   return str
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
