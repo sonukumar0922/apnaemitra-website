@@ -28,7 +28,7 @@ const FEEDS = [
   },
   {
     name: 'Rajasthan Government Jobs (RPSC / RSSB / State)',
-    url: 'https://www.sarkariresult.com/rajasthan-government-jobs/feed/',
+    url: 'https://www.freejobalert.com/rajasthan-government-jobs/feed/',
     defaultCategory: 'jobs',
     org: 'Rajasthan Government',
     jobCat: 'Rajasthan'
