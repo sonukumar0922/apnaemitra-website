@@ -21,14 +21,14 @@ const FEEDS = [
   },
   {
     name: 'All India Govt / SSC / Railway / Bank / LIC / DSSSB Updates',
-    url: 'https://www.freejobalert.com/feed/',
+    url: 'https://www.sarkariresult.com/feed/',
     defaultCategory: 'jobs',
     org: 'Central / State Recruitment',
     jobCat: 'All India Govt'
   },
   {
     name: 'Rajasthan Government Jobs (RPSC / RSSB / State)',
-    url: 'https://www.freejobalert.com/rajasthan-government-jobs/feed/',
+    url: 'https://www.sarkariresult.com/rajasthan-government-jobs/feed/',
     defaultCategory: 'jobs',
     org: 'Rajasthan Government',
     jobCat: 'Rajasthan'
