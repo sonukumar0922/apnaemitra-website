@@ -1234,43 +1234,90 @@ window.updateRequestStatus = async function(id) {
                 console.error('GitHub jobs.json load skipped:', error);
             }
         }
-       // Override renderJobs to show Clean Bullet List (Sarkari Result Style)
+       // 1. Admit Card, Result और Private Job के लिए भी पॉपअप मोडल खोलने का फ़ंक्शन
+        window.openPortalItemModal = function(item) {
+            const content = document.getElementById('modal-content');
+            if (!content) return;
+            content.innerHTML = `
+                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">${item.categoryLabel || 'Official Update'}</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-3 mb-2">${item.title}</h2>
+                ${item.organization ? `<p class="text-sm font-semibold text-slate-600 mb-4"><i class="fa-solid fa-building text-primary-900 mr-2"></i> ${item.organization}</p>` : ''}
+                ${item.description ? `<div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-5 text-xs sm:text-sm text-slate-700 whitespace-pre-line leading-relaxed">${item.description}</div>` : ''}
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 space-y-2.5 text-xs sm:text-sm">
+                    ${item.qualification ? `<div class="flex justify-between border-b border-slate-200 pb-2"><span class="font-bold text-slate-500">योग्यता / विवरण:</span><span class="font-bold text-slate-900">${item.qualification}</span></div>` : ''}
+                    ${item.lastDate ? `<div class="flex justify-between"><span class="font-bold text-slate-500">महत्वपूर्ण तिथि:</span><span class="font-bold text-emerald-800">${item.lastDate}</span></div>` : ''}
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    ${item.officialUrl && item.officialUrl !== '#' ? `<a href="${item.officialUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">आधिकारिक लिंक / डाउनलोड <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i></a>` : ''}
+                    <button onclick="closeJobDetail()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-6 py-3 rounded-xl text-sm transition">बंद करें</button>
+                </div>
+            `;
+            document.getElementById('job-modal').classList.remove('hidden');
+        };
+
+        // 2. Latest Gov. Jobs को बुलेट लिस्ट में दिखाना (क्लिक करने पर आपका पुराना openJobModal खुलेगा)
         window.renderJobs = function(jobs) {
             const container = document.getElementById('job-cards-container');
             if (!container) return;
-            if (!jobs || jobs.length === 0) {
-                container.innerHTML = '<li class="text-center py-6 text-slate-500">कोई नौकरी उपलब्ध नहीं है।</li>';
+
+            const todayStr = new Date().toISOString().split('T')[0];
+            const activeJobs = (jobs || []).filter(job => {
+                if (!job.lastDate || job.lastDate === "Check Official Site" || job.lastDate === "Official site") return true;
+                return job.lastDate >= todayStr;
+            });
+
+            if (activeJobs.length === 0) {
+                container.innerHTML = '<li class="text-center py-6 text-slate-500">कोई सक्रिय नौकरी उपलब्ध नहीं है।</li>';
                 return;
             }
-            container.innerHTML = jobs.map(job => `
+
+            container.innerHTML = activeJobs.map(job => `
                 <li class="pt-2.5 first:pt-0 flex items-start gap-2">
                     <span class="text-primary-900 font-bold mt-0.5">•</span>
-                    <a href="${job.officialUrl}" target="_blank" rel="noopener noreferrer" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                    <button type="button" onclick="openJobModal('${job.id}')" class="text-left text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
                         ${job.title}
-                    </a>
+                    </button>
                 </li>
             `).join('');
         };
-        // Automatically convert Admit Card, Result, Private Job cards into clean bullet links when loaded
+
+        // 3. Admit Card, Result और Private Job को भी बुलेट लिस्ट में बदलना (क्लिक करने पर Details Modal खुलेगा)
+        window._portalModalItems = {};
+        const boxLabels = {
+            'admit-cards-container': 'Admit Card',
+            'results-container': 'Exam Result',
+            'private-jobs-container': 'Private Job'
+        };
+
         ['admit-cards-container', 'results-container', 'private-jobs-container'].forEach(id => {
             const el = document.getElementById(id);
             if (!el) return;
             const observer = new MutationObserver(() => {
-                // If Supabase inserts big cards (div), convert them to clean <li> links
-                if (el.querySelector('div')) {
+                if (el.querySelector('article, div')) {
                     const items = Array.from(el.children);
-                    el.innerHTML = items.map(item => {
-                        const titleEl = item.querySelector('h4, h3, strong, .font-bold');
+                    el.innerHTML = items.map((item, idx) => {
+                        const titleEl = item.querySelector('h3, h4, strong');
                         const linkEl = item.querySelector('a');
+                        const pTags = Array.from(item.querySelectorAll('p'));
                         const title = titleEl ? titleEl.textContent.trim() : item.textContent.trim().split('\n')[0];
-                        const href = linkEl ? linkEl.href : '#';
                         if (!title) return '';
+
+                        const itemKey = `${id}_${idx}`;
+                        window._portalModalItems[itemKey] = {
+                            categoryLabel: boxLabels[id],
+                            title: title,
+                            description: pTags[0] ? pTags[0].textContent.trim() : '',
+                            qualification: pTags[1] ? pTags[1].textContent.replace('Important date:', '').trim() : '',
+                            lastDate: '',
+                            officialUrl: linkEl ? linkEl.href : '#'
+                        };
+
                         return `
                             <li class="pt-2.5 first:pt-0 flex items-start gap-2">
                                 <span class="text-emerald-700 font-bold mt-0.5">•</span>
-                                <a href="${href}" target="_blank" rel="noopener noreferrer" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                                <button type="button" onclick="openPortalItemModal(window._portalModalItems['${itemKey}'])" class="text-left text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
                                     ${title}
-                                </a>
+                                </button>
                             </li>
                         `;
                     }).join('');
@@ -1278,6 +1325,7 @@ window.updateRequestStatus = async function(id) {
             });
             observer.observe(el, { childList: true });
         });
+
         window.addEventListener('DOMContentLoaded', loadApprovedJobs);
     </script>
     <script>
