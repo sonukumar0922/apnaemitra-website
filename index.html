@@ -197,81 +197,64 @@
             </div>
         </div>
 
-        <!-- 4 Columns Grid -->
+        <!-- 4 Columns Grid (Clean Sarkari Result Style List) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
 
             <!-- Column 1: Latest Gov. Jobs -->
-            <div id="gov-jobs" class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden flex flex-col">
-                <div class="bg-primary-900 text-white px-4 py-3.5 flex items-center justify-between">
-                    <h3 class="font-bold text-base flex items-center gap-2" data-translate="sec_gov_title">
-                        <i class="fa-solid fa-building-columns"></i> Latest Gov. Jobs
-                    </h3>
-                    <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full">Govt</span>
+            <div id="gov-jobs" class="bg-white border-2 border-primary-900 rounded-xl shadow-sm overflow-hidden flex flex-col">
+                <div class="bg-primary-900 text-white py-3 px-4 text-center">
+                    <h3 class="font-bold text-lg tracking-wide" data-translate="sec_gov_title">Latest Gov. Jobs</h3>
                 </div>
-                <!-- Note: Changed to single column flex/grid so cards fit neatly inside narrow column -->
-                <div id="job-cards-container" class="p-3.5 flex flex-col gap-3 max-h-[650px] overflow-y-auto">
-                    <div class="text-center py-8 text-slate-500 text-sm font-medium">नौकरियां लोड हो रही हैं...</div>
-                </div>
+                <ul id="job-cards-container" class="p-4 space-y-2.5 text-sm divide-y divide-slate-100">
+                    <li class="text-center py-6 text-slate-500">नौकरियां लोड हो रही हैं...</li>
+                </ul>
             </div>
 
             <!-- Column 2: Admit Card -->
-            <div id="admit-cards" class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden flex flex-col">
-                <div class="bg-emerald-700 text-white px-4 py-3.5 flex items-center justify-between">
-                    <h3 class="font-bold text-base flex items-center gap-2" data-translate="sec_admit_title">
-                        <i class="fa-solid fa-id-card"></i> Admit Card
-                    </h3>
-                    <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full">Live</span>
+            <div id="admit-cards" class="bg-white border-2 border-emerald-700 rounded-xl shadow-sm overflow-hidden flex flex-col">
+                <div class="bg-emerald-700 text-white py-3 px-4 text-center">
+                    <h3 class="font-bold text-lg tracking-wide" data-translate="sec_admit_title">Admit Card</h3>
                 </div>
-                <div id="admit-cards-container" class="p-3.5 flex flex-col gap-3 max-h-[650px] overflow-y-auto">
-                    <div class="p-3.5 bg-slate-50 hover:bg-slate-100 transition rounded-xl border border-slate-100">
-                        <span class="text-[11px] font-bold text-primary-900">UPSC</span>
-                        <h4 class="font-bold text-slate-800 text-sm mt-0.5">Civil Services (Prelims) Exam Admit Card</h4>
-                        <div class="mt-2.5 flex justify-end">
-                            <a href="https://upsconline.nic.in" target="_blank" rel="noopener noreferrer" class="bg-primary-900 hover:bg-primary-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition" data-translate="btn_download">डाउनलोड</a>
-                        </div>
-                    </div>
-                </div>
+                <ul id="admit-cards-container" class="p-4 space-y-2.5 text-sm divide-y divide-slate-100">
+                    <li class="pt-2 first:pt-0 flex items-start gap-2">
+                        <span class="text-emerald-700 font-bold mt-0.5">•</span>
+                        <a href="https://upsconline.nic.in" target="_blank" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                            UPSC Civil Services (Prelims) Exam Admit Card
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             <!-- Column 3: Result -->
-            <div id="results" class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden flex flex-col">
-                <div class="bg-primary-900 text-white px-4 py-3.5 flex items-center justify-between">
-                    <h3 class="font-bold text-base flex items-center gap-2" data-translate="sec_results_title">
-                        <i class="fa-solid fa-square-poll-vertical"></i> Result
-                    </h3>
-                    <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full">Out</span>
+            <div id="results" class="bg-white border-2 border-primary-900 rounded-xl shadow-sm overflow-hidden flex flex-col">
+                <div class="bg-primary-900 text-white py-3 px-4 text-center">
+                    <h3 class="font-bold text-lg tracking-wide" data-translate="sec_results_title">Result</h3>
                 </div>
-                <div id="results-container" class="p-3.5 flex flex-col gap-3 max-h-[650px] overflow-y-auto">
-                    <div class="p-3.5 bg-slate-50 hover:bg-slate-100 transition rounded-xl border border-slate-100">
-                        <span class="text-[11px] font-bold text-emerald-700">IBPS / RRB</span>
-                        <h4 class="font-bold text-slate-800 text-sm mt-0.5">Latest Examination Final Results & Scorecards</h4>
-                        <div class="mt-2.5 flex justify-end">
-                            <a href="https://ibps.in" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition" data-translate="btn_view">रिजल्ट देखें</a>
-                        </div>
-                    </div>
-                </div>
+                <ul id="results-container" class="p-4 space-y-2.5 text-sm divide-y divide-slate-100">
+                    <li class="pt-2 first:pt-0 flex items-start gap-2">
+                        <span class="text-primary-900 font-bold mt-0.5">•</span>
+                        <a href="https://ibps.in" target="_blank" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                            IBPS / RRB Latest Examination Final Results & Scorecards
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             <!-- Column 4: Private Job -->
-            <div id="private-jobs" class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden flex flex-col">
-                <div class="bg-emerald-700 text-white px-4 py-3.5 flex items-center justify-between">
-                    <h3 class="font-bold text-base flex items-center gap-2" data-translate="sec_pvt_title">
-                        <i class="fa-solid fa-briefcase"></i> Private Job
-                    </h3>
-                    <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full">MNC</span>
+            <div id="private-jobs" class="bg-white border-2 border-emerald-700 rounded-xl shadow-sm overflow-hidden flex flex-col">
+                <div class="bg-emerald-700 text-white py-3 px-4 text-center">
+                    <h3 class="font-bold text-lg tracking-wide" data-translate="sec_pvt_title">Private Job</h3>
                 </div>
-                <div id="private-jobs-container" class="p-3.5 flex flex-col gap-3 max-h-[650px] overflow-y-auto">
-                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
-                        <i class="fa-solid fa-briefcase text-2xl text-primary-900 mb-2"></i>
-                        <p class="font-semibold text-slate-800 text-sm">नई प्राइवेट नौकरियाँ जल्द जोड़ी जाएँगी।</p>
-                        <p class="text-xs text-slate-600 mt-1">आधिकारिक career page से पुष्टि की गई vacancies जल्द आएंगी।</p>
-                    </div>
-                </div>
+                <ul id="private-jobs-container" class="p-4 space-y-2.5 text-sm divide-y divide-slate-100">
+                    <li class="pt-2 first:pt-0 flex items-start gap-2 text-slate-600">
+                        <span class="text-emerald-700 font-bold mt-0.5">•</span>
+                        <span>नई प्राइवेट नौकरियाँ जल्द जोड़ी जाएँगी।</span>
+                    </li>
+                </ul>
             </div>
 
         </div>
     </section>
-
     <!-- Supabase-driven Services, Documents and Books -->
     <section id="digital-services" class="py-16 bg-white border-t border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -285,7 +268,6 @@
         </div>
       </div>
     </section>
-
     <!-- Last Section: Government Schemes & Documents -->
     <section id="schemes" class="py-16 bg-slate-100 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1252,6 +1234,50 @@ window.updateRequestStatus = async function(id) {
                 console.error('GitHub jobs.json load skipped:', error);
             }
         }
+       // Override renderJobs to show Clean Bullet List (Sarkari Result Style)
+        window.renderJobs = function(jobs) {
+            const container = document.getElementById('job-cards-container');
+            if (!container) return;
+            if (!jobs || jobs.length === 0) {
+                container.innerHTML = '<li class="text-center py-6 text-slate-500">कोई नौकरी उपलब्ध नहीं है।</li>';
+                return;
+            }
+            container.innerHTML = jobs.map(job => `
+                <li class="pt-2.5 first:pt-0 flex items-start gap-2">
+                    <span class="text-primary-900 font-bold mt-0.5">•</span>
+                    <a href="${job.officialUrl}" target="_blank" rel="noopener noreferrer" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                        ${job.title}
+                    </a>
+                </li>
+            `).join('');
+        };
+        // Automatically convert Admit Card, Result, Private Job cards into clean bullet links when loaded
+        ['admit-cards-container', 'results-container', 'private-jobs-container'].forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const observer = new MutationObserver(() => {
+                // If Supabase inserts big cards (div), convert them to clean <li> links
+                if (el.querySelector('div')) {
+                    const items = Array.from(el.children);
+                    el.innerHTML = items.map(item => {
+                        const titleEl = item.querySelector('h4, h3, strong, .font-bold');
+                        const linkEl = item.querySelector('a');
+                        const title = titleEl ? titleEl.textContent.trim() : item.textContent.trim().split('\n')[0];
+                        const href = linkEl ? linkEl.href : '#';
+                        if (!title) return '';
+                        return `
+                            <li class="pt-2.5 first:pt-0 flex items-start gap-2">
+                                <span class="text-emerald-700 font-bold mt-0.5">•</span>
+                                <a href="${href}" target="_blank" rel="noopener noreferrer" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                                    ${title}
+                                </a>
+                            </li>
+                        `;
+                    }).join('');
+                }
+            });
+            observer.observe(el, { childList: true });
+        });
         window.addEventListener('DOMContentLoaded', loadApprovedJobs);
     </script>
     <script>
