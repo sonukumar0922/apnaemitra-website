@@ -458,7 +458,7 @@
                     </ul>
                 </div>
 
-                <!-- Column 4: Contact Info -->
+               <!-- Column 4: Contact Info -->
                 <div>
                     <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 flex items-center gap-2" data-translate="footer_contact">
                         <span class="w-2 h-2 rounded-full bg-emerald-500"></span> संपर्क विवरण
@@ -470,7 +470,9 @@
                         </li>
                         <li class="flex items-start gap-2.5">
                             <i class="fa-brands fa-whatsapp text-emerald-400 text-sm mt-0.5"></i>
-                            <a href="https://wa.me/918058331989" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">+91 8058331989</a>
+                            <a href="https://wa.me/918058331989?text=Namaste%2C%20mujhe%20Apna%20eMitra%20se%20sahayata%20chahiye." target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition font-semibold text-emerald-300">
+                                WhatsApp Chat Support (Click Here)
+                            </a>
                         </li>
                         <li class="flex items-start gap-2.5">
                             <i class="fa-solid fa-globe text-emerald-400 mt-0.5"></i>
@@ -496,7 +498,7 @@
     </footer>
 
     <!-- Apna eMitra Supabase Admin Panel -->
-    <section id="admin-access" class="py-12 bg-slate-200 border-t-4 border-primary-900">
+   <section id="admin-access" class="hidden py-12 bg-slate-200 border-t-4 border-primary-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-5 rounded-2xl shadow-sm border border-slate-300">
           <div>
@@ -613,9 +615,10 @@
 
       // Make direct open function globally accessible for header links
       window.openAdminPanelDirectly = function() {
-        $("admin-panel").classList.remove("hidden");
-      };
-
+     $("admin-access").classList.remove("hidden");
+     $("admin-panel").classList.remove("hidden");
+     $("admin-access").scrollIntoView({ behavior: "smooth" });
+   };
       function notice(message, error = false) {
         $("admin-message").textContent = message;
         $("admin-message").className = error ? "text-sm text-red-700 bg-red-50 p-3 rounded-xl border border-red-200 mb-4 font-semibold" : "text-sm text-emerald-800 bg-emerald-50 p-3 rounded-xl border border-emerald-200 mb-4 font-semibold";
@@ -1036,7 +1039,7 @@ window.updateRequestStatus = async function(id) {
             return `<article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm"><h3 class="font-bold text-lg text-slate-900">${escape(x.title)}</h3><p class="text-sm text-slate-600 mt-2">${escape(x.description)}</p><p class="text-xs text-slate-500 mt-3 font-medium">${escape(x.qualification || "")}</p>${link ? `<a class="inline-block mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl px-4 py-2 text-xs transition" href="${escape(link)}" target="_blank" rel="noopener">Details / Apply</a>` : ""}</article>`;
           }).join("");
         }
-
+        window.allPortalRows = rows;
         // 3. Admit Cards, Results, Schemes
         const sections = [
           ["admitCards", "admit-cards-container"],
@@ -1075,10 +1078,6 @@ window.updateRequestStatus = async function(id) {
         window.jobsData = [];
         window.githubApprovedJobs = [];
         window.supabaseApprovedJobs = [];
-
-        window.renderJobs = function(jobsToRender) {
-            const container = document.getElementById('job-cards-container');
-            container.innerHTML = '';
 
             const todayStr = new Date().toISOString().split('T')[0];
             const activeJobs = jobsToRender.filter(job => {
@@ -1135,15 +1134,74 @@ window.updateRequestStatus = async function(id) {
         }
 
         function handleGlobalSearch() {
-            const query = document.getElementById('global-search-input').value.toLowerCase();
-            const filtered = window.jobsData.filter(j => 
-                j.title.toLowerCase().includes(query) || 
-                j.organization.toLowerCase().includes(query) ||
-                j.category.toLowerCase().includes(query)
+            const query = document.getElementById('global-search-input').value.trim().toLowerCase();
+
+            // 1. Latest Gov. Jobs को फिल्टर करें
+            const filteredGov = window.jobsData.filter(j => 
+                (j.title || '').toLowerCase().includes(query) || 
+                (j.organization || '').toLowerCase().includes(query) ||
+                (j.category || '').toLowerCase().includes(query)
             );
-            window.renderJobs(filtered);
+            window.renderJobs(filteredGov);
+
+            // 2. Admit Card, Result और Private Job को एक साथ फिल्टर करें
+            const boxConfigs = [
+                { cat: 'admitCards', id: 'admit-cards-container', label: 'Admit Card', emptyMsg: 'कोई Admit Card नहीं मिला।' },
+                { cat: 'results', id: 'results-container', label: 'Exam Result', emptyMsg: 'कोई Result नहीं मिला।' },
+                { cat: 'privateJobs', id: 'private-jobs-container', label: 'Private Job', emptyMsg: 'कोई Private Job नहीं मिली।' }
+            ];
+
+            const allRows = window.allPortalRows || [];
+
+            boxConfigs.forEach(box => {
+                const container = document.getElementById(box.id);
+                if (!container) return;
+
+                const matchedItems = allRows.filter(x => 
+                    x.category === box.cat && (
+                        (x.title || '').toLowerCase().includes(query) ||
+                        (x.description || '').toLowerCase().includes(query) ||
+                        (x.organization || '').toLowerCase().includes(query)
+                    )
+                );
+
+                if (matchedItems.length === 0) {
+                    container.innerHTML = `<li class="text-center py-4 text-slate-500 text-xs">${box.emptyMsg}</li>`;
+                    return;
+                }
+
+                container.innerHTML = matchedItems.map((item, idx) => {
+                    const itemKey = `${box.id}_search_${idx}`;
+                    window._portalModalItems[itemKey] = {
+                        categoryLabel: box.label,
+                        title: item.title || '',
+                        description: item.description || '',
+                        qualification: item.qualification || '',
+                        lastDate: item.last_date || '',
+                        officialUrl: item.official_url || item.file_url || '#'
+                    };
+
+                    return `
+                        <li class="pt-2.5 first:pt-0 flex items-start gap-2">
+                            <span class="text-emerald-700 font-bold mt-0.5">•</span>
+                            <button type="button" onclick="openPortalItemModal(window._portalModalItems['${itemKey}'])" class="text-left text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                                ${item.title}
+                            </button>
+                        </li>
+                    `;
+                }).join('');
+            });
+
+            // रिजल्ट सेक्शन तक स्मूथ स्क्रॉल करें
             document.getElementById('gov-jobs').scrollIntoView({ behavior: 'smooth' });
         }
+
+        // सर्च बॉक्स में टाइप करते समय या Enter दबाने पर भी सर्च चलाएं
+        document.getElementById('global-search-input')?.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter' || this.value.trim() === '') {
+                handleGlobalSearch();
+            }
+        });
 
         function openJobModal(id) {
             const job = window.jobsData.find(j => j.id === id);
