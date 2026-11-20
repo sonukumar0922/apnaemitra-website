@@ -76,8 +76,6 @@
     <header class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Brand Logo -->
-                <a href="#home" class="flex items-center gap-3 group">
                    <!-- Brand Logo -->
                 <a href="#home" class="flex items-center gap-3 group">
                     <img src="/apnaemitralogo.png" alt="Apna eMitra Logo" class="w-11 h-11 rounded-xl object-cover shadow-md border border-slate-200 group-hover:scale-105 transition">
@@ -401,57 +399,99 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact" class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-            <div class="space-y-4 md:col-span-1">
-                <div class="flex items-center gap-3">
-                   <div class="flex items-center gap-3">
-                    <img src="/apnaemitralogo.png" alt="Apna eMitra Logo" class="w-10 h-10 rounded-xl object-cover bg-white p-0.5">
-                    <span class="text-xl font-black text-white">Apna <span class="text-emerald-400">eMitra</span></span>
+   <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-slate-300 pt-14 pb-10 border-t-4 border-emerald-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- 4 Columns Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Column 1: Brand & Social -->
+                <div class="space-y-4">
+                    <a href="#home" class="flex items-center gap-3 group">
+                        <img src="/apnaemitralogo.png" alt="Apna eMitra Logo" class="w-11 h-11 rounded-xl object-cover bg-white p-0.5 shadow-md group-hover:scale-105 transition">
+                        <div>
+                            <span class="text-xl font-black text-white tracking-tight">Apna <span class="text-emerald-400">eMitra</span></span>
+                            <p class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">apnaemitra.in</p>
+                        </div>
+                    </a>
+                    <p class="text-xs text-slate-400 leading-relaxed" data-translate="footer_desc">
+                        भारत के ग्रामीण और छोटे शहरों के युवाओं के लिए डिजिटल सहायता, सरकारी और प्राइवेट जॉब्स का भरोसेमंद केंद्र।
+                    </p>
+                    <div class="flex items-center gap-3 pt-1">
+                        <a href="https://wa.me/918058331989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support" title="WhatsApp Support" class="w-9 h-9 bg-slate-800 hover:bg-emerald-600 text-white rounded-xl flex items-center justify-center transition shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                        </a>
+                        <a href="https://t.me/apnaemitra_in" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel" title="Telegram Channel" class="w-9 h-9 bg-slate-800 hover:bg-sky-600 text-white rounded-xl flex items-center justify-center transition shadow-sm">
+                            <i class="fa-brands fa-telegram text-base"></i>
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029VbE1dcBJpe8bPO9ObN3C" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel" title="WhatsApp Channel" class="w-9 h-9 bg-slate-800 hover:bg-emerald-500 text-white rounded-xl flex items-center justify-center transition shadow-sm">
+                            <i class="fa-solid fa-bullhorn text-sm"></i>
+                        </a>
+                    </div>
                 </div>
-                <p class="text-xs text-slate-400 leading-relaxed" data-translate="footer_desc">
-                    भारत के ग्रामीण और छोटे शहरों के युवाओं के लिए डिजिटल सहायता, सरकारी और प्राइवेट जॉब्स का प्रमुख केंद्र। Domain: apnaemitra.in
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 flex items-center gap-2" data-translate="footer_links">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span> त्वरित लिंक्स
+                    </h4>
+                    <ul class="space-y-2.5 text-xs font-medium">
+                        <li><a href="#home" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-emerald-500"></i> <span data-translate="nav_home">होम</span></a></li>
+                        <li><a href="#gov-jobs" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-emerald-500"></i> <span data-translate="nav_gov_jobs">सरकारी जॉब्स</span></a></li>
+                        <li><a href="#private-jobs" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-emerald-500"></i> <span data-translate="nav_pvt_jobs">प्राइवेट जॉब्स</span></a></li>
+                        <li><a href="#admit-cards" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-emerald-500"></i> <span data-translate="nav_admit">एडमिट कार्ड</span></a></li>
+                        <li><a href="#results" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-emerald-500"></i> <span data-translate="nav_results">रिजल्ट</span></a></li>
+                        <li><a href="#schemes" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-emerald-500"></i> <span data-translate="nav_schemes">सरकारी योजनाएं</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal & Help -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 flex items-center gap-2" data-translate="footer_legal">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span> कानूनी सूचना (Legal)
+                    </h4>
+                    <ul class="space-y-2.5 text-xs font-medium">
+                        <li><a href="/privacy.html" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-500 w-3.5"></i> Privacy Policy</a></li>
+                        <li><a href="/privacy.html" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-file-contract text-emerald-500 w-3.5"></i> Terms & Conditions</a></li>
+                        <li><a href="/privacy.html" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-circle-exclamation text-emerald-500 w-3.5"></i> Disclaimer</a></li>
+                        <li><a href="#assistance" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-headset text-emerald-500 w-3.5"></i> <span data-translate="nav_assistance">ऑनलाइन सहायता</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 flex items-center gap-2" data-translate="footer_contact">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span> संपर्क विवरण
+                    </h4>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-envelope text-emerald-400 mt-0.5"></i>
+                            <a href="mailto:support@apnaemitra.in" class="hover:text-emerald-400 transition break-all">support@apnaemitra.in</a>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-sm mt-0.5"></i>
+                            <a href="https://wa.me/918058331989" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">+91 8058331989</a>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-globe text-emerald-400 mt-0.5"></i>
+                            <a href="https://apnaemitra.in" class="hover:text-emerald-400 transition">https://apnaemitra.in</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Disclaimer Note -->
+            <div class="mt-8 bg-slate-800/60 border border-slate-700/70 rounded-xl p-3.5 text-center">
+                <p class="text-[11px] text-slate-400 leading-relaxed">
+                    <strong class="text-emerald-400">Disclaimer:</strong> Apna eMitra (apnaemitra.in) एक स्वतंत्र डिजिटल सूचना एवं फॉर्म सहायता प्लेटफॉर्म है। इसका किसी भी सरकारी विभाग या मंत्रालय से कोई सीधा संबंध नहीं है।
                 </p>
-                <div class="flex gap-3 text-lg">
-                    <a href="https://wa.me/918058331989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Support" class="w-9 h-9 bg-slate-800 hover:bg-emerald-600 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-whatsapp text-white"></i></a>
-                    <a href="https://t.me/apnaemitra_in" target="_blank" rel="noopener noreferrer" aria-label="Telegram Channel" class="w-9 h-9 bg-slate-800 hover:bg-sky-600 rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-telegram text-white"></i></a>
-                    <a href="https://whatsapp.com/channel/0029VbE1dcBJpe8bPO9ObN3C" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel" class="w-9 h-9 bg-slate-800 hover:bg-emerald-500 rounded-lg flex items-center justify-center transition"><i class="fa-solid fa-bullhorn text-white text-sm"></i></a>
-                </div>
             </div>
 
-            <div>
-                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4" data-translate="footer_links">त्वरित लिंक्स</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="#home" class="hover:text-emerald-400 transition" data-translate="nav_home">होम</a></li>
-                    <li><a href="#gov-jobs" class="hover:text-emerald-400 transition" data-translate="nav_gov_jobs">सरकारी जॉब्स</a></li>
-                    <li><a href="#private-jobs" class="hover:text-emerald-400 transition" data-translate="nav_pvt_jobs">प्राइवेट जॉब्स</a></li>
-                    <li><a href="#admit-cards" class="hover:text-emerald-400 transition" data-translate="nav_admit">एडमिट कार्ड</a></li>
-                    <li><a href="#results" class="hover:text-emerald-400 transition" data-translate="nav_results">रिजल्ट</a></li>
-                </ul>
+            <!-- Copyright Bar -->
+            <div class="mt-6 text-center text-xs text-slate-500">
+                <p>&copy; 2026 <span class="text-slate-300 font-semibold">Apna eMitra</span> (apnaemitra.in). All Rights Reserved.</p>
             </div>
-
-            <div>
-                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4" data-translate="footer_legal">कानूनी सूचना (Legal)</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="/privacy.html" class="hover:text-emerald-400 transition">Privacy Policy</a></li>
-                    <li><a href="/privacy.html" class="hover:text-emerald-400 transition">Terms & Conditions</a></li>
-                    <li><ahref="/privacy.html"class="hover:text-emerald-400 transition">Disclaimer</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4" data-translate="footer_contact">संपर्क विवरण</h4>
-                <ul class="space-y-3 text-xs text-slate-400">
-                    <li><i class="fa-solid fa-envelope text-emerald-400 mr-2"></i> support@apnaemitra.in</li>
-                    <li><i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i> +91 8058331989</li>
-                    <li><i class="fa-solid fa-globe text-emerald-400 mr-2"></i> https://apnaemitra.in</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
-            <p>&copy; 2026 Apna eMitra (apnaemitra.in). All Rights Reserved. Independent Digital Assistance Platform.</p>
         </div>
     </footer>
 
