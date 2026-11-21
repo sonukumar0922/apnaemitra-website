@@ -1078,52 +1078,6 @@ window.updateRequestStatus = async function(id) {
         window.jobsData = [];
         window.githubApprovedJobs = [];
         window.supabaseApprovedJobs = [];
-
-            const todayStr = new Date().toISOString().split('T')[0];
-            const activeJobs = jobsToRender.filter(job => {
-                if (!job.lastDate || job.lastDate === "Check Official Site" || job.lastDate === "Official site") return true;
-                return job.lastDate >= todayStr;
-            });
-
-            if (activeJobs.length === 0) {
-                container.innerHTML = `<div class="col-span-3 text-center py-12 text-slate-500 font-medium">कोई सक्रिय नौकरी उपलब्ध नहीं है। (Admin Panel से नई नौकरी जोड़ें)।</div>`;
-                return;
-            }
-
-            activeJobs.forEach(job => {
-                const card = document.createElement('div');
-                card.className = "bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition flex flex-col justify-between";
-                const badgeHtml = `<span class="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full">Source Verified</span>`;
-
-                card.innerHTML = `
-                    <div>
-                        <div class="flex justify-between items-start mb-3 gap-2">
-                            <span class="bg-primary-50 text-primary-900 text-xs font-bold px-2.5 py-1 rounded-md">${job.category}</span>
-                            ${badgeHtml}
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">${job.title}</h3>
-                        <p class="text-xs text-slate-600 mb-4 font-medium"><i class="fa-solid fa-building text-primary-900 mr-1.5"></i> ${job.organization}</p>
-                        <ul class="text-xs text-slate-700 space-y-2 mb-6 border-t border-b border-slate-100 py-3">
-                            <li><i class="fa-solid fa-graduation-cap text-primary-900 mr-2"></i><strong>योग्यता:</strong> ${job.qualification}</li>
-                            <li><i class="fa-solid fa-users text-primary-900 mr-2"></i><strong>पद विवरण:</strong> ${job.vacancies}</li>
-                            <li><i class="fa-solid fa-calendar text-emerald-700 mr-2"></i><strong>अंतिम तिथि:</strong> ${job.lastDate}</li>
-                        </ul>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex gap-2">
-                            <button onclick="openJobModal('${job.id}')" class="flex-1 bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl text-xs transition text-center shadow-sm">विवरण देखें</button>
-                            <a href="${job.officialUrl}" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center shadow-sm">अप्लाई <i class="fa-solid fa-arrow-up-right-from-square ml-1.5"></i></a>
-                        </div>
-                        <div class="text-[10px] text-slate-400 flex justify-between pt-1">
-                            <span>Source: ${job.source}</span>
-                            <span>Verified: ${job.verificationDate}</span>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        };
-
         function filterJobs() {
             const cat = document.getElementById('filter-category').value;
             const qual = document.getElementById('filter-qualification').value;
@@ -1132,7 +1086,6 @@ window.updateRequestStatus = async function(id) {
             if (qual !== 'all') filtered = filtered.filter(j => j.qualification.includes(qual));
             window.renderJobs(filtered);
         }
-
         function handleGlobalSearch() {
             const query = document.getElementById('global-search-input').value.trim().toLowerCase();
 
