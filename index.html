@@ -7,9 +7,17 @@
     <meta name="description" content="Apna eMitra (apnaemitra.in) - भारत का स्वतंत्र डिजिटल सहायता प्लेटफॉर्म जहाँ पाएँ नवीनतम सरकारी नौकरियां, प्राइवेट जॉब्स, एडमिट कार्ड, रिजल्ट और सरकारी योजनाएं।">
     <link rel="canonical" href="https://apnaemitra.in/">
     <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#172554">
-<link rel="icon" type="image/png" href="/apnaemitralogo.png">
-<link rel="apple-touch-icon" href="/logo.png">
+    <meta name="theme-color" content="#172554">
+    <link rel="icon" type="image/png" href="/apnaemitralogo.png">
+    <link rel="apple-touch-icon" href="/apnaemitralogo.png">
+
+    <!-- Open Graph / WhatsApp & Social Sharing Tags -->
+    <meta property="og:title" content="Apna eMitra | सरकारी और प्राइवेट जॉब्स पोर्टल">
+    <meta property="og:description" content="नवीनतम सरकारी नौकरियां, प्राइवेट जॉब्स, एडमिट कार्ड, रिजल्ट और ऑनलाइन फॉर्म सहायता।">
+    <meta property="og:image" content="https://apnaemitra.in/apnaemitralogo.png">
+    <meta property="og:url" content="https://apnaemitra.in/">
+    <meta property="og:type" content="website">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -62,8 +70,8 @@
                     <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i> <span data-translate="whatsapp_support">व्हाट्सएप सहायता</span>
                 </a>
                 <button id="pwa-install-btn" style="display:none;" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-2.5 py-0.5 rounded-full text-xs shadow transition flex items-center gap-1">
-    <i class="fa-solid fa-download"></i> Install App
-</button>
+                    <i class="fa-solid fa-download"></i> Install App
+                </button>
                 <div class="border-l border-primary-700 pl-4 flex items-center gap-2">
                     <button onclick="switchLanguage('hi')" id="btn-hi" class="px-2 py-0.5 rounded bg-emerald-600 text-white text-xs font-bold transition">हिंदी</button>
                     <button onclick="switchLanguage('en')" id="btn-en" class="px-2 py-0.5 rounded bg-primary-700 hover:bg-primary-600 text-white text-xs font-medium transition">English</button>
@@ -76,7 +84,7 @@
     <header class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                   <!-- Brand Logo -->
+                <!-- Brand Logo -->
                 <a href="#home" class="flex items-center gap-3 group">
                     <img src="/apnaemitralogo.png" alt="Apna eMitra Logo" class="w-11 h-11 rounded-xl object-cover shadow-md border border-slate-200 group-hover:scale-105 transition">
                     <div>
@@ -85,7 +93,7 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation Menu -->
+                <!-- Desktop Navigation Menu (Public Admin button removed for security) -->
                 <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 text-sm font-semibold text-slate-700">
                     <a href="#home" class="px-3 py-2 rounded-lg hover:bg-primary-50 hover:text-primary-900 transition" data-translate="nav_home">होम</a>
                     <a href="#gov-jobs" class="px-3 py-2 rounded-lg hover:bg-primary-50 hover:text-primary-900 transition" data-translate="nav_gov_jobs">सरकारी जॉब्स</a>
@@ -93,9 +101,8 @@
                     <a href="#admit-cards" class="px-3 py-2 rounded-lg hover:bg-primary-50 hover:text-primary-900 transition" data-translate="nav_admit">एडमिट कार्ड</a>
                     <a href="#results" class="px-3 py-2 rounded-lg hover:bg-primary-50 hover:text-primary-900 transition" data-translate="nav_results">रिजल्ट</a>
                     <a href="#schemes" class="px-3 py-2 rounded-lg hover:bg-primary-50 hover:text-primary-900 transition" data-translate="nav_schemes">योजनाएं</a>
-                    <a href="#assistance" class="px-3 py-2 rounded-lg hover:bg-primary-50 hover:text-primary-900 transition" data-translate="nav_assistance">ऑनलाइन सहायता</a>
+                    <a href="#assistance" class="px-3 py-2 rounded-lg bg-emerald-50 text-emerald-800 hover:bg-emerald-100 font-bold transition" data-translate="nav_assistance">ऑनलाइन सहायता</a>
                     <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-primary-50 hover:text-primary-900 transition" data-translate="nav_contact">संपर्क</a>
-                    <a href="#admin-access" onclick="openAdminPanelDirectly()" class="px-3.5 py-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold transition border border-emerald-200"><i class="fa-solid fa-lock mr-1 text-xs"></i> Admin</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -115,9 +122,8 @@
             <a href="#admit-cards" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_admit">एडमिट कार्ड</a>
             <a href="#results" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_results">रिजल्ट</a>
             <a href="#schemes" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_schemes">योजनाएं</a>
-            <a href="#assistance" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_assistance">ऑनलाइन सहायता</a>
+            <a href="#assistance" class="mobile-link block px-3 py-2 rounded-md text-base font-bold text-emerald-800 bg-emerald-50" data-translate="nav_assistance">ऑनलाइन सहायता</a>
             <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary-900" data-translate="nav_contact">संपर्क</a>
-            <a href="#admin-access" onclick="openAdminPanelDirectly()" class="mobile-link block px-3 py-2 rounded-md text-base font-bold text-emerald-800 bg-emerald-50">Admin Login</a>
         </div>
     </header>
 
@@ -166,13 +172,13 @@
         </div>
     </div>
 
-  <!-- 4 Columns Portal Layout (Left to Right: Gov Jobs, Admit Card, Result, Private Job) -->
+    <!-- 4 Columns Portal Layout -->
     <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Top Filter Bar for Jobs -->
         <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
                 <span class="text-emerald-700 font-bold uppercase tracking-wider text-xs bg-emerald-100 px-3 py-1 rounded-full" data-translate="sec_jobs_tag">सत्यापित अवसर</span>
-                <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 mt-1">नवीनतम अपडेट्स (Latest Updates)</h2>
+                <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 mt-1" data-translate="latest_updates_heading">नवीनतम अपडेट्स (Latest Updates)</h2>
             </div>
             <!-- Filters -->
             <div class="flex flex-wrap gap-2">
@@ -195,13 +201,13 @@
             </div>
         </div>
 
-        <!-- 4 Columns Grid (Clean Sarkari Result Style List) -->
+        <!-- 4 Columns Grid (Clean Bullet List Layout) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
 
             <!-- Column 1: Latest Gov. Jobs -->
             <div id="gov-jobs" class="bg-white border-2 border-primary-900 rounded-xl shadow-sm overflow-hidden flex flex-col">
                 <div class="bg-primary-900 text-white py-3 px-4 text-center">
-                    <h3 class="font-bold text-lg tracking-wide" data-translate="sec_gov_title">Latest Gov. Jobs</h3>
+                    <h3 class="font-bold text-lg tracking-wide" data-translate="col_gov_title">Latest Gov. Jobs</h3>
                 </div>
                 <ul id="job-cards-container" class="p-4 space-y-2.5 text-sm divide-y divide-slate-100">
                     <li class="text-center py-6 text-slate-500">नौकरियां लोड हो रही हैं...</li>
@@ -211,12 +217,12 @@
             <!-- Column 2: Admit Card -->
             <div id="admit-cards" class="bg-white border-2 border-emerald-700 rounded-xl shadow-sm overflow-hidden flex flex-col">
                 <div class="bg-emerald-700 text-white py-3 px-4 text-center">
-                    <h3 class="font-bold text-lg tracking-wide" data-translate="sec_admit_title">Admit Card</h3>
+                    <h3 class="font-bold text-lg tracking-wide" data-translate="col_admit_title">Admit Card</h3>
                 </div>
                 <ul id="admit-cards-container" class="p-4 space-y-2.5 text-sm divide-y divide-slate-100">
                     <li class="pt-2 first:pt-0 flex items-start gap-2">
                         <span class="text-emerald-700 font-bold mt-0.5">•</span>
-                        <a href="https://upsconline.nic.in" target="_blank" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                        <a href="https://upsconline.nic.in" target="_blank" rel="noopener noreferrer" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
                             UPSC Civil Services (Prelims) Exam Admit Card
                         </a>
                     </li>
@@ -226,12 +232,12 @@
             <!-- Column 3: Result -->
             <div id="results" class="bg-white border-2 border-primary-900 rounded-xl shadow-sm overflow-hidden flex flex-col">
                 <div class="bg-primary-900 text-white py-3 px-4 text-center">
-                    <h3 class="font-bold text-lg tracking-wide" data-translate="sec_results_title">Result</h3>
+                    <h3 class="font-bold text-lg tracking-wide" data-translate="col_results_title">Result</h3>
                 </div>
                 <ul id="results-container" class="p-4 space-y-2.5 text-sm divide-y divide-slate-100">
                     <li class="pt-2 first:pt-0 flex items-start gap-2">
                         <span class="text-primary-900 font-bold mt-0.5">•</span>
-                        <a href="https://ibps.in" target="_blank" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                        <a href="https://ibps.in" target="_blank" rel="noopener noreferrer" class="text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
                             IBPS / RRB Latest Examination Final Results & Scorecards
                         </a>
                     </li>
@@ -241,7 +247,7 @@
             <!-- Column 4: Private Job -->
             <div id="private-jobs" class="bg-white border-2 border-emerald-700 rounded-xl shadow-sm overflow-hidden flex flex-col">
                 <div class="bg-emerald-700 text-white py-3 px-4 text-center">
-                    <h3 class="font-bold text-lg tracking-wide" data-translate="sec_pvt_title">Private Job</h3>
+                    <h3 class="font-bold text-lg tracking-wide" data-translate="col_pvt_title">Private Job</h3>
                 </div>
                 <ul id="private-jobs-container" class="p-4 space-y-2.5 text-sm divide-y divide-slate-100">
                     <li class="pt-2 first:pt-0 flex items-start gap-2 text-slate-600">
@@ -253,26 +259,36 @@
 
         </div>
     </section>
+
     <!-- Supabase-driven Services, Documents and Books -->
     <section id="digital-services" class="py-16 bg-white border-t border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div>
-          <div class="mb-6"><span class="text-emerald-700 font-bold uppercase tracking-wider text-xs bg-emerald-100 px-3 py-1 rounded-full">Digital Help</span><h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Services & Document Assistance</h2><p class="text-sm text-slate-600 mt-2">Admin द्वारा प्रकाशित सेवाएं और दस्तावेज मार्गदर्शन। संवेदनशील मूल दस्तावेज यहां अपलोड न करें।</p></div>
+          <div class="mb-6">
+              <span class="text-emerald-700 font-bold uppercase tracking-wider text-xs bg-emerald-100 px-3 py-1 rounded-full" data-translate="sec_services_tag">डिजिटल सहायता</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3" data-translate="sec_services_title">सेवाएं एवं दस्तावेज मार्गदर्शन (Services & Documents)</h2>
+              <p class="text-sm text-slate-600 mt-2" data-translate="sec_services_desc">Admin द्वारा प्रकाशित सेवाएं और दस्तावेज मार्गदर्शन। संवेदनशील मूल दस्तावेज सार्वजनिक रूप से साझा न करें।</p>
+          </div>
           <div id="services-public-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5"><p class="text-sm text-slate-500">Services लोड हो रही हैं...</p></div>
         </div>
         <div>
-          <div class="mb-6"><span class="text-primary-900 font-bold uppercase tracking-wider text-xs bg-primary-50 px-3 py-1 rounded-full">Study Resources</span><h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Books & Study Material</h2><p class="text-sm text-slate-600 mt-2">Admin द्वारा जोड़ी गई किताबें और अध्ययन सामग्री। केवल वही सामग्री साझा करें जिसके वितरण का आपको अधिकार हो।</p></div>
+          <div class="mb-6">
+              <span class="text-primary-900 font-bold uppercase tracking-wider text-xs bg-primary-50 px-3 py-1 rounded-full" data-translate="sec_books_tag">अध्ययन सामग्री</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3" data-translate="sec_books_title">किताबें और नोट्स (Books & Study Material)</h2>
+              <p class="text-sm text-slate-600 mt-2" data-translate="sec_books_desc">प्रतियोगी परीक्षाओं के लिए उपयोगी किताबें और अध्ययन सामग्री।</p>
+          </div>
           <div id="books-public-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5"><p class="text-sm text-slate-500">Books लोड हो रही हैं...</p></div>
         </div>
       </div>
     </section>
-    <!-- Last Section: Government Schemes & Documents -->
+
+    <!-- Government Schemes & Documents -->
     <section id="schemes" class="py-16 bg-slate-100 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-emerald-700 font-bold uppercase tracking-wider text-xs bg-emerald-100 px-3 py-1 rounded-full" data-translate="sec_scheme_tag">जन कल्याणकारी योजनाएं</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2" data-translate="sec_scheme_title">लोकप्रिय सरकारी योजनाएं एवं दस्तावेज गाइड</h2>
-                <p class="text-slate-600 text-sm mt-2" data-translate="sec_scheme_desc">Central and State government schemes with step-by-step eligibility and required documents.</p>
+                <p class="text-slate-600 text-sm mt-2" data-translate="sec_scheme_desc">केंद्र और राज्य सरकार की प्रमुख योजनाएं, पात्रता और आवश्यक दस्तावेजों की जानकारी।</p>
             </div>
 
             <div id="schemes-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -325,7 +341,7 @@
                 <span class="bg-white/20 text-emerald-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" data-translate="sec_assist_tag">ऑनलाइन सहायता केंद्र</span>
                 <h2 class="text-2xl sm:text-4xl font-extrabold mt-3 mb-4 text-white" data-translate="sec_assist_title">क्या आपको फॉर्म भरने या जॉब खोजने में मदद चाहिए?</h2>
                 <p class="text-slate-100 text-sm sm:text-base leading-relaxed mb-6" data-translate="sec_assist_desc">
-                    हमारे एक्सपर्ट्स से व्हाट्सएप के जरिए संपर्क करें। हम सरकारी और प्राइवेट जॉब एप्लीकेशन की जानकारी प्रदान करने में सहायता करते हैं।
+                    घर बैठे अपने दस्तावेज़ अपलोड करें या व्हाट्सएप के ज़रिए संपर्क करें। हम सरकारी और प्राइवेट जॉब फॉर्म भरने में आपकी पूरी सहायता करते हैं।
                 </p>
                 <div class="flex flex-wrap gap-4">
                     <a href="https://wa.me/918058331989?text=Namaste%2C%20mujhe%20form%20bharne%20ya%20job%20ke%20liye%20sahayata%20chahiye." target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl transition shadow-lg flex items-center gap-2">
@@ -337,41 +353,42 @@
             <!-- Live Assistance Form Connected to Supabase -->
             <div class="w-full lg:w-96 bg-white text-slate-900 rounded-2xl p-6 shadow-2xl border border-slate-100">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-slate-900" data-translate="form_heading">सहायता अनुरोध भेजें</h3>
+                    <h3 class="text-lg font-bold text-slate-900" data-translate="form_heading">ऑनलाइन फॉर्म आवेदन</h3>
                     <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">Live Support</span>
                 </div>
                 <form id="assistance-form" class="space-y-3">
-    <div class="bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-center">
-        <p class="text-[11px] font-bold text-amber-900">शुल्क: सरकारी फीस + ₹50 सेवा शुल्क</p>
-        <p class="text-xs font-extrabold text-primary-900 mt-0.5 select-all">UPI: 8949470103@axl</p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=upi://pay?pa=8949470103@axl%26pn=Bharti%20Meena%26cu=INR" alt="UPI QR Code" class="mx-auto my-1.5 rounded-lg border border-slate-200 w-24 h-24">
-        <a href="upi://pay?pa=8949470103@axl&pn=Bharti%20Meena&cu=INR" class="inline-block bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-lg">UPI App से पेमेंट करें</a>
-    </div>
-    <div>
-        <input type="text" id="assist-name" required placeholder="छात्र का पूरा नाम *" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
-    </div>
-    <div>
-        <input type="tel" id="assist-phone" required pattern="[0-9]{10}" placeholder="10 अंकों का WhatsApp नंबर *" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
-    </div>
-    <div>
-        <input type="text" id="assist-service" required placeholder="किस फॉर्म के लिए आवेदन करना है? (जैसे: SSC, CET) *" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
-    </div>
-    <div>
-        <label class="block text-[11px] font-bold text-slate-700 mb-1">डॉक्यूमेंट अपलोड करें (PDF / Photo - Max 10MB)</label>
-        <input type="file" id="assist-doc" accept="application/pdf,image/*" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2 py-1.5 text-xs text-slate-700">
-    </div>
-    <div>
-        <input type="text" id="assist-utr" placeholder="UPI Transaction ID / UTR नंबर (पेमेंट के बाद)" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
-    </div>
-    <button type="submit" id="assist-submit-btn" class="w-full bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl transition text-xs shadow-md">फॉर्म व डॉक्यूमेंट सबमिट करें</button>
-    <p id="assist-feedback" class="text-xs font-semibold text-center hidden"></p>
-</form>
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-center">
+                        <p class="text-[11px] font-bold text-amber-900" data-translate="fee_notice">शुल्क: सरकारी फीस + ₹50 सेवा शुल्क</p>
+                        <p class="text-xs font-extrabold text-primary-900 mt-0.5 select-all">UPI: 8949470103@axl</p>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=upi://pay?pa=8949470103@axl%26pn=Bharti%20Meena%26cu=INR" alt="UPI QR Code" class="mx-auto my-1.5 rounded-lg border border-slate-200 w-24 h-24">
+                        <a href="upi://pay?pa=8949470103@axl&pn=Bharti%20Meena&cu=INR" class="inline-block bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-lg">UPI App से पेमेंट करें</a>
+                    </div>
+                    <div>
+                        <input type="text" id="assist-name" required placeholder="छात्र का पूरा नाम *" data-translate-placeholder="ph_student_name" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
+                    </div>
+                    <div>
+                        <input type="tel" id="assist-phone" required pattern="[0-9]{10}" placeholder="10 अंकों का WhatsApp नंबर *" data-translate-placeholder="ph_whatsapp_num" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
+                    </div>
+                    <div>
+                        <input type="text" id="assist-service" required placeholder="किस फॉर्म के लिए आवेदन करना है? (जैसे: SSC, CET) *" data-translate-placeholder="ph_form_name" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-slate-700 mb-1" data-translate="lbl_doc_upload">डॉक्यूमेंट अपलोड करें (PDF / Photo - Max 10MB)</label>
+                        <input type="file" id="assist-doc" accept="application/pdf,image/*" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2 py-1.5 text-xs text-slate-700">
+                    </div>
+                    <div>
+                        <input type="text" id="assist-utr" placeholder="UPI Transaction ID / UTR नंबर (पेमेंट के बाद)" data-translate-placeholder="ph_utr" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900">
+                    </div>
+                    <button type="submit" id="assist-submit-btn" class="w-full bg-primary-900 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl transition text-xs shadow-md" data-translate="btn_submit_form">फॉर्म व डॉक्यूमेंट सबमिट करें</button>
+                    <p id="assist-feedback" class="text-xs font-semibold text-center hidden"></p>
+                </form>
+
                 <!-- Application Status Tracker Box -->
                 <div class="mt-6 pt-5 border-t border-slate-200">
-                    <h4 class="text-sm font-bold text-primary-900 mb-2"><i class="fa-solid fa-magnifying-glass-chart text-emerald-600 mr-1.5"></i>अपना फॉर्म स्टेटस जांचें (Track Status)</h4>
+                    <h4 class="text-sm font-bold text-primary-900 mb-2"><i class="fa-solid fa-magnifying-glass-chart text-emerald-600 mr-1.5"></i><span data-translate="track_heading">अपना फॉर्म स्टेटस जांचें (Track Status)</span></h4>
                     <div class="flex gap-2">
-                        <input type="tel" id="track-phone-input" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर..." class="flex-1 bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-primary-900">
-                        <button type="button" id="track-status-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-xs transition shadow-sm">जांचें</button>
+                        <input type="tel" id="track-phone-input" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर..." data-translate-placeholder="ph_track_phone" class="flex-1 bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-primary-900">
+                        <button type="button" id="track-status-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-xs transition shadow-sm" data-translate="btn_check_status">जांचें</button>
                     </div>
                     <div id="track-status-result" class="mt-3 space-y-2 hidden"></div>
                 </div>
@@ -388,18 +405,18 @@
             </div>
             <div class="space-y-4">
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                    <h3 class="font-bold text-slate-900 text-base mb-2">क्या Apna eMitra कोई सरकारी वेबसाइट है?</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">नहीं, Apna eMitra (apnaemitra.in) एक स्वतंत्र डिजिटल सूचना मंच है जो नागरिकों को रोजगार और योजनाओं की जानकारी आसानी से उपलब्ध कराता है।</p>
+                    <h3 class="font-bold text-slate-900 text-base mb-2" data-translate="faq_q1">क्या Apna eMitra कोई सरकारी वेबसाइट है?</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed" data-translate="faq_a1">नहीं, Apna eMitra (apnaemitra.in) एक स्वतंत्र डिजिटल सूचना मंच है जो नागरिकों को रोजगार और योजनाओं की जानकारी आसानी से उपलब्ध कराता है।</p>
                 </div>
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-                    <h3 class="font-bold text-slate-900 text-base mb-2">क्या पोर्टल पर दी गई जानकारी सत्यापित होती है?</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">हाँ, हम केवल आधिकारिक सरकारी पोर्टल्स और सत्यापित स्रोतों के लिंक व विवरण ही साझा करते हैं।</p>
+                    <h3 class="font-bold text-slate-900 text-base mb-2" data-translate="faq_q2">क्या पोर्टल पर दी गई जानकारी सत्यापित होती है?</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed" data-translate="faq_a2">हाँ, हम केवल आधिकारिक सरकारी पोर्टल्स और सत्यापित स्रोतों के लिंक व विवरण ही साझा करते हैं।</p>
                 </div>
             </div>
         </div>
     </section>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer id="contact" class="bg-slate-900 text-slate-300 pt-14 pb-10 border-t-4 border-emerald-600">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- 4 Columns Grid -->
@@ -452,13 +469,13 @@
                     </h4>
                     <ul class="space-y-2.5 text-xs font-medium">
                         <li><a href="/privacy.html" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-500 w-3.5"></i> Privacy Policy</a></li>
-                        <li><a href="/privacy.html" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-file-contract text-emerald-500 w-3.5"></i> Terms & Conditions</a></li>
-                        <li><a href="/privacy.html" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-circle-exclamation text-emerald-500 w-3.5"></i> Disclaimer</a></li>
+                        <li><a href="/privacy.html#terms" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-file-contract text-emerald-500 w-3.5"></i> Terms & Conditions</a></li>
+                        <li><a href="/privacy.html#disclaimer" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-circle-exclamation text-emerald-500 w-3.5"></i> Disclaimer</a></li>
                         <li><a href="#assistance" class="hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-solid fa-headset text-emerald-500 w-3.5"></i> <span data-translate="nav_assistance">ऑनलाइन सहायता</span></a></li>
                     </ul>
                 </div>
 
-               <!-- Column 4: Contact Info -->
+                <!-- Column 4: Contact Info -->
                 <div>
                     <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 flex items-center gap-2" data-translate="footer_contact">
                         <span class="w-2 h-2 rounded-full bg-emerald-500"></span> संपर्क विवरण
@@ -490,15 +507,18 @@
                 </p>
             </div>
 
-            <!-- Copyright Bar -->
-            <div class="mt-6 text-center text-xs text-slate-500">
+            <!-- Copyright Bar with Subtle Admin Trigger -->
+            <div class="mt-6 flex items-center justify-center gap-2 text-xs text-slate-500">
                 <p>&copy; 2026 <span class="text-slate-300 font-semibold">Apna eMitra</span> (apnaemitra.in). All Rights Reserved.</p>
+                <button type="button" onclick="openAdminPanelDirectly()" aria-label="Portal Management" title="Portal Management" class="text-slate-700 hover:text-slate-400 transition">
+                    <i class="fa-solid fa-lock text-[10px]"></i>
+                </button>
             </div>
         </div>
     </footer>
 
     <!-- Apna eMitra Supabase Admin Panel -->
-   <section id="admin-access" class="hidden py-12 bg-slate-200 border-t-4 border-primary-900">
+    <section id="admin-access" class="hidden py-12 bg-slate-200 border-t-4 border-primary-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-5 rounded-2xl shadow-sm border border-slate-300">
           <div>
@@ -612,13 +632,20 @@
       const $ = id => document.getElementById(id);
       let currentAdmin = null;
       let cachedRows = [];
+      window._portalModalItems = window._portalModalItems || {};
 
-      // Make direct open function globally accessible for header links
+      // Direct open function for Admin Panel
       window.openAdminPanelDirectly = function() {
-     $("admin-access").classList.remove("hidden");
-     $("admin-panel").classList.remove("hidden");
-     $("admin-access").scrollIntoView({ behavior: "smooth" });
-   };
+        $("admin-access").classList.remove("hidden");
+        $("admin-panel").classList.remove("hidden");
+        $("admin-access").scrollIntoView({ behavior: "smooth" });
+      };
+
+      // Open Admin automatically if URL hash is #admin or #admin-access
+      if (window.location.hash === "#admin" || window.location.hash === "#admin-access") {
+        window.openAdminPanelDirectly();
+      }
+
       function notice(message, error = false) {
         $("admin-message").textContent = message;
         $("admin-message").className = error ? "text-sm text-red-700 bg-red-50 p-3 rounded-xl border border-red-200 mb-4 font-semibold" : "text-sm text-emerald-800 bg-emerald-50 p-3 rounded-xl border border-emerald-200 mb-4 font-semibold";
@@ -646,7 +673,7 @@
         const btn = $("admin-login-submit");
         btn.disabled = true;
         btn.textContent = "Checking...";
-        const { data, error } = await supabase.auth.signInWithPassword({
+        const { error } = await supabase.auth.signInWithPassword({
           email: clean($("admin-email").value),
           password: $("admin-password").value
         });
@@ -665,186 +692,190 @@
         currentAdmin = session?.user || null;
         showLoggedIn(currentAdmin);
         if (currentAdmin) {
+          $("admin-access").classList.remove("hidden");
           $("admin-panel").classList.remove("hidden");
           loadAdminRows();
           loadAssistanceRequests();
         }
       });
 
-     // Direct Form Apply + Document Upload + UPI UTR Submission
-$("assistance-form").addEventListener("submit", async e => {
-  e.preventDefault();
-  const btn = $("assist-submit-btn");
-  const feedback = $("assist-feedback");
-  btn.disabled = true;
-  btn.textContent = "अपलोड व सबमिट हो रहा है...";
+      // Direct Form Apply + Document Upload + UPI UTR Submission
+      $("assistance-form").addEventListener("submit", async e => {
+        e.preventDefault();
+        const btn = $("assist-submit-btn");
+        const feedback = $("assist-feedback");
+        btn.disabled = true;
+        btn.textContent = "अपलोड व सबमिट हो रहा है...";
 
-  try {
-    const student_name = clean($("assist-name").value);
-    const mobile_number = clean($("assist-phone").value);
-    const form_name = clean($("assist-service").value);
-    const utr_number = clean($("assist-utr").value);
-    let document_url = "";
+        try {
+          const student_name = clean($("assist-name").value);
+          const mobile_number = clean($("assist-phone").value);
+          const form_name = clean($("assist-service").value);
+          const utr_number = clean($("assist-utr").value);
+          let document_url = "";
 
-    const docFile = $("assist-doc").files[0];
-    if (docFile) {
-      if (docFile.size > 10 * 1024 * 1024) {
-        throw new Error("फाइल 10MB से छोटी होनी चाहिए।");
-      }
-      const filePath = `student-docs/${Date.now()}-${docFile.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
-      const { error: upErr } = await supabase.storage.from('portal-files').upload(filePath, docFile);
-      if (upErr) throw upErr;
-      const { data: pubData } = supabase.storage.from('portal-files').getPublicUrl(filePath);
-      document_url = pubData.publicUrl;
-    }
+          const docFile = $("assist-doc").files[0];
+          if (docFile) {
+            if (docFile.size > 10 * 1024 * 1024) {
+              throw new Error("फाइल 10MB से छोटी होनी चाहिए।");
+            }
+            const filePath = `student-docs/${Date.now()}-${docFile.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
+            const { error: upErr } = await supabase.storage.from('portal-files').upload(filePath, docFile);
+            if (upErr) throw upErr;
+            const { data: pubData } = supabase.storage.from('portal-files').getPublicUrl(filePath);
+            document_url = pubData.publicUrl;
+          }
 
-    const { error } = await supabase
-      .from('form_submissions')
-      .insert([{
-        student_name,
-        mobile_number,
-        form_name,
-        utr_number,
-        payment_status: utr_number ? 'UTR Submitted' : 'Pending',
-        document_url
-      }]);
+          const { error } = await supabase
+            .from('form_submissions')
+            .insert([{
+              student_name,
+              mobile_number,
+              form_name,
+              utr_number,
+              payment_status: utr_number ? 'UTR Submitted' : 'Pending',
+              document_url
+            }]);
 
-    if (error) throw error;
+          if (error) throw error;
 
-    feedback.className = "text-xs font-semibold text-center text-emerald-700 mt-2";
-    feedback.textContent = `धन्यवाद ${student_name}! आपका फॉर्म और डॉक्यूमेंट प्राप्त हो गया है।`;
-    e.target.reset();
-  } catch (err) {
-    feedback.className = "text-xs font-semibold text-center text-red-600 mt-2";
-    feedback.textContent = "त्रुटि: " + err.message;
-  } finally {
-    feedback.classList.remove("hidden");
-    btn.disabled = false;
-    btn.textContent = "फॉर्म व डॉक्यूमेंट सबमिट करें";
-  }
-});
-// Admin Dashboard में सभी फॉर्म, डॉक्यूमेंट और UTR देखने का फंक्शन
-// 1. छात्रों द्वारा अपना Application Status ट्रैक करने का फंक्शन
-$("track-status-btn").addEventListener("click", async () => {
-  const phone = clean($("track-phone-input").value);
-  const resultBox = $("track-status-result");
-  if (!/^[0-9]{10}$/.test(phone)) {
-    resultBox.classList.remove("hidden");
-    resultBox.innerHTML = `<p class="text-xs text-red-600 font-semibold">कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।</p>`;
-    return;
-  }
+          feedback.className = "text-xs font-semibold text-center text-emerald-700 mt-2";
+          feedback.textContent = `धन्यवाद ${student_name}! आपका फॉर्म और डॉक्यूमेंट प्राप्त हो गया है।`;
+          e.target.reset();
+        } catch (err) {
+          feedback.className = "text-xs font-semibold text-center text-red-600 mt-2";
+          feedback.textContent = "त्रुटि: " + err.message;
+        } finally {
+          feedback.classList.remove("hidden");
+          btn.disabled = false;
+          btn.textContent = "फॉर्म व डॉक्यूमेंट सबमिट करें";
+        }
+      });
 
-  resultBox.classList.remove("hidden");
-  resultBox.innerHTML = `<p class="text-xs text-slate-500">स्टेटस खोजा जा रहा है...</p>`;
+      // Student Application Status Tracker
+      $("track-status-btn").addEventListener("click", async () => {
+        const phone = clean($("track-phone-input").value);
+        const resultBox = $("track-status-result");
+        if (!/^[0-9]{10}$/.test(phone)) {
+          resultBox.classList.remove("hidden");
+          resultBox.innerHTML = `<p class="text-xs text-red-600 font-semibold">कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।</p>`;
+          return;
+        }
 
-  const { data, error } = await supabase
-    .from('form_submissions')
-    .select('*')
-    .eq('mobile_number', phone)
-    .order('created_at', { ascending: false });
+        resultBox.classList.remove("hidden");
+        resultBox.innerHTML = `<p class="text-xs text-slate-500">स्टेटस खोजा जा रहा है...</p>`;
 
-  if (error || !data || data.length === 0) {
-    resultBox.innerHTML = `<p class="text-xs text-amber-800 bg-amber-50 p-2.5 rounded-lg border border-amber-200">इस नंबर से कोई आवेदन नहीं मिला।</p>`;
-    return;
-  }
+        const { data, error } = await supabase
+          .from('form_submissions')
+          .select('*')
+          .eq('mobile_number', phone)
+          .order('created_at', { ascending: false });
 
-  const badgeColors = {
-    'Pending': 'bg-amber-100 text-amber-800',
-    'In Progress': 'bg-blue-100 text-blue-800',
-    'Completed': 'bg-emerald-100 text-emerald-800',
-    'Action Required': 'bg-red-100 text-red-800'
-  };
+        if (error || !data || data.length === 0) {
+          resultBox.innerHTML = `<p class="text-xs text-amber-800 bg-amber-50 p-2.5 rounded-lg border border-amber-200">इस नंबर से कोई आवेदन नहीं मिला।</p>`;
+          return;
+        }
 
-  resultBox.innerHTML = data.map(item => {
-    const st = item.status || 'Pending';
-    const badge = badgeColors[st] || 'bg-slate-100 text-slate-800';
-    return `
-      <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs">
-        <div class="flex justify-between items-center gap-2">
-          <strong class="text-slate-900">${escape(item.form_name)}</strong>
-          <span class="px-2 py-0.5 rounded-full font-bold text-[10px] ${badge}">${escape(st)}</span>
-        </div>
-        <p class="text-[11px] text-slate-500 mt-1">आवेदक: ${escape(item.student_name)} · ${new Date(item.created_at).toLocaleDateString('hi-IN')}</p>
-        ${item.admin_remark ? `<p class="text-[11px] text-primary-900 bg-blue-50 p-1.5 rounded mt-1.5 font-medium"><strong>संदेश:</strong> ${escape(item.admin_remark)}</p>` : ''}
-        ${item.receipt_url ? `<a href="${escape(item.receipt_url)}" target="_blank" class="inline-block mt-2 bg-primary-900 text-white font-bold px-3 py-1.5 rounded-lg text-[11px]"><i class="fa-solid fa-download mr-1"></i> फाइनल रसीद / फॉर्म डाउनलोड करें</a>` : ''}
-      </div>
-    `;
-  }).join("");
-});
+        const badgeColors = {
+          'Pending': 'bg-amber-100 text-amber-800',
+          'In Progress': 'bg-blue-100 text-blue-800',
+          'Completed': 'bg-emerald-100 text-emerald-800',
+          'Action Required': 'bg-red-100 text-red-800'
+        };
 
-// 2. Admin Dashboard में सभी फॉर्म, डॉक्यूमेंट, स्टेटस अपडेट और रसीद अपलोड करने का फंक्शन
-async function loadAssistanceRequests() {
-  const { data, error } = await supabase
-    .from('form_submissions')
-    .select('*')
-    .order('created_at', { ascending: false })
-    .limit(50);
+        resultBox.innerHTML = data.map(item => {
+          const st = item.status || 'Pending';
+          const badge = badgeColors[st] || 'bg-slate-100 text-slate-800';
+          return `
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs">
+              <div class="flex justify-between items-center gap-2">
+                <strong class="text-slate-900">${escape(item.form_name)}</strong>
+                <span class="px-2 py-0.5 rounded-full font-bold text-[10px] ${badge}">${escape(st)}</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-1">आवेदक: ${escape(item.student_name)} · ${new Date(item.created_at).toLocaleDateString('hi-IN')}</p>
+              ${item.admin_remark ? `<p class="text-[11px] text-primary-900 bg-blue-50 p-1.5 rounded mt-1.5 font-medium"><strong>संदेश:</strong> ${escape(item.admin_remark)}</p>` : ''}
+              ${item.receipt_url ? `<a href="${escape(item.receipt_url)}" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 bg-primary-900 text-white font-bold px-3 py-1.5 rounded-lg text-[11px]"><i class="fa-solid fa-download mr-1"></i> फाइनल रसीद / फॉर्म डाउनलोड करें</a>` : ''}
+            </div>
+          `;
+        }).join("");
+      });
 
-  if (error) {
-    $("admin-requests-list").innerHTML = `<p class="text-xs text-red-600">Error: ${escape(error.message)}</p>`;
-    return;
-  }
-  $("admin-requests-list").innerHTML = (data || []).map(req => `
-    <div class="bg-white border border-slate-200 rounded-xl p-3.5 text-xs shadow-sm space-y-2.5">
-      <div class="flex flex-wrap justify-between items-start gap-2">
-        <div>
-          <strong class="text-slate-900 text-sm">${escape(req.student_name)}</strong> · 
-          <span class="text-primary-900 font-bold">${escape(req.mobile_number)}</span>
-          <div class="text-slate-700 mt-0.5">फॉर्म: <strong>${escape(req.form_name)}</strong></div>
-          <div class="text-slate-600 mt-0.5">
-            UTR / पेमेंट: <span class="font-bold text-amber-800">${escape(req.utr_number || 'Not Paid Yet')}</span> 
-            · ${new Date(req.created_at).toLocaleDateString('hi-IN')}
+      // Admin Assistance Requests Loader
+      async function loadAssistanceRequests() {
+        const { data, error } = await supabase
+          .from('form_submissions')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(50);
+
+        if (error) {
+          $("admin-requests-list").innerHTML = `<p class="text-xs text-red-600">Error: ${escape(error.message)}</p>`;
+          return;
+        }
+        $("admin-requests-list").innerHTML = (data || []).map(req => `
+          <div class="bg-white border border-slate-200 rounded-xl p-3.5 text-xs shadow-sm space-y-2.5">
+            <div class="flex flex-wrap justify-between items-start gap-2">
+              <div>
+                <strong class="text-slate-900 text-sm">${escape(req.student_name)}</strong> · 
+                <span class="text-primary-900 font-bold">${escape(req.mobile_number)}</span>
+                <div class="text-slate-700 mt-0.5">फॉर्म: <strong>${escape(req.form_name)}</strong></div>
+                <div class="text-slate-600 mt-0.5">
+                  UTR / पेमेंट: <span class="font-bold text-amber-800">${escape(req.utr_number || 'Not Paid Yet')}</span> 
+                  · ${new Date(req.created_at).toLocaleDateString('hi-IN')}
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                ${req.document_url ? `<a href="${escape(req.document_url)}" target="_blank" rel="noopener noreferrer" class="bg-primary-900 hover:bg-primary-800 text-white px-2.5 py-1.5 rounded-lg font-bold"><i class="fa-solid fa-file-arrow-down mr-1"></i> डॉक्यूमेंट</a>` : ''}
+                ${req.receipt_url ? `<a href="${escape(req.receipt_url)}" target="_blank" rel="noopener noreferrer" class="bg-blue-700 hover:bg-blue-800 text-white px-2.5 py-1.5 rounded-lg font-bold"><i class="fa-solid fa-receipt mr-1"></i> रसीद</a>` : ''}
+                <a href="https://wa.me/91${escape(req.mobile_number)}?text=Namaste%20${encodeURIComponent(req.student_name)}%2C%20Apna%20eMitra%20par%20aapke%20${encodeURIComponent(req.form_name)}%20form%20ka%20status%20update%20ho%20gaya%20hai." target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1.5 rounded-lg font-bold"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+              </div>
+            </div>
+            
+            <!-- Admin Status & Receipt Updater -->
+            <div class="pt-2 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-4 gap-2 items-center">
+              <select id="status-${req.id}" class="border border-slate-300 rounded-lg px-2 py-1.5 bg-slate-50 font-semibold">
+                <option value="Pending" ${(req.status || 'Pending') === 'Pending' ? 'selected' : ''}>🟡 Pending</option>
+                <option value="In Progress" ${req.status === 'In Progress' ? 'selected' : ''}>🔵 In Progress</option>
+                <option value="Completed" ${req.status === 'Completed' ? 'selected' : ''}>✅ Completed</option>
+                <option value="Action Required" ${req.status === 'Action Required' ? 'selected' : ''}>❌ Action Required</option>
+              </select>
+              <input type="text" id="remark-${req.id}" value="${escape(req.admin_remark || '')}" placeholder="छात्र के लिए संदेश / टोकन नं..." class="border border-slate-300 rounded-lg px-2.5 py-1.5">
+              <input type="file" id="receipt-${req.id}" accept="application/pdf,image/*" title="फाइनल रसीद अपलोड करें" class="border border-slate-300 rounded-lg px-2 py-1 text-[11px] bg-slate-50">
+              <button type="button" onclick="updateRequestStatus('${req.id}')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-1.5 px-3 rounded-lg transition">Update Status</button>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-wrap gap-1.5">
-          ${req.document_url ? `<a href="${escape(req.document_url)}" target="_blank" class="bg-primary-900 hover:bg-primary-800 text-white px-2.5 py-1.5 rounded-lg font-bold"><i class="fa-solid fa-file-arrow-down mr-1"></i> डॉक्यूमेंट</a>` : ''}
-          ${req.receipt_url ? `<a href="${escape(req.receipt_url)}" target="_blank" class="bg-blue-700 hover:bg-blue-800 text-white px-2.5 py-1.5 rounded-lg font-bold"><i class="fa-solid fa-receipt mr-1"></i> रसीद</a>` : ''}
-          <a href="https://wa.me/91${escape(req.mobile_number)}?text=Namaste%20${encodeURIComponent(req.student_name)}%2C%20Apna%20eMitra%20par%20aapke%20${encodeURIComponent(req.form_name)}%20form%20ka%20status%20update%20ho%20gaya%20hai." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1.5 rounded-lg font-bold"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
-        </div>
-      </div>
-      
-      <!-- Admin Status & Receipt Updater -->
-      <div class="pt-2 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-4 gap-2 items-center">
-        <select id="status-${req.id}" class="border border-slate-300 rounded-lg px-2 py-1.5 bg-slate-50 font-semibold">
-          <option value="Pending" ${(req.status || 'Pending') === 'Pending' ? 'selected' : ''}>🟡 Pending</option>
-          <option value="In Progress" ${req.status === 'In Progress' ? 'selected' : ''}>🔵 In Progress</option>
-          <option value="Completed" ${req.status === 'Completed' ? 'selected' : ''}>✅ Completed</option>
-          <option value="Action Required" ${req.status === 'Action Required' ? 'selected' : ''}>❌ Action Required</option>
-        </select>
-        <input type="text" id="remark-${req.id}" value="${escape(req.admin_remark || '')}" placeholder="छात्र के लिए संदेश / टोकन नं..." class="border border-slate-300 rounded-lg px-2.5 py-1.5">
-        <input type="file" id="receipt-${req.id}" accept="application/pdf,image/*" title="फाइनल रसीद अपलोड करें" class="border border-slate-300 rounded-lg px-2 py-1 text-[11px] bg-slate-50">
-        <button type="button" onclick="updateRequestStatus('${req.id}')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-1.5 px-3 rounded-lg transition">Update Status</button>
-      </div>
-    </div>
-  `).join("") || '<p class="text-xs text-slate-500">अभी कोई फॉर्म आवेदन नहीं आया है।</p>';
-}
-window.updateRequestStatus = async function(id) {
-  const newStatus = $("status-" + id).value;
-  const newRemark = clean($("remark-" + id).value);
-  const receiptFile = $("receipt-" + id).files[0];
+        `).join("") || '<p class="text-xs text-slate-500">अभी कोई फॉर्म आवेदन नहीं आया है।</p>';
+      }
 
-  try {
-    let updatePayload = { status: newStatus, admin_remark: newRemark };
+      window.updateRequestStatus = async function(id) {
+        const newStatus = $("status-" + id).value;
+        const newRemark = clean($("remark-" + id).value);
+        const receiptFile = $("receipt-" + id).files[0];
 
-    if (receiptFile) {
-      if (receiptFile.size > 10 * 1024 * 1024) return alert("रसीद 10MB से छोटी होनी चाहिए।");
-      const filePath = `receipts/${Date.now()}-${receiptFile.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
-      const { error: upErr } = await supabase.storage.from('portal-files').upload(filePath, receiptFile);
-      if (upErr) throw upErr;
-      const { data: pubData } = supabase.storage.from('portal-files').getPublicUrl(filePath);
-      updatePayload.receipt_url = pubData.publicUrl;
-    }
+        try {
+          let updatePayload = { status: newStatus, admin_remark: newRemark };
 
-    const { error } = await supabase.from('form_submissions').update(updatePayload).eq('id', id);
-    if (error) throw error;
+          if (receiptFile) {
+            if (receiptFile.size > 10 * 1024 * 1024) return alert("रसीद 10MB से छोटी होनी चाहिए।");
+            const filePath = `receipts/${Date.now()}-${receiptFile.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
+            const { error: upErr } = await supabase.storage.from('portal-files').upload(filePath, receiptFile);
+            if (upErr) throw upErr;
+            const { data: pubData } = supabase.storage.from('portal-files').getPublicUrl(filePath);
+            updatePayload.receipt_url = pubData.publicUrl;
+          }
 
-    alert("✅ छात्र का फॉर्म स्टेटस और रसीद अपडेट हो गई है!");
-    loadAssistanceRequests();
-  } catch (err) {
-    alert("❌ अपडेट त्रुटि: " + err.message);
-  }
-};
-        $("refresh-requests").addEventListener("click", loadAssistanceRequests);
+          const { error } = await supabase.from('form_submissions').update(updatePayload).eq('id', id);
+          if (error) throw error;
+
+          alert("✅ छात्र का फॉर्म स्टेटस और रसीद अपडेट हो गई है!");
+          loadAssistanceRequests();
+        } catch (err) {
+          alert("❌ अपडेट त्रुटि: " + err.message);
+        }
+      };
+
+      $("refresh-requests").addEventListener("click", loadAssistanceRequests);
+
       // Load Admin Content
       async function loadAdminRows() {
         const { data, error } = await supabase
@@ -992,7 +1023,7 @@ window.updateRequestStatus = async function(id) {
         }
       });
 
-      // Load Public Content
+      // Load Public Content (Direct Bullet List Rendering - No MutationObserver needed)
       async function loadPublicContent() {
         const { data, error } = await supabase
           .from('portal_content')
@@ -1005,6 +1036,7 @@ window.updateRequestStatus = async function(id) {
           return;
         }
         const rows = data || [];
+        window.allPortalRows = rows;
 
         // 1. Government Jobs
         const gov = rows.filter(x => x.category === "jobs").map(x => ({
@@ -1029,32 +1061,48 @@ window.updateRequestStatus = async function(id) {
         window.jobsData = [...(window.githubApprovedJobs || []), ...gov];
         if (typeof window.renderJobs === 'function') window.renderJobs(window.jobsData);
 
-        // 2. Private Jobs
-        const pvt = rows.filter(x => x.category === "privateJobs");
-        const pvtContainer = $("private-jobs-container");
-        if (pvtContainer && pvt.length > 0) {
-          pvtContainer.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left";
-          pvtContainer.innerHTML = pvt.map(x => {
-            const link = httpsUrl(x.official_url || x.file_url);
-            return `<article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm"><h3 class="font-bold text-lg text-slate-900">${escape(x.title)}</h3><p class="text-sm text-slate-600 mt-2">${escape(x.description)}</p><p class="text-xs text-slate-500 mt-3 font-medium">${escape(x.qualification || "")}</p>${link ? `<a class="inline-block mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl px-4 py-2 text-xs transition" href="${escape(link)}" target="_blank" rel="noopener">Details / Apply</a>` : ""}</article>`;
-          }).join("");
-        }
-        window.allPortalRows = rows;
-        // 3. Admit Cards, Results, Schemes
-        const sections = [
-          ["admitCards", "admit-cards-container"],
-          ["results", "results-container"],
-          ["schemes", "schemes-container"]
+        // 2. Direct Bullet List Renderer for Admit Card, Result & Private Job
+        const listConfigs = [
+          { cat: "admitCards", id: "admit-cards-container", label: "Admit Card", dotColor: "text-emerald-700" },
+          { cat: "results", id: "results-container", label: "Exam Result", dotColor: "text-primary-900" },
+          { cat: "privateJobs", id: "private-jobs-container", label: "Private Job", dotColor: "text-emerald-700" }
         ];
-        for (const [catName, containerId] of sections) {
-          const items = rows.filter(x => x.category === catName);
-          const host = $(containerId);
+
+        for (const cfg of listConfigs) {
+          const items = rows.filter(x => x.category === cfg.cat);
+          const host = $(cfg.id);
           if (host && items.length > 0) {
-            host.innerHTML = items.map(x => {
-              const link = httpsUrl(x.official_url || x.file_url);
-              return `<article class="border border-slate-200 rounded-2xl p-5 bg-white shadow-sm"><h3 class="font-bold text-slate-900">${escape(x.title)}</h3><p class="text-sm text-slate-600 mt-1.5">${escape(x.description)}</p>${x.last_date ? `<p class="text-xs text-emerald-700 font-semibold mt-2">Important date: ${escape(x.last_date)}</p>` : ""}${link ? `<a class="inline-block mt-3 text-xs font-bold text-primary-900 underline" href="${escape(link)}" target="_blank" rel="noopener">Official link / View →</a>` : ""}</article>`;
+            host.innerHTML = items.map((item, idx) => {
+              const itemKey = `${cfg.id}_${idx}`;
+              window._portalModalItems[itemKey] = {
+                categoryLabel: cfg.label,
+                title: item.title || "",
+                organization: item.organization || "",
+                description: item.description || "",
+                qualification: item.qualification || "",
+                lastDate: item.last_date || "",
+                officialUrl: httpsUrl(item.official_url || item.file_url) || "#"
+              };
+              return `
+                <li class="pt-2.5 first:pt-0 flex items-start gap-2">
+                  <span class="${cfg.dotColor} font-bold mt-0.5">•</span>
+                  <button type="button" onclick="openPortalItemModal(window._portalModalItems['${itemKey}'])" class="text-left text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                    ${escape(item.title)}
+                  </button>
+                </li>
+              `;
             }).join("");
           }
+        }
+
+        // 3. Government Schemes
+        const schemeItems = rows.filter(x => x.category === "schemes");
+        const schemeHost = $("schemes-container");
+        if (schemeHost && schemeItems.length > 0) {
+          schemeHost.innerHTML = schemeItems.map(x => {
+            const link = httpsUrl(x.official_url || x.file_url);
+            return `<article class="border border-slate-200 rounded-2xl p-6 bg-white shadow-sm"><h3 class="font-bold text-lg text-slate-900">${escape(x.title)}</h3><p class="text-xs text-slate-600 mt-2 leading-relaxed">${escape(x.description)}</p>${x.last_date ? `<p class="text-xs text-emerald-700 font-semibold mt-3">Important date: ${escape(x.last_date)}</p>` : ""}${link ? `<a class="inline-block mt-4 text-xs font-bold text-primary-900 underline" href="${escape(link)}" target="_blank" rel="noopener noreferrer">Official link / View →</a>` : ""}</article>`;
+          }).join("");
         }
 
         // 4. Services, Documents, Books
@@ -1063,7 +1111,7 @@ window.updateRequestStatus = async function(id) {
           if (!host) return;
           host.innerHTML = items.map(x => {
             const link = httpsUrl(x.official_url || x.file_url);
-            return `<article class="bg-slate-50 border border-slate-200 rounded-2xl p-5"><h3 class="font-bold text-slate-900">${escape(x.title)}</h3><p class="text-sm text-slate-600 mt-2 whitespace-pre-line">${escape(x.description)}</p>${x.qualification ? `<p class="text-xs text-slate-500 mt-2">${escape(x.qualification)}</p>` : ""}${link ? `<a class="inline-block mt-4 text-sm font-bold text-emerald-700 underline" href="${escape(link)}" target="_blank" rel="noopener">Open / Download</a>` : ""}</article>`;
+            return `<article class="bg-slate-50 border border-slate-200 rounded-2xl p-5"><h3 class="font-bold text-slate-900">${escape(x.title)}</h3><p class="text-sm text-slate-600 mt-2 whitespace-pre-line">${escape(x.description)}</p>${x.qualification ? `<p class="text-xs text-slate-500 mt-2">${escape(x.qualification)}</p>` : ""}${link ? `<a class="inline-block mt-4 text-sm font-bold text-emerald-700 underline" href="${escape(link)}" target="_blank" rel="noopener noreferrer">Open / Download</a>` : ""}</article>`;
           }).join("") || '<p class="text-sm text-slate-500">अभी कोई सामग्री प्रकाशित नहीं है।</p>';
         };
         renderSimple("services-public-grid", rows.filter(x => x.category === "services" || x.category === "documents"));
@@ -1073,11 +1121,42 @@ window.updateRequestStatus = async function(id) {
       loadPublicContent();
     </script>
 
-    <!-- Main UI & Filter Logic -->
+    <!-- Main UI, Search & Modal Logic -->
     <script>
         window.jobsData = [];
         window.githubApprovedJobs = [];
         window.supabaseApprovedJobs = [];
+        window._portalModalItems = window._portalModalItems || {};
+
+        function escapeJobText(value) {
+            return String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+        }
+        function safeHttpsUrl(value) {
+            try { const url = new URL(String(value || '')); return url.protocol === 'https:' ? url.href : ''; } catch (_) { return ''; }
+        }
+
+        // Safe Date Comparison Helper (handles YYYY-MM-DD and DD-MM-YYYY)
+        function isJobActive(lastDateStr) {
+            if (!lastDateStr || lastDateStr === "Check Official Site" || lastDateStr === "Official site" || lastDateStr === "Official notification देखें") {
+                return true;
+            }
+            const cleanStr = String(lastDateStr).trim();
+            let parsedDate = null;
+
+            if (/^\d{4}-\d{2}-\d{2}$/.test(cleanStr)) {
+                parsedDate = new Date(cleanStr + "T23:59:59");
+            } else if (/^\d{2}-\d{2}-\d{4}$/.test(cleanStr)) {
+                const [dd, mm, yyyy] = cleanStr.split('-');
+                parsedDate = new Date(`${yyyy}-${mm}-${dd}T23:59:59`);
+            } else {
+                const tryDate = new Date(cleanStr);
+                if (!isNaN(tryDate.getTime())) parsedDate = tryDate;
+            }
+
+            if (!parsedDate || isNaN(parsedDate.getTime())) return true;
+            return parsedDate >= new Date();
+        }
+
         function filterJobs() {
             const cat = document.getElementById('filter-category').value;
             const qual = document.getElementById('filter-qualification').value;
@@ -1086,10 +1165,11 @@ window.updateRequestStatus = async function(id) {
             if (qual !== 'all') filtered = filtered.filter(j => j.qualification.includes(qual));
             window.renderJobs(filtered);
         }
+
         function handleGlobalSearch() {
             const query = document.getElementById('global-search-input').value.trim().toLowerCase();
 
-            // 1. Latest Gov. Jobs को फिल्टर करें
+            // 1. Filter Latest Gov. Jobs
             const filteredGov = window.jobsData.filter(j => 
                 (j.title || '').toLowerCase().includes(query) || 
                 (j.organization || '').toLowerCase().includes(query) ||
@@ -1097,11 +1177,11 @@ window.updateRequestStatus = async function(id) {
             );
             window.renderJobs(filteredGov);
 
-            // 2. Admit Card, Result और Private Job को एक साथ फिल्टर करें
+            // 2. Filter Admit Card, Result and Private Job
             const boxConfigs = [
-                { cat: 'admitCards', id: 'admit-cards-container', label: 'Admit Card', emptyMsg: 'कोई Admit Card नहीं मिला।' },
-                { cat: 'results', id: 'results-container', label: 'Exam Result', emptyMsg: 'कोई Result नहीं मिला।' },
-                { cat: 'privateJobs', id: 'private-jobs-container', label: 'Private Job', emptyMsg: 'कोई Private Job नहीं मिली।' }
+                { cat: 'admitCards', id: 'admit-cards-container', label: 'Admit Card', dotColor: 'text-emerald-700', emptyMsg: 'कोई Admit Card नहीं मिला।' },
+                { cat: 'results', id: 'results-container', label: 'Exam Result', dotColor: 'text-primary-900', emptyMsg: 'कोई Result नहीं मिला।' },
+                { cat: 'privateJobs', id: 'private-jobs-container', label: 'Private Job', dotColor: 'text-emerald-700', emptyMsg: 'कोई Private Job नहीं मिली।' }
             ];
 
             const allRows = window.allPortalRows || [];
@@ -1128,28 +1208,27 @@ window.updateRequestStatus = async function(id) {
                     window._portalModalItems[itemKey] = {
                         categoryLabel: box.label,
                         title: item.title || '',
+                        organization: item.organization || '',
                         description: item.description || '',
                         qualification: item.qualification || '',
                         lastDate: item.last_date || '',
-                        officialUrl: item.official_url || item.file_url || '#'
+                        officialUrl: safeHttpsUrl(item.official_url || item.file_url) || '#'
                     };
 
                     return `
                         <li class="pt-2.5 first:pt-0 flex items-start gap-2">
-                            <span class="text-emerald-700 font-bold mt-0.5">•</span>
+                            <span class="${box.dotColor} font-bold mt-0.5">•</span>
                             <button type="button" onclick="openPortalItemModal(window._portalModalItems['${itemKey}'])" class="text-left text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
-                                ${item.title}
+                                ${escapeJobText(item.title)}
                             </button>
                         </li>
                     `;
                 }).join('');
             });
 
-            // रिजल्ट सेक्शन तक स्मूथ स्क्रॉल करें
             document.getElementById('gov-jobs').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // सर्च बॉक्स में टाइप करते समय या Enter दबाने पर भी सर्च चलाएं
         document.getElementById('global-search-input')?.addEventListener('keyup', function(e) {
             if (e.key === 'Enter' || this.value.trim() === '') {
                 handleGlobalSearch();
@@ -1179,9 +1258,50 @@ window.updateRequestStatus = async function(id) {
             document.getElementById('job-modal').classList.remove('hidden');
         }
 
+        window.openPortalItemModal = function(item) {
+            const content = document.getElementById('modal-content');
+            if (!content || !item) return;
+            content.innerHTML = `
+                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">${escapeJobText(item.categoryLabel || 'Official Update')}</span>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-3 mb-2">${escapeJobText(item.title)}</h2>
+                ${item.organization ? `<p class="text-sm font-semibold text-slate-600 mb-4"><i class="fa-solid fa-building text-primary-900 mr-2"></i> ${escapeJobText(item.organization)}</p>` : ''}
+                ${item.description ? `<div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-5 text-xs sm:text-sm text-slate-700 whitespace-pre-line leading-relaxed">${escapeJobText(item.description)}</div>` : ''}
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 space-y-2.5 text-xs sm:text-sm">
+                    ${item.qualification ? `<div class="flex justify-between border-b border-slate-200 pb-2"><span class="font-bold text-slate-500">योग्यता / विवरण:</span><span class="font-bold text-slate-900">${escapeJobText(item.qualification)}</span></div>` : ''}
+                    ${item.lastDate ? `<div class="flex justify-between"><span class="font-bold text-slate-500">महत्वपूर्ण तिथि:</span><span class="font-bold text-emerald-800">${escapeJobText(item.lastDate)}</span></div>` : ''}
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    ${item.officialUrl && item.officialUrl !== '#' ? `<a href="${item.officialUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">आधिकारिक लिंक / डाउनलोड <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i></a>` : ''}
+                    <button onclick="closeJobDetail()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-6 py-3 rounded-xl text-sm transition">बंद करें</button>
+                </div>
+            `;
+            document.getElementById('job-modal').classList.remove('hidden');
+        };
+
         function closeJobDetail() {
             document.getElementById('job-modal').classList.add('hidden');
         }
+
+        window.renderJobs = function(jobs) {
+            const container = document.getElementById('job-cards-container');
+            if (!container) return;
+
+            const activeJobs = (jobs || []).filter(job => isJobActive(job.lastDate));
+
+            if (activeJobs.length === 0) {
+                container.innerHTML = '<li class="text-center py-6 text-slate-500">कोई सक्रिय नौकरी उपलब्ध नहीं है।</li>';
+                return;
+            }
+
+            container.innerHTML = activeJobs.map(job => `
+                <li class="pt-2.5 first:pt-0 flex items-start gap-2">
+                    <span class="text-primary-900 font-bold mt-0.5">•</span>
+                    <button type="button" onclick="openJobModal('${job.id}')" class="text-left text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
+                        ${job.title}
+                    </button>
+                </li>
+            `).join('');
+        };
 
         const translations = {
             hi: {
@@ -1194,18 +1314,32 @@ window.updateRequestStatus = async function(id) {
                 search_placeholder: "नौकरी, विभाग या योजना खोजें (जैसे: SSC, Bank, Aadhaar)...", search_btn: "खोजें",
                 cat_gov: "सरकारी नौकरियां", cat_pvt: "प्राइवेट जॉब्स", cat_admit: "एडमिट कार्ड", cat_result: "रिजल्ट", cat_scheme: "सरकारी योजनाएं",
                 disclaimer_title: "महत्वपूर्ण सूचना:", disclaimer_text: "Apna eMitra (apnaemitra.in) एक स्वतंत्र डिजिटल सूचना और सहायता मंच है। यह किसी भी सरकारी विभाग का आधिकारिक पोर्टल नहीं है। सभी विज्ञापनों और रिक्तियों के लिए आधिकारिक वेबसाइट या नोटिफिकेशन अवश्य जांचें।",
-                sec_jobs_tag: "सत्यापित अवसर", sec_gov_title: "नवीनतम सरकारी नौकरियां (Latest Government Jobs)",
+                sec_jobs_tag: "सत्यापित अवसर", latest_updates_heading: "नवीनतम अपडेट्स (Latest Updates)",
                 filter_all_cat: "सभी श्रेणियां (All Categories)", filter_all_qual: "योग्यता (All Qualifications)",
-                sec_pvt_tag: "प्राइवेट सेक्टर", sec_pvt_title: "प्राइवेट जॉब्स एवं एमएनसी वैकेंसी (Private Jobs)",
-                pvt_subtitle: "Verified MNC and corporate job openings for freshers and experienced professionals.",
-                sec_admit_title: "एडमिट कार्ड (Admit Cards)", btn_download: "डाउनलोड", sec_results_title: "परीक्षा परिणाम (Exam Results)", btn_view: "रिजल्ट देखें",
+                col_gov_title: "Latest Gov. Jobs", col_admit_title: "Admit Card", col_results_title: "Result", col_pvt_title: "Private Job",
+                sec_services_tag: "डिजिटल सहायता", sec_services_title: "सेवाएं एवं दस्तावेज मार्गदर्शन (Services & Documents)",
+                sec_services_desc: "Admin द्वारा प्रकाशित सेवाएं और दस्तावेज मार्गदर्शन। संवेदनशील मूल दस्तावेज सार्वजनिक रूप से साझा न करें।",
+                sec_books_tag: "अध्ययन सामग्री", sec_books_title: "किताबें और नोट्स (Books & Study Material)",
+                sec_books_desc: "प्रतियोगी परीक्षाओं के लिए उपयोगी किताबें और अध्ययन सामग्री।",
                 sec_scheme_tag: "जन कल्याणकारी योजनाएं", sec_scheme_title: "लोकप्रिय सरकारी योजनाएं एवं दस्तावेज गाइड",
-                sec_scheme_desc: "Central and State government schemes with step-by-step eligibility and required documents.",
+                sec_scheme_desc: "केंद्र और राज्य सरकार की प्रमुख योजनाएं, पात्रता और आवश्यक दस्तावेजों की जानकारी।",
                 sec_assist_tag: "ऑनलाइन सहायता केंद्र", sec_assist_title: "क्या आपको फॉर्म भरने या जॉब खोजने में मदद चाहिए?",
-                sec_assist_desc: "हमारे एक्सपर्ट्स से व्हाट्सएप के जरिए संपर्क करें। हम सरकारी और प्राइवेट जॉब एप्लीकेशन की जानकारी प्रदान करने में सहायता करते हैं।",
-                btn_wa_chat: "व्हाट्सएप पर बात करें", form_heading: "सहायता अनुरोध भेजें", form_name: "आपका नाम",
-                form_phone: "मोबाइल नंबर (WhatsApp)", form_service: "किस सेवा में सहायता चाहिए?", form_submit: "अनुरोध सबमिट करें",
-                faq_title: "अक्सर पूछे जाने वाले सवाल", footer_desc: "भारत के ग्रामीण और छोटे शहरों के युवाओं के लिए डिजिटल सहायता, सरकारी और प्राइवेट जॉब्स का प्रमुख केंद्र। Domain: apnaemitra.in",
+                sec_assist_desc: "घर बैठे अपने दस्तावेज़ अपलोड करें या व्हाट्सएप के ज़रिए संपर्क करें। हम सरकारी और प्राइवेट जॉब फॉर्म भरने में आपकी पूरी सहायता करते हैं।",
+                btn_wa_chat: "व्हाट्सएप पर बात करें", form_heading: "ऑनलाइन फॉर्म आवेदन",
+                fee_notice: "शुल्क: सरकारी फीस + ₹50 सेवा शुल्क",
+                ph_student_name: "छात्र का पूरा नाम *", ph_whatsapp_num: "10 अंकों का WhatsApp नंबर *",
+                ph_form_name: "किस फॉर्म के लिए आवेदन करना है? (जैसे: SSC, CET) *",
+                lbl_doc_upload: "डॉक्यूमेंट अपलोड करें (PDF / Photo - Max 10MB)",
+                ph_utr: "UPI Transaction ID / UTR नंबर (पेमेंट के बाद)",
+                btn_submit_form: "फॉर्म व डॉक्यूमेंट सबमिट करें",
+                track_heading: "अपना फॉर्म स्टेटस जांचें (Track Status)",
+                ph_track_phone: "10 अंकों का मोबाइल नंबर...", btn_check_status: "जांचें",
+                faq_title: "अक्सर पूछे जाने वाले सवाल",
+                faq_q1: "क्या Apna eMitra कोई सरकारी वेबसाइट है?",
+                faq_a1: "नहीं, Apna eMitra (apnaemitra.in) एक स्वतंत्र डिजिटल सूचना मंच है जो नागरिकों को रोजगार और योजनाओं की जानकारी आसानी से उपलब्ध कराता है।",
+                faq_q2: "क्या पोर्टल पर दी गई जानकारी सत्यापित होती है?",
+                faq_a2: "हाँ, हम केवल आधिकारिक सरकारी पोर्टल्स और सत्यापित स्रोतों के लिंक व विवरण ही साझा करते हैं।",
+                footer_desc: "भारत के ग्रामीण और छोटे शहरों के युवाओं के लिए डिजिटल सहायता, सरकारी और प्राइवेट जॉब्स का भरोसेमंद केंद्र।",
                 footer_links: "त्वरित लिंक्स", footer_legal: "कानूनी सूचना (Legal)", footer_contact: "संपर्क विवरण"
             },
             en: {
@@ -1214,22 +1348,36 @@ window.updateRequestStatus = async function(id) {
                 nav_home: "Home", nav_gov_jobs: "Govt Jobs", nav_pvt_jobs: "Private Jobs", nav_admit: "Admit Cards",
                 nav_results: "Results", nav_schemes: "Schemes", nav_assistance: "Online Assistance", nav_contact: "Contact",
                 hero_badge: "India's Independent Digital Service Platform", hero_title_1: "Your Job, Your Future", hero_title_2: "with You!",
-                hero_desc: "Government jobs, private vacancies, admit cards, and guidance for students, job seekers, and rural youth.",
+                hero_desc: "Government jobs, private vacancies, admit cards, and easy online form filling assistance for students, job seekers, and rural youth.",
                 search_placeholder: "Search jobs, departments or schemes (e.g. SSC, Bank, Aadhaar)...", search_btn: "Search",
                 cat_gov: "Govt Jobs", cat_pvt: "Private Jobs", cat_admit: "Admit Cards", cat_result: "Results", cat_scheme: "Govt Schemes",
                 disclaimer_title: "Important Notice:", disclaimer_text: "Apna eMitra (apnaemitra.in) is an independent digital information and assistance platform. It is not an official portal of any government department. Always verify official websites for authenticity.",
-                sec_jobs_tag: "Verified Opportunities", sec_gov_title: "Latest Government Jobs",
+                sec_jobs_tag: "Verified Opportunities", latest_updates_heading: "Latest Updates",
                 filter_all_cat: "All Categories", filter_all_qual: "All Qualifications",
-                sec_pvt_tag: "Private Sector", sec_pvt_title: "Private Jobs & MNC Vacancies",
-                pvt_subtitle: "Verified MNC and corporate job openings for freshers and experienced professionals.",
-                sec_admit_title: "Admit Cards", btn_download: "Download", sec_results_title: "Exam Results", btn_view: "View Result",
+                col_gov_title: "Latest Gov. Jobs", col_admit_title: "Admit Card", col_results_title: "Result", col_pvt_title: "Private Job",
+                sec_services_tag: "Digital Help", sec_services_title: "Services & Document Assistance",
+                sec_services_desc: "Verified services and document guides published by Admin. Do not share sensitive original documents publicly.",
+                sec_books_tag: "Study Resources", sec_books_title: "Books & Study Material",
+                sec_books_desc: "Useful books and study notes for competitive examinations.",
                 sec_scheme_tag: "Welfare Schemes", sec_scheme_title: "Popular Government Schemes & Document Guides",
                 sec_scheme_desc: "Central and State government schemes with step-by-step eligibility and required documents.",
                 sec_assist_tag: "Online Assistance Center", sec_assist_title: "Need help with form filling or job search?",
-                sec_assist_desc: "Contact our experts via WhatsApp. We provide guidance and support for government and private job applications.",
-                btn_wa_chat: "Chat on WhatsApp", form_heading: "Submit Assistance Request", form_name: "Your Name",
-                form_phone: "Mobile Number (WhatsApp)", form_service: "Select Service Needed", form_submit: "Submit Request",
-                faq_title: "Frequently Asked Questions", footer_desc: "Leading digital assistance and job portal for youth in rural and small towns across India. Domain: apnaemitra.in",
+                sec_assist_desc: "Upload your documents from home or contact us via WhatsApp. We provide complete support for government and private job applications.",
+                btn_wa_chat: "Chat on WhatsApp", form_heading: "Online Form Application",
+                fee_notice: "Fee: Govt Fee + ₹50 Service Charge",
+                ph_student_name: "Student Full Name *", ph_whatsapp_num: "10-digit WhatsApp Number *",
+                ph_form_name: "Which form do you want to apply for? (e.g. SSC, CET) *",
+                lbl_doc_upload: "Upload Document (PDF / Photo - Max 10MB)",
+                ph_utr: "UPI Transaction ID / UTR Number (After payment)",
+                btn_submit_form: "Submit Form & Documents",
+                track_heading: "Track Your Form Status",
+                ph_track_phone: "10-digit mobile number...", btn_check_status: "Check",
+                faq_title: "Frequently Asked Questions",
+                faq_q1: "Is Apna eMitra a government website?",
+                faq_a1: "No, Apna eMitra (apnaemitra.in) is an independent digital information platform providing easy access to employment and scheme updates.",
+                faq_q2: "Is the information provided on the portal verified?",
+                faq_a2: "Yes, we only share links and details from official government portals and verified sources.",
+                footer_desc: "Trusted hub for digital assistance, government, and private jobs for youth in rural and small towns across India.",
                 footer_links: "Quick Links", footer_legal: "Legal Notices", footer_contact: "Contact Info"
             }
         };
@@ -1252,13 +1400,6 @@ window.updateRequestStatus = async function(id) {
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
-
-        function escapeJobText(value) {
-            return String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
-        }
-        function safeHttpsUrl(value) {
-            try { const url = new URL(String(value || '')); return url.protocol === 'https:' ? url.href : ''; } catch (_) { return ''; }
-        }
 
         async function loadApprovedJobs() {
             try {
@@ -1284,130 +1425,40 @@ window.updateRequestStatus = async function(id) {
                 console.error('GitHub jobs.json load skipped:', error);
             }
         }
-       // 1. Admit Card, Result और Private Job के लिए भी पॉपअप मोडल खोलने का फ़ंक्शन
-        window.openPortalItemModal = function(item) {
-            const content = document.getElementById('modal-content');
-            if (!content) return;
-            content.innerHTML = `
-                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">${item.categoryLabel || 'Official Update'}</span>
-                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-3 mb-2">${item.title}</h2>
-                ${item.organization ? `<p class="text-sm font-semibold text-slate-600 mb-4"><i class="fa-solid fa-building text-primary-900 mr-2"></i> ${item.organization}</p>` : ''}
-                ${item.description ? `<div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-5 text-xs sm:text-sm text-slate-700 whitespace-pre-line leading-relaxed">${item.description}</div>` : ''}
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 space-y-2.5 text-xs sm:text-sm">
-                    ${item.qualification ? `<div class="flex justify-between border-b border-slate-200 pb-2"><span class="font-bold text-slate-500">योग्यता / विवरण:</span><span class="font-bold text-slate-900">${item.qualification}</span></div>` : ''}
-                    ${item.lastDate ? `<div class="flex justify-between"><span class="font-bold text-slate-500">महत्वपूर्ण तिथि:</span><span class="font-bold text-emerald-800">${item.lastDate}</span></div>` : ''}
-                </div>
-                <div class="flex flex-col sm:flex-row gap-3">
-                    ${item.officialUrl && item.officialUrl !== '#' ? `<a href="${item.officialUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-center text-sm transition shadow-md">आधिकारिक लिंक / डाउनलोड <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i></a>` : ''}
-                    <button onclick="closeJobDetail()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-6 py-3 rounded-xl text-sm transition">बंद करें</button>
-                </div>
-            `;
-            document.getElementById('job-modal').classList.remove('hidden');
-        };
-
-        // 2. Latest Gov. Jobs को बुलेट लिस्ट में दिखाना (क्लिक करने पर आपका पुराना openJobModal खुलेगा)
-        window.renderJobs = function(jobs) {
-            const container = document.getElementById('job-cards-container');
-            if (!container) return;
-
-            const todayStr = new Date().toISOString().split('T')[0];
-            const activeJobs = (jobs || []).filter(job => {
-                if (!job.lastDate || job.lastDate === "Check Official Site" || job.lastDate === "Official site") return true;
-                return job.lastDate >= todayStr;
-            });
-
-            if (activeJobs.length === 0) {
-                container.innerHTML = '<li class="text-center py-6 text-slate-500">कोई सक्रिय नौकरी उपलब्ध नहीं है।</li>';
-                return;
-            }
-
-            container.innerHTML = activeJobs.map(job => `
-                <li class="pt-2.5 first:pt-0 flex items-start gap-2">
-                    <span class="text-primary-900 font-bold mt-0.5">•</span>
-                    <button type="button" onclick="openJobModal('${job.id}')" class="text-left text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
-                        ${job.title}
-                    </button>
-                </li>
-            `).join('');
-        };
-
-        // 3. Admit Card, Result और Private Job को भी बुलेट लिस्ट में बदलना (क्लिक करने पर Details Modal खुलेगा)
-        window._portalModalItems = {};
-        const boxLabels = {
-            'admit-cards-container': 'Admit Card',
-            'results-container': 'Exam Result',
-            'private-jobs-container': 'Private Job'
-        };
-
-        ['admit-cards-container', 'results-container', 'private-jobs-container'].forEach(id => {
-            const el = document.getElementById(id);
-            if (!el) return;
-            const observer = new MutationObserver(() => {
-                if (el.querySelector('article, div')) {
-                    const items = Array.from(el.children);
-                    el.innerHTML = items.map((item, idx) => {
-                        const titleEl = item.querySelector('h3, h4, strong');
-                        const linkEl = item.querySelector('a');
-                        const pTags = Array.from(item.querySelectorAll('p'));
-                        const title = titleEl ? titleEl.textContent.trim() : item.textContent.trim().split('\n')[0];
-                        if (!title) return '';
-
-                        const itemKey = `${id}_${idx}`;
-                        window._portalModalItems[itemKey] = {
-                            categoryLabel: boxLabels[id],
-                            title: title,
-                            description: pTags[0] ? pTags[0].textContent.trim() : '',
-                            qualification: pTags[1] ? pTags[1].textContent.replace('Important date:', '').trim() : '',
-                            lastDate: '',
-                            officialUrl: linkEl ? linkEl.href : '#'
-                        };
-
-                        return `
-                            <li class="pt-2.5 first:pt-0 flex items-start gap-2">
-                                <span class="text-emerald-700 font-bold mt-0.5">•</span>
-                                <button type="button" onclick="openPortalItemModal(window._portalModalItems['${itemKey}'])" class="text-left text-primary-900 hover:text-emerald-700 hover:underline font-semibold leading-snug">
-                                    ${title}
-                                </button>
-                            </li>
-                        `;
-                    }).join('');
-                }
-            });
-            observer.observe(el, { childList: true });
-        });
 
         window.addEventListener('DOMContentLoaded', loadApprovedJobs);
     </script>
-    <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(() => console.log('Apna eMitra PWA Ready'))
-        .catch(err => console.error('SW Error:', err));
-    });
-  }
-</script>
-    <script>
-  let deferredPrompt;
-  const installBtn = document.getElementById('pwa-install-btn');
 
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    if (installBtn) installBtn.style.display = 'inline-flex';
-  });
-
-  if (installBtn) {
-    installBtn.addEventListener('click', async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-        installBtn.style.display = 'none';
+    <!-- PWA Service Worker & Install Prompt -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log('Apna eMitra PWA Ready'))
+            .catch(err => console.error('SW Error:', err));
+        });
       }
-      deferredPrompt = null;
-    });
-  }
-</script>
+
+      let deferredPrompt;
+      const installBtn = document.getElementById('pwa-install-btn');
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        if (installBtn) installBtn.style.display = 'inline-flex';
+      });
+
+      if (installBtn) {
+        installBtn.addEventListener('click', async () => {
+          if (!deferredPrompt) return;
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            installBtn.style.display = 'none';
+          }
+          deferredPrompt = null;
+        });
+      }
+    </script>
 </body>
 </html>
