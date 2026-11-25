@@ -19,6 +19,32 @@ def google_news_rss(query):
 def clean_text(s):
     return re.sub(r"\s+", " ", s or "").strip()
 
+def is_valid_item(title, category):
+    t = title.lower()
+    cat = (category or "").lower()
+
+    # 1. ब्लॉकलिस्ट: क्लिकबेट, YouTube और फालतू न्यूज़ चैनल ब्लॉक करें
+    blocked_keywords = [
+        "youtube", "aajtak", "aaj tak", "moneycontrol", "moneycontro",
+        "expected today", "soon", "तुरंत करें", "खुशखबरी", "जानें कैसे",
+        "rumour", "viral", "update", "revised", "syllabus", "answer key",
+        "exam date", "admit card", "result", "merit list", "cut off"
+    ]
+    if any(b in t for b in blocked_keywords):
+        return False
+
+    # 2. सभी जॉब कैटेगरी (SSC, Railway, Banking, Rajasthan, Other Government, Private) के लिए
+    job_categories = ["jobs", "ssc", "railway", "banking", "rajasthan", "other government", "private"]
+    if cat in job_categories:
+        job_keywords = [
+            "recruitment", "vacancy", "vacancies", "apply online", "notification",
+            "bharti", "posts", "hiring", "walk-in", "walk in", "apprentice",
+            "job", "fresher", "off campus", "भर्ती", "आवेदन"
+        ]
+        return any(k in t for k in job_keywords)
+
+    return True
+
 added = []
 for item in sources["queries"]:
     url = google_news_rss(item["query"])
@@ -33,6 +59,11 @@ for item in sources["queries"]:
             pub = clean_text(node.findtext("pubDate"))
             if not title or not link:
                 continue
+
+            # नया फ़िल्टर लागू करें
+            if not is_valid_item(title, item.get("category")):
+                continue
+
             # Keep a stable ID based on category + title + link.
             job_id = hashlib.sha256((item["category"] + "|" + title + "|" + link).encode()).hexdigest()[:16]
             if job_id in existing:
@@ -59,7 +90,7 @@ for item in sources["queries"]:
                 "discoveredAt": datetime.now(timezone.utc).isoformat(),
                 "publishedAt": published,
                 "status": "pending",
-                "adminNote": "Verify the original official notification. Fill organization, officialUrl, eligibility, dates and fee before setting status=approved."
+                "adminNote": "Verify the original official notification. Fill organization, officialUrl, eligibility, dates, and fee before publishing."
             })
             existing.add(job_id)
     except Exception as exc:
@@ -69,4 +100,5 @@ if added:
     pending["jobs"].extend(added)
     pending["lastDiscovery"] = datetime.now(timezone.utc).isoformat()
     pending_path.write_text(json.dumps(pending, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-print(f"New discovery leads: {len(added)}")
+
+print(f"Added {len(added)} new leads.")
