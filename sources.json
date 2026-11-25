@@ -1,29 +1,33 @@
 {
-  "notice": "These are Google News RSS discovery searches, official recruitment feeds. admin must be checked against the recruiting body's official notification before approval.",
+  "notice": "These are Google News RSS discovery searches, official recruitment feeds. Admin must check against official notification.",
   "queries": [
     {
       "category": "SSC",
-      "query": "SSC recruitment notification vacancy site:ssc.gov.in"
+      "query": "SSC recruitment notification apply online 2026 -youtube -expected"
     },
     {
       "category": "Railway",
-      "query": "Railway RRB recruitment notification vacancy official"
+      "query": "Railway RRB recruitment notification vacancy 2026 -youtube -expected"
     },
     {
       "category": "Banking",
-      "query": "IBPS SBI bank recruitment notification official"
+      "query": "IBPS SBI Bank recruitment notification apply online 2026 -youtube"
     },
     {
       "category": "Rajasthan",
-      "query": "Rajasthan government recruitment notification vacancy official"
+      "query": "Rajasthan RSSB RPSC recruitment notification vacancy 2026 -youtube -expected"
     },
     {
       "category": "Other Government",
-      "query": "India government recruitment vacancy notification official"
+      "query": "Central government sarkari naukri recruitment apply online 2026 -youtube"
     },
     {
       "category": "Private",
-      "query": "India company careers hiring jobs official careers"
+      "query": "Private bank finance IT company walk in drive hiring fresher India 2026"
+    },
+    {
+      "category": "Private",
+      "query": "TCS Infosys HDFC ICICI Axis Bank hiring recruitment 2026"
     }
   ]
 }
