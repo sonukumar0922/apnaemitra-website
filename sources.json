@@ -1,33 +1,104 @@
 {
-  "notice": "These are Google News RSS discovery searches, official recruitment feeds. Admin must check against official notification.",
-  "queries": [
+  "notice": "Direct official recruitment portals and verified career pages. Check notifications directly on the official domains listed below.",
+  "sources": [
     {
       "category": "SSC",
-      "query": "SSC recruitment notification apply online 2026 -youtube -expected"
+      "organization": "Staff Selection Commission",
+      "official_url": "https://ssc.gov.in/",
+      "notice_board_url": "https://ssc.gov.in/home/notice-board",
+      "type": "Official Government Portal"
+    },
+    {
+      "category": "sarkariresult",
+      "organization": "sarkariresult.com",
+      "official_url": "https://www.sarkariresult.com/",
+      "notice_board_url": "https://www.sarkariresult.com/latestjob/""https://www.sarkariresult.com/admitcard/""https://www.sarkariresult.com/result/",
+      "type": "Official sarkariresult.com Portal"
     },
     {
       "category": "Railway",
-      "query": "Railway RRB recruitment notification vacancy 2026 -youtube -expected"
+      "organization": "Railway Recruitment Board (RRB)",
+      "official_url": "https://www.rrbapply.gov.in/",
+      "notice_board_url": "https://www.rrbcdg.gov.in/",
+      "type": "Official Government Portal"
     },
     {
       "category": "Banking",
-      "query": "IBPS SBI Bank recruitment notification apply online 2026 -youtube"
+      "organization": "Institute of Banking Personnel Selection (IBPS)",
+      "official_url": "https://www.ibps.in/",
+      "notice_board_url": "https://www.ibps.in/",
+      "type": "Official Recruitment Body"
+    },
+    {
+      "category": "Banking",
+      "organization": "State Bank of India (SBI Careers)",
+      "official_url": "https://sbi.co.in/web/careers",
+      "notice_board_url": "https://sbi.co.in/web/careers/current-openings",
+      "type": "Official Bank Career Portal"
     },
     {
       "category": "Rajasthan",
-      "query": "Rajasthan RSSB RPSC recruitment notification vacancy 2026 -youtube -expected"
+      "organization": "Rajasthan Staff Selection Board (RSSB)",
+      "official_url": "https://rssb.rajasthan.gov.in/",
+      "notice_board_url": "https://rssb.rajasthan.gov.in/advertisements",
+      "type": "Official State Portal"
+    },
+    {
+      "category": "Rajasthan",
+      "organization": "Rajasthan Public Service Commission (RPSC)",
+      "official_url": "https://rpsc.rajasthan.gov.in/",
+      "notice_board_url": "https://rpsc.rajasthan.gov.in/advertisements",
+      "type": "Official State Portal"
     },
     {
       "category": "Other Government",
-      "query": "Central government sarkari naukri recruitment apply online 2026 -youtube"
+      "organization": "Union Public Service Commission (UPSC)",
+      "official_url": "https://upsc.gov.in/",
+      "notice_board_url": "https://upsc.gov.in/whats-new",
+      "rss_feed": "https://upsc.gov.in/rss.xml",
+      "type": "Official Government Portal"
+    },
+    {
+      "category": "Other Government",
+      "organization": "National Career Service (NCS)",
+      "official_url": "https://www.ncs.gov.in/",
+      "notice_board_url": "https://www.ncs.gov.in/Pages/Search.aspx",
+      "type": "Official Ministry of Labour Portal"
     },
     {
       "category": "Private",
-      "query": "Private bank finance IT company walk in drive hiring fresher India 2026"
+      "organization": "Tata Consultancy Services (TCS)",
+      "official_url": "https://www.tcs.com/careers",
+      "notice_board_url": "https://www.tcs.com/careers/india",
+      "type": "Official Company Career Page"
     },
     {
       "category": "Private",
-      "query": "TCS Infosys HDFC ICICI Axis Bank hiring recruitment 2026"
+      "organization": "Infosys Careers",
+      "official_url": "https://www.infosys.com/careers/",
+      "notice_board_url": "https://www.infosys.com/careers/apply.html",
+      "type": "Official Company Career Page"
+    },
+    {
+      "category": "Private",
+      "organization": "HDFC Bank Careers",
+      "official_url": "https://www.hdfcbank.com/personal/about-us/careers",
+      "notice_board_url": "https://www.hdfcbank.com/personal/about-us/careers",
+      "type": "Official Bank Career Portal"
+    },
+    {
+      "category": "Private",
+      "organization": "ICICI Bank Careers",
+      "official_url": "https://www.icicicareers.com/",
+      "notice_board_url": "https://www.icicicareers.com/website/Jobs/Hot-Jobs.html",
+      "type": "Official Bank Career Portal"
+    },
+    {
+      "category": "Private",
+      "organization": "Axis Bank Careers",
+      "official_url": "https://www.axisbank.com/careers",
+      "notice_board_url": "https://www.axisbank.com/careers",
+      "type": "Official Bank Career Portal"
     }
   ]
 }
