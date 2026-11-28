@@ -9,11 +9,15 @@
       "type": "Official Government Portal"
     },
     {
-      "category": "sarkariresult",
-      "organization": "sarkariresult.com",
+      "category": "Sarkari Result",
+      "organization": "Sarkari Result",
       "official_url": "https://www.sarkariresult.com/",
-      "notice_board_url": "https://www.sarkariresult.com/latestjob/""https://www.sarkariresult.com/admitcard/""https://www.sarkariresult.com/result/",
-      "type": "Official sarkariresult.com Portal"
+      "notice_board_url": [
+        "https://www.sarkariresult.com/latestjob/",
+        "https://www.sarkariresult.com/admitcard/",
+        "https://www.sarkariresult.com/result/"
+      ],
+      "type": "Job Aggregator Portal"
     },
     {
       "category": "Railway",
